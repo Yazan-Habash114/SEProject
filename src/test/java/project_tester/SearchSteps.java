@@ -22,7 +22,7 @@ public class SearchSteps {
 	
 	@When("I search about home by {string}")
 	public void iSearchAboutHomeBy(String string) {
-	    
+	    sh.searchBy(string);
 	}
 	
 	

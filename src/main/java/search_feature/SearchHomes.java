@@ -22,4 +22,8 @@ public class SearchHomes {
 		for(Home h: found_homes)
 			System.out.println(h.toString());
 	}
+
+	public void searchBy(String string) {
+		
+	}
 }
