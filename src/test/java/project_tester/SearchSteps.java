@@ -17,18 +17,18 @@ public class SearchSteps {
 	public void theseHomesAreContainedInTheSystem(io.cucumber.datatable.DataTable dataTable) {
 	    
 	    sh.appendHome();
-	    return;
 	}
 	
-
+	
 	@When("I search about home by {string}")
 	public void iSearchAboutHomeBy(String string) {
 	    
 	}
+	
+	
 	@Then("A list of homes that matches the  type specification should be returned and printed on the console")
 	public void aListOfHomesThatMatchesTheTypeSpecificationShouldBeReturnedAndPrintedOnTheConsole() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    sh.printFoundHomes();
 	}
 
 }
