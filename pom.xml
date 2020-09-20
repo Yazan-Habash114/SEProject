@@ -3,4 +3,25 @@
   <groupId>searching</groupId>
   <artifactId>ApartmentSearchApp</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  
+  <dependencies>
+  	<dependency>
+  		<groupId>io.cucumber</groupId>
+  		<artifactId>cucumber-java</artifactId>
+  		<version>6.6.0</version>
+  	</dependency>
+  	
+  	<dependency>
+  		<groupId>io.cucumber</groupId>
+  		<artifactId>cucumber-junit</artifactId>
+  		<version>6.6.0</version>
+  	</dependency>
+  	
+  	<dependency>
+  		<groupId>io.cucumber</groupId>
+  		<artifactId>cucumber-picocontainer</artifactId>
+  		<version>6.6.0</version>
+  	</dependency>
+  </dependencies>
+  
 </project>
