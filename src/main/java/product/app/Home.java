@@ -1,4 +1,4 @@
-package search_feature;
+package product.app;
 
 public class Home {
 	// Attributes

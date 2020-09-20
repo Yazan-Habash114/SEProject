@@ -1,4 +1,4 @@
-package project_tester;
+package project.testing;
 
 import org.junit.runner.RunWith;
 import io.cucumber.junit.Cucumber;
@@ -10,7 +10,7 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 		plugin = {"html:target/cucumber/wikipedia.html"},
 		monochrome = true,
 		snippets = SnippetType.CAMELCASE,
-		glue = {"testFeatures"},
+		glue = {"project_tester"},
 		strict = true
 		)
 

@@ -1,4 +1,4 @@
-package search_feature;
+package product.app;
 
 import java.util.ArrayList;
 
