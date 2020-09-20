@@ -3,13 +3,21 @@ package project_tester;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import search_feature.SearchHomes;
 
 public class SearchSteps {
+	
+	SearchHomes sh;
+	
+	SearchSteps() {
+		sh = new SearchHomes();
+	}
 	
 	@Given("these homes are contained in the system")
 	public void theseHomesAreContainedInTheSystem(io.cucumber.datatable.DataTable dataTable) {
 	    
-	    throw new io.cucumber.java.PendingException();
+	    sh.appendHome();
+	    return;
 	}
 	
 
