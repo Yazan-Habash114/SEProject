@@ -8,7 +8,7 @@ Background: The System has a repository of homes with their specifications (type
   @tag1
   Scenario: search home by Placement
       When I search about home by "Placement_City" 
-      Then A list of homes that matches the  type specification should be returned and printed on the console
+      Then A list of homes that matches the  placement specification should be returned and printed on the console
       
   @tag2
   Scenario: search home by Material
