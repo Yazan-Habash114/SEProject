@@ -15,7 +15,7 @@ public class SearchHomes {
 		combinational = false;
 	}
 	
-	// Methods
+	
 	public void appendHome() {
 		
 	}
