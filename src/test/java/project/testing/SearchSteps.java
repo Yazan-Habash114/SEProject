@@ -17,7 +17,6 @@ public class SearchSteps {
 	
 	@Given("these homes are contained in the system")
 	public void theseHomesAreContainedInTheSystem(io.cucumber.datatable.DataTable dataTable) {
-	    
 	    sh.appendHome();
 	}
 	
