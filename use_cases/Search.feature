@@ -7,7 +7,7 @@ Background: The System has a repository of homes with their specifications (type
                
   @tag1
   Scenario: Search home by type
-  	When I search about home by "HOUSE"
+  	When I search about home by "HOUSE" 
   	Then A list of homes that matches the  type specification should be returned and printed on the console
 	
 	@tag2

@@ -7,13 +7,13 @@ import product.app.SearchHomes;
 
 public class SearchSteps {
 	
-	SearchHomes sh;
+	private SearchHomes sh;
 	
-	SearchSteps() {
+	public SearchSteps() {
 		sh = new SearchHomes();
 	}
 	
-	// Scenario 1
+	// Scenario (1)
 	
 	@Given("these homes are contained in the system")
 	public void theseHomesAreContainedInTheSystem(io.cucumber.datatable.DataTable dataTable) {
@@ -33,7 +33,7 @@ public class SearchSteps {
 	    sh.printFoundHomes();
 	}
 	
-	// Scenario 2
+	// Scenario (2)
 	
 	@When("I search about home with price less than {int}")
 	public void iSearchAboutHomeWithPriceLessThan(Integer int1) {
