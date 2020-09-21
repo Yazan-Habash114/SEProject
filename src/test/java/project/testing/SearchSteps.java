@@ -13,7 +13,6 @@ public class SearchSteps {
 		sh = new SearchHomes();
 	}
 	
-	// Scenario (1)
 	
 	@Given("these homes are contained in the system")
 	public void theseHomesAreContainedInTheSystem(io.cucumber.datatable.DataTable dataTable) {
