@@ -19,21 +19,21 @@ public class Home {
 	private boolean swimming_pool;
 		
 	Home(){
-		placement = null;
-		material = null;
-		rent = 0;
-		area = 0;
-		number_of_bedrooms = 0;
-		bathrooms = 0;
-		allow_pets = false;
-		type = null;
-		lease_length = null;
-		air_Condition = false;
-		balcony = false;
-		elevator = false;
-		fire_place = false;
-		garage_parking = false;
-		swimming_pool = false;
-		
+		// Initialize the attributes
+		this.placement = null;
+		this.material = null;
+		this.rent = 0;
+		this.area = 0;
+		this.number_of_bedrooms = 0;
+		this.bathrooms = 0;
+		this.allow_pets = false;
+		this.type = null;
+		this.lease_length = null;
+		this.air_Condition = false;
+		this.balcony = false;
+		this.elevator = false;
+		this.fire_place = false;
+		this.garage_parking = false;
+		this.swimming_pool = false;
 	}
 }
