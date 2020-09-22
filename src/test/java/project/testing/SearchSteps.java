@@ -1,6 +1,7 @@
 package project.testing;
 
 import java.util.Map;
+import java.util.Arrays;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -20,13 +21,20 @@ public class SearchSteps {
 	@Given("these homes are contained in the system")
 	public void theseHomesAreContainedInTheSystem(DataTable tb) {
 		data = tb.asMap(String.class, String.class);
-		sh.setDB(this.data);
+		String[] list = new String [10]; // Saving all specifications
+		for(Map.Entry<String, String> entry : this.data.entrySet()) {
+			System.arraycopy(entry.getKey().split("_"), 0, list, 0, 5);
+			System.arraycopy(entry.getValue().split("_"), 0, list, 5, 5);
+			sh.storeHome(list);
+		}
 	}
 	
 	
 	@When("I search about home by {string}")
-	public void iSearchAboutHomeBy(String criteria) {
-	    sh.searchBy(criteria);
+	public void iSearchAboutHomeBy(String string) {
+	    String[] x = string.split("_");
+	    sh.searchBy(x[0], x[1]);
+	    return;
 	}
 	
 		
