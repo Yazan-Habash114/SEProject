@@ -86,8 +86,7 @@ public class Home {
 
 
 	public boolean chkNumberOfBathrooms(int num) {
-		// TODO Auto-generated method stub
-		return false;
+		return(this.bathrooms == num);
 	}
 
 }
