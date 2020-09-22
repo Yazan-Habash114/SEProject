@@ -66,8 +66,7 @@ public class Home {
 
 
 	public boolean chkPriceInRange(int low, int high) {
-		// TODO Auto-generated method stub
-		return false;
+		return((low < this.price) && (this.price) < high);
 	}
 
 }
