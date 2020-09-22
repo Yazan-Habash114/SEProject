@@ -76,8 +76,7 @@ public class Home {
 
 
 	public boolean chkAreaInRange(int low, int high) {
-		// TODO Auto-generated method stub
-		return false;
+		return((low < this.area) && (this.area) < high);
 	}
 
 
