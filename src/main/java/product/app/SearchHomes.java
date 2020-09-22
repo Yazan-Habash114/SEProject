@@ -49,8 +49,8 @@ public class SearchHomes {
 			String[] range = value.split(",");
 			searchBetweenRangeOfAreas(Integer.parseInt(range[0]),Integer.parseInt(range[1]));
 		}
-		else if (category.equals("Price below"))
-			searchByPriceBelow(value);
+		else if (category.equals("Number of bedrooms"))
+			searchByNumberOfBedrooms(Integer.parseInt(value));
 		else if (category.equals("Price below"))
 			searchByPriceBelow(value);
 		else if (category.equals("Price below"))
@@ -62,6 +62,14 @@ public class SearchHomes {
 		else if (category.equals("Price below"))
 			searchByPriceBelow(value);		
 		combinational = true;
+		return;
+	}
+
+
+	private void searchByNumberOfBedrooms(int num) {
+		for(Home h : homes)
+			if(h.chkNumberOfBedrooms(num))
+				found_homes.add(h);
 		return;
 	}
 

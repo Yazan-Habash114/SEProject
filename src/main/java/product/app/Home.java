@@ -80,4 +80,10 @@ public class Home {
 		return false;
 	}
 
+
+	public boolean chkNumberOfBedrooms(int num) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }
