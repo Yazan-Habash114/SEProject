@@ -89,7 +89,7 @@ public class Home {
 		return(this.bathrooms == num);
 	}
 
-// YES NO --> value change to boolean and return or use ternary
+	
 	public boolean chkAllowingPets(String value) {
 		return(value.equals("YES") ? (this.allow_pets) : (!this.allow_pets));
 	}
