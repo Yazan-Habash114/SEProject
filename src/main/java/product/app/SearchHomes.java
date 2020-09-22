@@ -33,7 +33,27 @@ public class SearchHomes {
 	}
 
 	public void searchBy(String category, String value) {
+		if (category.equals("Placement"))
+			searchByPlacement(value);
+		else if (category.equals("Material"))
+			searchByMaterial(value);
 		
+		
+		combinational = true;
+		return;
+	}
+
+
+	private void searchByMaterial(String value) {
+		
+	}
+
+
+	private void searchByPlacement(String value) {
+		for(Home h : homes)
+			if(h.chkPlacement(value))
+				found_homes.add(h);
+		return;
 	}
 	
 }
