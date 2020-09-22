@@ -53,4 +53,16 @@ public class Home {
 	public boolean chkPlacement(String value) {
 		return this.placement.equals(value);
 	}
+
+
+	public boolean chkMaterial(String value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	public boolean chkPriceBelow(int parseInt) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }
