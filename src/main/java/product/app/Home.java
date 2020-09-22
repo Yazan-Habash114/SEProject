@@ -89,4 +89,22 @@ public class Home {
 		return(this.bathrooms == num);
 	}
 
+// YES NO --> value change to boolean and return or use ternary
+	public boolean chkAllowingPets(String value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	
+	public boolean chkType(String value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	public boolean chkLeaseLength(int value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }
