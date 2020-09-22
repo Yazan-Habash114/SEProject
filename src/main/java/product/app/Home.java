@@ -107,4 +107,10 @@ public class Home {
 		return false;
 	}
 
+//use value.contain() to check if the search category included an Amenity
+	public boolean chkAmenities(String value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

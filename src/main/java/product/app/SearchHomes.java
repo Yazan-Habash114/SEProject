@@ -60,8 +60,16 @@ public class SearchHomes {
 		else if (category.equals("Price below"))
 			searchByLeaseLength(Integer.parseInt(value));
 		else if (category.equals("Price below"))
-			searchByPriceBelow(value);		
+			searchByAmenities(value);		
 		combinational = true;
+		return;
+	}
+
+
+	private void searchByAmenities(String value) {
+		for(Home h : homes)
+			if(h.chkAmenities(value))
+				found_homes.add(h);
 		return;
 	}
 
