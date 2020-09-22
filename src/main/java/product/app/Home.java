@@ -101,8 +101,7 @@ public class Home {
 
 
 	public boolean chkLeaseLength(int value) {
-		// TODO Auto-generated method stub
-		return false;
+		return(this.lease_length == value);
 	}
 
 //use value.contain() to check if the search category included an Amenity
