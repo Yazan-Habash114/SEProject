@@ -56,12 +56,28 @@ public class SearchHomes {
 		else if (category.equals("Price below"))
 			searchByAllowingPets(value);
 		else if (category.equals("Price below"))
-			searchByPriceBelow(value);
+			searchByType(value);
 		else if (category.equals("Price below"))
-			searchByPriceBelow(value);
+			searchByLeaseLength(Integer.parseInt(value));
 		else if (category.equals("Price below"))
 			searchByPriceBelow(value);		
 		combinational = true;
+		return;
+	}
+
+
+	private void searchByLeaseLength(int value) {
+		for(Home h : homes)
+			if(h.chkLeaseLength(value))
+				found_homes.add(h);
+		return;
+	}
+
+
+	private void searchByType(String value) {
+		for(Home h : homes)
+			if(h.chkType(value))
+				found_homes.add(h);
 		return;
 	}
 
