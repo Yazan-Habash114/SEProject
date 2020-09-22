@@ -96,8 +96,7 @@ public class Home {
 
 	
 	public boolean chkType(String value) {
-		// TODO Auto-generated method stub
-		return false;
+		return(value.equals(this.type));
 	}
 
 
