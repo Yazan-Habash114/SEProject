@@ -33,32 +33,44 @@ public class SearchHomes {
 	}
 
 	public void searchBy(String category, String value) {
+		
 		if (category.equals("Placement"))
 			searchByPlacement(value);
+		
 		else if (category.equals("Material"))
 			searchByMaterial(value);
+		
 		else if (category.equals("Price below"))
 			searchByPriceBelow(Integer.parseInt(value));
+		
 		else if (category.equals("Between range")) {
 			String[] range = value.split(",");
 			searchByPriceBetweenRange(Integer.parseInt(range[0]),Integer.parseInt(range[1]));
 		}
+		
 		else if (category.equals("below specific area"))
 			searchByAreaBelow(Integer.parseInt(value));
+		
 		else if (category.equals("Between range of Areas")) {
 			String[] range = value.split(",");
 			searchBetweenRangeOfAreas(Integer.parseInt(range[0]),Integer.parseInt(range[1]));
 		}
+		
 		else if (category.equals("Number of bedrooms"))
 			searchByNumberOfBedrooms(Integer.parseInt(value));
+		
 		else if (category.equals("Number of bathrooms"))
 			searchByNumberOfBathrooms(Integer.parseInt(value));
+		
 		else if (category.equals("Price below"))
 			searchByAllowingPets(value);
+		
 		else if (category.equals("Price below"))
 			searchByType(value);
+		
 		else if (category.equals("Price below"))
 			searchByLeaseLength(Integer.parseInt(value));
+		
 		else if (category.equals("Price below"))
 			searchByAmenities(value);		
 		combinational = true;
@@ -90,7 +102,7 @@ public class SearchHomes {
 	}
 
 
-	private void searchByAllowingPets(String value) {// TODO Auto-generated method stub
+	private void searchByAllowingPets(String value) {
 		for(Home h : homes)
 			if(h.chkAllowingPets(value))
 				found_homes.add(h);
