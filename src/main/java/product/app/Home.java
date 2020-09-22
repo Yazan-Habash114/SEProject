@@ -71,7 +71,7 @@ public class Home {
 
 
 	public boolean chkAreaBelow(int area2) {
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
 
