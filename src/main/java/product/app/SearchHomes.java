@@ -38,7 +38,7 @@ public class SearchHomes {
 		else if (category.equals("Material"))
 			searchByMaterial(value);
 		else if (category.equals("Price below"))
-			searchByPriceBelow(value);
+			searchByPriceBelow(Integer.parseInt(value));
 		else if (category.equals("Between range")) {
 			String[] range = value.split(",");
 			searchByPriceBetweenRange(Integer.parseInt(range[0]),Integer.parseInt(range[1]));
@@ -54,7 +54,7 @@ public class SearchHomes {
 		else if (category.equals("Number of bathrooms"))
 			searchByNumberOfBathrooms(Integer.parseInt(value));
 		else if (category.equals("Price below"))
-			searchByPriceBelow(value);
+			searchByAllowingPets(value);
 		else if (category.equals("Price below"))
 			searchByPriceBelow(value);
 		else if (category.equals("Price below"))
@@ -62,6 +62,14 @@ public class SearchHomes {
 		else if (category.equals("Price below"))
 			searchByPriceBelow(value);		
 		combinational = true;
+		return;
+	}
+
+
+	private void searchByAllowingPets(String value) {// TODO Auto-generated method stub
+		for(Home h : homes)
+			if(h.chkAllowingPets(value))
+				found_homes.add(h);
 		return;
 	}
 
@@ -106,9 +114,9 @@ public class SearchHomes {
 	}
 
 
-	private void searchByPriceBelow(String value) {
+	private void searchByPriceBelow(int value) {
 		for(Home h : homes)
-			if(h.chkPriceBelow(Integer.parseInt(value)))
+			if(h.chkPriceBelow(value))
 				found_homes.add(h);
 		return;
 	}

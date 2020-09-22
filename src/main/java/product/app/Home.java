@@ -90,4 +90,10 @@ public class Home {
 		return false;
 	}
 
+// YES NO --> value
+	public boolean chkAllowingPets(String value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }
