@@ -66,4 +66,10 @@ public class Home {
 		return false;
 	}
 
+
+	public boolean chkPriceInRange(int low, int high) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }
