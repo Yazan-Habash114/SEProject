@@ -75,4 +75,10 @@ public class Home {
 		return false;
 	}
 
+
+	public boolean chkAreaInRange(int low, int high) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

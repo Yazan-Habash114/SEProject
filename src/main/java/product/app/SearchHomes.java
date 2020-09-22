@@ -45,8 +45,10 @@ public class SearchHomes {
 		}
 		else if (category.equals("below specific area"))
 			searchByAreaBelow(Integer.parseInt(value));
-		else if (category.equals("Price below"))
-			searchByPriceBelow(value);
+		else if (category.equals("Between range of Areas")) {
+			String[] range = value.split(",");
+			searchBetweenRangeOfAreas(Integer.parseInt(range[0]),Integer.parseInt(range[1]));
+		}
 		else if (category.equals("Price below"))
 			searchByPriceBelow(value);
 		else if (category.equals("Price below"))
@@ -60,6 +62,14 @@ public class SearchHomes {
 		else if (category.equals("Price below"))
 			searchByPriceBelow(value);		
 		combinational = true;
+		return;
+	}
+
+
+	private void searchBetweenRangeOfAreas(int low, int high) {
+		for(Home h : homes)
+			if(h.chkAreaInRange(low , high))
+				found_homes.add(h);
 		return;
 	}
 
