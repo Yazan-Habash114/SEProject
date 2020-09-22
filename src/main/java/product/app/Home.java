@@ -71,8 +71,7 @@ public class Home {
 
 
 	public boolean chkAreaBelow(int area2) {
-		
-		return false;
+		return(this.area < area2);
 	}
 
 
