@@ -19,7 +19,7 @@ public class Home {
 	private boolean swimming_pool;
 	
 		
-	Home(String type, String material, String placement, String pets, String amenities, 
+	public Home(String type, String material, String placement, String pets, String amenities, 
 			int price, int area, int bedrooms, int bathrooms, int lease_length){
 		// Initialize the attributes
 		this.placement = placement;
@@ -86,8 +86,7 @@ public class Home {
 
 
 	public boolean chkNumberOfBathrooms(int num) {
-		// TODO Auto-generated method stub
-		return false;
+		return(this.bathrooms == num);
 	}
 
 // YES NO --> value
