@@ -61,7 +61,7 @@ public class Home {
 
 
 	public boolean chkPriceBelow(int parseInt) {
-		return(this.price == parseInt);
+		return(this.price < parseInt);
 	}
 
 
