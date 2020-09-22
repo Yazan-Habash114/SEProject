@@ -33,7 +33,7 @@ public class Home {
 		this.lease_length = lease_length;
 		this.air_Condition = amenities.contains("AIRCONDITIONING") ? true: false;
 		this.balcony = amenities.contains("BALACONY") ? true: false;
-		this.elevator = amenities.contains("ELEVATOR") ?true: false;
+		this.elevator = amenities.contains("ELEVATOR") ? true: false;
 		this.fire_place = amenities.contains("FIREPLACE") ? true: false;
 		this.garage_parking = amenities.contains("GARAGEPARKING") ? true: false;
 		this.swimming_pool = amenities.contains("SWIMMINGPOOL") ? true: false;
@@ -51,19 +51,17 @@ public class Home {
 
 
 	public boolean chkPlacement(String value) {
-		return (this.placement.equals(value));
+		return(this.placement.equals(value));
 	}
 
 
 	public boolean chkMaterial(String value) {
-		// TODO Auto-generated method stub
-		return false;
+		return (this.material.contentEquals(value));
 	}
 
 
 	public boolean chkPriceBelow(int parseInt) {
-		// TODO Auto-generated method stub
-		return false;
+		return(this.price == parseInt);
 	}
 
 }
