@@ -37,6 +37,8 @@ public class SearchHomes {
 			searchByPlacement(value);
 		else if (category.equals("Material"))
 			searchByMaterial(value);
+		else if (category.equals("Price below"))
+			searchByPriceBelow(value);
 		
 		
 		combinational = true;
@@ -44,8 +46,19 @@ public class SearchHomes {
 	}
 
 
+	private void searchByPriceBelow(String value) {
+		for(Home h : homes)
+			if(h.chkPriceBelow(Integer.parseInt(value)))
+				found_homes.add(h);
+		return;
+	}
+
+
 	private void searchByMaterial(String value) {
-		
+		for(Home h : homes)
+			if(h.chkMaterial(value))
+				found_homes.add(h);
+		return;
 	}
 
 

@@ -17,12 +17,12 @@ Feature: Search about suitable home
 
   @scenario3
   Scenario: below specific price/ month
-    When I search about home by "price below_400" 
+    When I search about home by "Price below_400" 
     Then A list of homes that are below a specified price should be returned and printed on the console
 
   @scenario4
   Scenario: between range of prices/ month
-    When I search about home by "between range_500,300" 
+    When I search about home by "Between range_500,300" 
     Then A list of homes that are in the price range should be returned and printed on the console
 
   @scenario5
@@ -52,7 +52,7 @@ Feature: Search about suitable home
 
   @scenario10
   Scenario: type
-    When I search about home by "type_house" 
+    When I search about home by "Type_house" 
     Then A list of homes that match the  type specification should be returned and printed on the console
 
   @scenario11
