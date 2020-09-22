@@ -1,7 +1,6 @@
 package project.testing;
 
 import java.util.Map;
-import java.util.Arrays;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
