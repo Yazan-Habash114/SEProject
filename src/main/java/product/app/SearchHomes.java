@@ -1,6 +1,8 @@
 package product.app;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class SearchHomes {
 	
@@ -10,15 +12,20 @@ public class SearchHomes {
 	
 	//Constructor
 	public SearchHomes() {
-		homes = new ArrayList <Home>();
-		found_homes = new ArrayList <Home>();
-		combinational = false;
+		this.homes = new ArrayList <Home>();
+		this.found_homes = new ArrayList <Home>();
+		this.combinational = false;
 	}
 	
 	
-	public void appendHome() {
-		
+	public void storeHome(String[] list) {
+		Home h = new Home(list[0], list[1], list[2], list[3], list[4], Integer.parseInt(list[5]),
+				Integer.parseInt(list[6]), Integer.parseInt(list[7]), 
+				Integer.parseInt(list[8]), Integer.parseInt(list[9]));
+		homes.add(h);
+		return;
 	}
+	
 	
 	public void printFoundHomes() {
 		for(Home h: found_homes)
@@ -27,7 +34,8 @@ public class SearchHomes {
 		combinational = false;
 	}
 
-	public void searchBy(String string) {
+	public void searchBy(String category, String value) {
 		
 	}
+	
 }
