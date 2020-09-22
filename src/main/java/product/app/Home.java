@@ -89,16 +89,37 @@ public class Home {
 		return(this.bathrooms == num);
 	}
 
-// YES NO --> value
+	
 	public boolean chkAllowingPets(String value) {
-		// TODO Auto-generated method stub
-		return false;
+		return(value.equals("YES") ? (this.allow_pets) : (!this.allow_pets));
 	}
 
-//AP house
+	
 	public boolean chkType(String value) {
-		// TODO Auto-generated method stub
-		return false;
+		return(value.equals(this.type));
+	}
+
+
+	public boolean chkLeaseLength(int value) {
+		return(this.lease_length == value);
+	}
+
+
+	public boolean chkAmenities(String[] Amenities) {
+		for (String amenity : Amenities)
+			if (amenity.equals("AIRCONDITIONING")&& !this.air_Condition)
+				return false;
+			else if (amenity.equals("BALCONY")&& !this.balcony)
+		    	return false;
+			else if (amenity.equals("ELEVATOR")&& !this.elevator)
+		    	return false;
+			else if (amenity.equals("FIREPLACE")&& !this.fire_place)
+		    	return false;
+			else if (amenity.equals("GARAGEPARKING")&& !this.garage_parking)
+		    	return false;
+			else if (amenity.equals("SWIMMINGPOOL")&& !this.swimming_pool)
+		    	return false;
+		return true;
 	}
 
 }

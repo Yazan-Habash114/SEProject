@@ -68,7 +68,7 @@ public class SearchHomes {
 
 	private void searchByAmenities(String value) {
 		for(Home h : homes)
-			if(h.chkAmenities(value.split(","))
+			if(h.chkAmenities(value.split(",")))
 				found_homes.add(h);
 		return;
 	}
