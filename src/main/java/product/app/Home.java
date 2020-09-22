@@ -48,4 +48,9 @@ public class Home {
 				+ ", elevator=" + elevator + ", fire_place=" + fire_place + ", garage_parking=" + garage_parking
 				+ ", swimming_pool=" + swimming_pool + "]";
 	}
+
+
+	public boolean chkPlacement(String value) {
+		return this.placement.equals(value);
+	}
 }
