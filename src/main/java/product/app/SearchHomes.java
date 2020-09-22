@@ -51,8 +51,8 @@ public class SearchHomes {
 		}
 		else if (category.equals("Number of bedrooms"))
 			searchByNumberOfBedrooms(Integer.parseInt(value));
-		else if (category.equals("Price below"))
-			searchByPriceBelow(value);
+		else if (category.equals("Number of bathrooms"))
+			searchByNumberOfBathrooms(Integer.parseInt(value));
 		else if (category.equals("Price below"))
 			searchByPriceBelow(value);
 		else if (category.equals("Price below"))
@@ -62,6 +62,14 @@ public class SearchHomes {
 		else if (category.equals("Price below"))
 			searchByPriceBelow(value);		
 		combinational = true;
+		return;
+	}
+
+
+	private void searchByNumberOfBathrooms(int num) {
+		for(Home h : homes)
+			if(h.chkNumberOfBathrooms(num))
+				found_homes.add(h);
 		return;
 	}
 
