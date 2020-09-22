@@ -91,8 +91,7 @@ public class Home {
 
 // YES NO --> value change to boolean and return or use ternary
 	public boolean chkAllowingPets(String value) {
-		// TODO Auto-generated method stub
-		return false;
+		return(value.equals("YES") ? (this.allow_pets) : (!this.allow_pets));
 	}
 
 	
