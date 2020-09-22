@@ -69,4 +69,10 @@ public class Home {
 		return((low < this.price) && (this.price) < high);
 	}
 
+
+	public boolean chkAreaBelow(int area2) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

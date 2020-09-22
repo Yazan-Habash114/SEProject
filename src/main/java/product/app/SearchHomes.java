@@ -41,10 +41,10 @@ public class SearchHomes {
 			searchByPriceBelow(value);
 		else if (category.equals("Between range")) {
 			String[] range = value.split(",");
-			searchByPriceBelow(Integer.parseInt(range[0]),Integer.parseInt(range[1]));
+			searchByPriceBetweenRange(Integer.parseInt(range[0]),Integer.parseInt(range[1]));
 		}
 		else if (category.equals("below specific area"))
-			searchByPriceBelow(Integer.parseInt(value));
+			searchByAreaBelow(Integer.parseInt(value));
 		else if (category.equals("Price below"))
 			searchByPriceBelow(value);
 		else if (category.equals("Price below"))
@@ -64,13 +64,15 @@ public class SearchHomes {
 	}
 
 
-	private void searchByPriceBelow(int parseInt) {
-		// TODO Auto-generated method stub
-		
+	private void searchByAreaBelow(int area) {
+		for(Home h : homes)
+			if(h.chkAreaBelow(area))
+				found_homes.add(h);
+		return;
 	}
 
 
-	private void searchByPriceBelow(int low, int high) {
+	private void searchByPriceBetweenRange(int low, int high) {
 		for(Home h : homes)
 			if(h.chkPriceInRange(low , high))
 				found_homes.add(h);
