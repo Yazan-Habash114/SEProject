@@ -61,7 +61,7 @@ public class Home {
 
 
 	public boolean chkPriceBelow(int parseInt) {
-		return(this.price < parseInt);
+		return(this.price == parseInt);
 	}
 
 
@@ -89,23 +89,14 @@ public class Home {
 		return(this.bathrooms == num);
 	}
 
-	
+// YES NO --> value
 	public boolean chkAllowingPets(String value) {
-		return(value.equals("YES") ? (this.allow_pets) : (!this.allow_pets));
+		// TODO Auto-generated method stub
+		return false;
 	}
 
-	
+//AP house
 	public boolean chkType(String value) {
-		return(value.equals(this.type));
-	}
-
-
-	public boolean chkLeaseLength(int value) {
-		return(this.lease_length == value);
-	}
-
-//use value.contain() to check if the search category included an Amenity
-	public boolean chkAmenities(String value) {
 		// TODO Auto-generated method stub
 		return false;
 	}
