@@ -19,7 +19,7 @@ public class Home {
 	private boolean swimming_pool;
 	
 		
-	Home(String type, String material, String placement, String pets, String amenities, 
+	public Home(String type, String material, String placement, String pets, String amenities, 
 			int price, int area, int bedrooms, int bathrooms, int lease_length){
 		// Initialize the attributes
 		this.placement = placement;
@@ -28,15 +28,15 @@ public class Home {
 		this.area = area;
 		this.bedrooms = bedrooms;
 		this.bathrooms = bathrooms;
-		this.allow_pets = pets.equals("YES")?true:false;
+		this.allow_pets = pets.equals("YES") ? true: false;
 		this.type = type;
 		this.lease_length = lease_length;
-		this.air_Condition = amenities.contains("AIRCONDITIONING")?true:false;
-		this.balcony =  amenities.contains("BALACONY")?true:false;
-		this.elevator = amenities.contains("ELEVATOR")?true:false;
-		this.fire_place = amenities.contains("FIREPLACE")?true:false;
-		this.garage_parking = amenities.contains("GARAGEPARKING")?true:false;
-		this.swimming_pool = amenities.contains("SWIMMINGPOOL")?true:false;
+		this.air_Condition = amenities.contains("AIRCONDITIONING") ? true: false;
+		this.balcony = amenities.contains("BALACONY") ? true: false;
+		this.elevator = amenities.contains("ELEVATOR") ? true: false;
+		this.fire_place = amenities.contains("FIREPLACE") ? true: false;
+		this.garage_parking = amenities.contains("GARAGEPARKING") ? true: false;
+		this.swimming_pool = amenities.contains("SWIMMINGPOOL") ? true: false;
 	}
 
 
@@ -48,4 +48,45 @@ public class Home {
 				+ ", elevator=" + elevator + ", fire_place=" + fire_place + ", garage_parking=" + garage_parking
 				+ ", swimming_pool=" + swimming_pool + "]";
 	}
+
+
+	public boolean chkPlacement(String value) {
+		return(this.placement.equals(value));
+	}
+
+
+	public boolean chkMaterial(String value) {
+		return (this.material.contentEquals(value));
+	}
+
+
+	public boolean chkPriceBelow(int parseInt) {
+		return(this.price == parseInt);
+	}
+
+
+	public boolean chkPriceInRange(int low, int high) {
+		return((low < this.price) && (this.price) < high);
+	}
+
+
+	public boolean chkAreaBelow(int area2) {
+		return(this.area < area2);
+	}
+
+
+	public boolean chkAreaInRange(int low, int high) {
+		return((low < this.area) && (this.area) < high);
+	}
+
+
+	public boolean chkNumberOfBedrooms(int num) {
+		return(this.bedrooms == num);
+	}
+
+
+	public boolean chkNumberOfBathrooms(int num) {
+		return(this.bathrooms == num);
+	}
+
 }

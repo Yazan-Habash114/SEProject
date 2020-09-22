@@ -33,7 +33,100 @@ public class SearchHomes {
 	}
 
 	public void searchBy(String category, String value) {
-		
+		if (category.equals("Placement"))
+			searchByPlacement(value);
+		else if (category.equals("Material"))
+			searchByMaterial(value);
+		else if (category.equals("Price below"))
+			searchByPriceBelow(value);
+		else if (category.equals("Between range")) {
+			String[] range = value.split(",");
+			searchByPriceBetweenRange(Integer.parseInt(range[0]),Integer.parseInt(range[1]));
+		}
+		else if (category.equals("below specific area"))
+			searchByAreaBelow(Integer.parseInt(value));
+		else if (category.equals("Between range of Areas")) {
+			String[] range = value.split(",");
+			searchBetweenRangeOfAreas(Integer.parseInt(range[0]),Integer.parseInt(range[1]));
+		}
+		else if (category.equals("Number of bedrooms"))
+			searchByNumberOfBedrooms(Integer.parseInt(value));
+		else if (category.equals("Number of bathrooms"))
+			searchByNumberOfBathrooms(Integer.parseInt(value));
+		else if (category.equals("Price below"))
+			searchByPriceBelow(value);
+		else if (category.equals("Price below"))
+			searchByPriceBelow(value);
+		else if (category.equals("Price below"))
+			searchByPriceBelow(value);
+		else if (category.equals("Price below"))
+			searchByPriceBelow(value);		
+		combinational = true;
+		return;
+	}
+
+
+	private void searchByNumberOfBathrooms(int num) {
+		for(Home h : homes)
+			if(h.chkNumberOfBathrooms(num))
+				found_homes.add(h);
+		return;
+	}
+
+
+	private void searchByNumberOfBedrooms(int num) {
+		for(Home h : homes)
+			if(h.chkNumberOfBedrooms(num))
+				found_homes.add(h);
+		return;
+	}
+
+
+	private void searchBetweenRangeOfAreas(int low, int high) {
+		for(Home h : homes)
+			if(h.chkAreaInRange(low , high))
+				found_homes.add(h);
+		return;
+	}
+
+
+	private void searchByAreaBelow(int area) {
+		for(Home h : homes)
+			if(h.chkAreaBelow(area))
+				found_homes.add(h);
+		return;
+	}
+
+
+	private void searchByPriceBetweenRange(int low, int high) {
+		for(Home h : homes)
+			if(h.chkPriceInRange(low , high))
+				found_homes.add(h);
+		return;
+	}
+
+
+	private void searchByPriceBelow(String value) {
+		for(Home h : homes)
+			if(h.chkPriceBelow(Integer.parseInt(value)))
+				found_homes.add(h);
+		return;
+	}
+
+
+	private void searchByMaterial(String value) {
+		for(Home h : homes)
+			if(h.chkMaterial(value))
+				found_homes.add(h);
+		return;
+	}
+
+
+	private void searchByPlacement(String value) {
+		for(Home h : homes)
+			if(h.chkPlacement(value))
+				found_homes.add(h);
+		return;
 	}
 	
 }
