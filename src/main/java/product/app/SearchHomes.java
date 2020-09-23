@@ -48,7 +48,7 @@ public class SearchHomes {
 			searchByPriceBetweenRange(Integer.parseInt(range[0]),Integer.parseInt(range[1]));
 		}
 		
-		else if (category.equals("below specific area"))
+		else if (category.equals("Below specific area"))
 			searchByAreaBelow(Integer.parseInt(value));
 		
 		else if (category.equals("Between range of Areas")) {
@@ -62,16 +62,16 @@ public class SearchHomes {
 		else if (category.equals("Number of bathrooms"))
 			searchByNumberOfBathrooms(Integer.parseInt(value));
 		
-		else if (category.equals("Price below"))
+		else if (category.equals("Allowing pets"))
 			searchByAllowingPets(value);
 		
-		else if (category.equals("Price below"))
+		else if (category.equals("Type"))
 			searchByType(value);
 		
-		else if (category.equals("Price below"))
+		else if (category.equals("Lease Length"))
 			searchByLeaseLength(Integer.parseInt(value));
 		
-		else if (category.equals("Price below"))
+		else if (category.equals("Amenities"))
 			searchByAmenities(value);		
 		combinational = true;
 		return;
@@ -79,15 +79,27 @@ public class SearchHomes {
 
 
 	private void searchByAmenities(String value) {
-		for(Home h : homes)
+		if (combinational) {
+			for(Home h : found_homes)
+			if(h.chkAmenities(value.split(",")))
+				found_homes.remove(h);
+		}
+		else 
+			for(Home h : homes)
 			if(h.chkAmenities(value.split(",")))
 				found_homes.add(h);
 		return;
-	}
+		}
 
 
 	private void searchByLeaseLength(int value) {
-		for(Home h : homes)
+		if (combinational) {
+			for(Home h : found_homes)
+			if(h.chkLeaseLength(value))
+				found_homes.remove(h);
+		}
+		else 
+			for(Home h : homes)
 			if(h.chkLeaseLength(value))
 				found_homes.add(h);
 		return;
@@ -95,7 +107,13 @@ public class SearchHomes {
 
 
 	private void searchByType(String value) {
-		for(Home h : homes)
+		if (combinational) {
+			for(Home h : found_homes)
+			if(h.chkType(value))
+				found_homes.remove(h);
+		}
+		else 
+			for(Home h : homes)
 			if(h.chkType(value))
 				found_homes.add(h);
 		return;
@@ -103,7 +121,13 @@ public class SearchHomes {
 
 
 	private void searchByAllowingPets(String value) {
-		for(Home h : homes)
+		if (combinational) {
+			for(Home h : found_homes)
+			if(h.chkAllowingPets(value))
+				found_homes.remove(h);
+		}
+		else 
+			for(Home h : homes)
 			if(h.chkAllowingPets(value))
 				found_homes.add(h);
 		return;
@@ -111,15 +135,29 @@ public class SearchHomes {
 
 
 	private void searchByNumberOfBathrooms(int num) {
-		for(Home h : homes)
-			if(h.chkNumberOfBathrooms(num))
-				found_homes.add(h);
+		if (combinational) {
+			for(Home h : found_homes)
+				if(h.chkNumberOfBathrooms(num))
+					found_homes.remove(h);
+		}
+		
+		else 
+			for(Home h : homes)
+				if(h.chkNumberOfBathrooms(num))
+					found_homes.add(h);
 		return;
 	}
 
 
 	private void searchByNumberOfBedrooms(int num) {
-		for(Home h : homes)
+		
+		if (combinational) {
+			for(Home h : found_homes)
+			if(h.chkNumberOfBedrooms(num))
+				found_homes.remove(h);
+		}
+		else 
+			for(Home h : homes)
 			if(h.chkNumberOfBedrooms(num))
 				found_homes.add(h);
 		return;
@@ -127,7 +165,13 @@ public class SearchHomes {
 
 
 	private void searchBetweenRangeOfAreas(int low, int high) {
-		for(Home h : homes)
+		if (combinational) {
+			for(Home h : found_homes)
+			if(h.chkAreaInRange(low , high))
+				found_homes.remove(h);
+		}
+		else 
+			for(Home h : homes)
 			if(h.chkAreaInRange(low , high))
 				found_homes.add(h);
 		return;
@@ -135,7 +179,13 @@ public class SearchHomes {
 
 
 	private void searchByAreaBelow(int area) {
-		for(Home h : homes)
+		if (combinational) {
+			for(Home h : found_homes)
+			if(h.chkAreaBelow(area))
+				found_homes.remove(h);
+		}
+		else 
+			for(Home h : homes)
 			if(h.chkAreaBelow(area))
 				found_homes.add(h);
 		return;
@@ -143,7 +193,13 @@ public class SearchHomes {
 
 
 	private void searchByPriceBetweenRange(int low, int high) {
-		for(Home h : homes)
+		if (combinational) {
+			for(Home h : found_homes)
+			if(h.chkPriceInRange(low , high))
+				found_homes.remove(h);
+		}
+		else 
+			for(Home h : homes)
 			if(h.chkPriceInRange(low , high))
 				found_homes.add(h);
 		return;
@@ -151,7 +207,13 @@ public class SearchHomes {
 
 
 	private void searchByPriceBelow(int value) {
-		for(Home h : homes)
+		if (combinational) {
+			for(Home h : found_homes)
+			if(h.chkPriceBelow(value))
+				found_homes.remove(h);
+		}
+		else 
+			for(Home h : homes)
 			if(h.chkPriceBelow(value))
 				found_homes.add(h);
 		return;
@@ -159,15 +221,27 @@ public class SearchHomes {
 
 
 	private void searchByMaterial(String value) {
-		for(Home h : homes)
+		if (combinational) {
+			for(Home h : found_homes)
+			if(h.chkMaterial(value))
+				found_homes.remove(h);
+		}
+		else 
+			for(Home h : homes)
 			if(h.chkMaterial(value))
 				found_homes.add(h);
 		return;
-	}
+		}
 
 
 	private void searchByPlacement(String value) {
-		for(Home h : homes)
+		if (combinational) {
+			for(Home h : found_homes)
+			if(h.chkPlacement(value))
+				found_homes.remove(h);
+		}
+		else 
+			for(Home h : homes)
 			if(h.chkPlacement(value))
 				found_homes.add(h);
 		return;

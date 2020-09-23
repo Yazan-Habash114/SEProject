@@ -61,12 +61,12 @@ public class Home {
 
 
 	public boolean chkPriceBelow(int parseInt) {
-		return(this.price == parseInt);
+		return(this.price < parseInt);
 	}
 
 
 	public boolean chkPriceInRange(int low, int high) {
-		return((low < this.price) && (this.price) < high);
+		return((low < this.price) && (this.price < high));
 	}
 
 
