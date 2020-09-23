@@ -61,7 +61,7 @@ public class Home {
 
 
 	public boolean chkPriceBelow(int parseInt) {
-		return(this.price < parseInt);
+		return(this.price == parseInt);
 	}
 
 
@@ -104,7 +104,7 @@ public class Home {
 		return(this.lease_length == value);
 	}
 
-//use value.contain() to check if the search category included an Amenity
+	
 	public boolean chkAmenities(String[] Amenities) {
 		for (String amenity : Amenities)
 			if (amenity.equals("AIRCONDITIONING")&& !this.air_Condition)
