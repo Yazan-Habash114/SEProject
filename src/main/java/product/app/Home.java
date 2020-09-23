@@ -66,7 +66,7 @@ public class Home {
 
 
 	public boolean chkPriceInRange(int low, int high) {
-		return((low < this.price) && (this.price) < high);
+		return((low < this.price) && (this.price < high));
 	}
 
 
