@@ -32,7 +32,7 @@ public class Home {
 		this.type = type;
 		this.lease_length = lease_length;
 		this.air_Condition = amenities.contains("AIRCONDITIONING") ? true: false;
-		this.balcony = amenities.contains("BALACONY") ? true: false;
+		this.balcony = amenities.contains("BALCONY") ? true: false;
 		this.elevator = amenities.contains("ELEVATOR") ? true: false;
 		this.fire_place = amenities.contains("FIREPLACE") ? true: false;
 		this.garage_parking = amenities.contains("GARAGEPARKING") ? true: false;
@@ -76,7 +76,7 @@ public class Home {
 
 
 	public boolean chkAreaInRange(int low, int high) {
-		return((low < this.area) && (this.area) < high);
+		return((low < this.area) && (this.area < high));
 	}
 
 
@@ -107,17 +107,17 @@ public class Home {
 	
 	public boolean chkAmenities(String[] Amenities) {
 		for (String amenity : Amenities)
-			if (amenity.equals("AIRCONDITIONING")&& !this.air_Condition)
+			if (amenity.equals("AIRCONDITIONING") && !this.air_Condition)
 				return false;
-			else if (amenity.equals("BALCONY")&& !this.balcony)
+			else if (amenity.equals("BALCONY") && !this.balcony)
 		    	return false;
-			else if (amenity.equals("ELEVATOR")&& !this.elevator)
+			else if (amenity.equals("ELEVATOR") && !this.elevator)
 		    	return false;
-			else if (amenity.equals("FIREPLACE")&& !this.fire_place)
+			else if (amenity.equals("FIREPLACE") && !this.fire_place)
 		    	return false;
-			else if (amenity.equals("GARAGEPARKING")&& !this.garage_parking)
+			else if (amenity.equals("GARAGEPARKING") && !this.garage_parking)
 		    	return false;
-			else if (amenity.equals("SWIMMINGPOOL")&& !this.swimming_pool)
+			else if (amenity.equals("SWIMMINGPOOL") && !this.swimming_pool)
 		    	return false;
 		return true;
 	}
