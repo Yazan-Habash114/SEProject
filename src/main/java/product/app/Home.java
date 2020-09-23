@@ -105,9 +105,21 @@ public class Home {
 	}
 
 //use value.contain() to check if the search category included an Amenity
-	public boolean chkAmenities(String value) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean chkAmenities(String[] Amenities) {
+		for (String amenity : Amenities)
+			if (amenity.equals("AIRCONDITIONING")&& !this.air_Condition)
+				return false;
+			else if (amenity.equals("BALCONY")&& !this.balcony)
+		    	return false;
+			else if (amenity.equals("ELEVATOR")&& !this.elevator)
+		    	return false;
+			else if (amenity.equals("FIREPLACE")&& !this.fire_place)
+		    	return false;
+			else if (amenity.equals("GARAGEPARKING")&& !this.garage_parking)
+		    	return false;
+			else if (amenity.equals("SWIMMINGPOOL")&& !this.swimming_pool)
+		    	return false;
+		return true;
 	}
 
 }
