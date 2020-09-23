@@ -40,7 +40,7 @@ public class SearchSteps {
 	//scenario 1 
 	@Then("A list of homes that match the placment specification should be returned and printed on the console")
 	public void aListOfHomesThatMatchThePlacmentSpecificationShouldBeReturnedAndPrintedOnTheConsole() {
-	    sh.printFoundHomes();
+		sh.printFoundHomes();
 	    return;
 	}
 	
