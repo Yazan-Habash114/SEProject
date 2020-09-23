@@ -33,35 +33,79 @@ public class SearchHomes {
 	}
 
 	public void searchBy(String category, String value) {
+		
 		if (category.equals("Placement"))
 			searchByPlacement(value);
+		
 		else if (category.equals("Material"))
 			searchByMaterial(value);
+		
 		else if (category.equals("Price below"))
-			searchByPriceBelow(value);
+			searchByPriceBelow(Integer.parseInt(value));
+		
 		else if (category.equals("Between range")) {
 			String[] range = value.split(",");
 			searchByPriceBetweenRange(Integer.parseInt(range[0]),Integer.parseInt(range[1]));
 		}
+		
 		else if (category.equals("below specific area"))
 			searchByAreaBelow(Integer.parseInt(value));
+		
 		else if (category.equals("Between range of Areas")) {
 			String[] range = value.split(",");
 			searchBetweenRangeOfAreas(Integer.parseInt(range[0]),Integer.parseInt(range[1]));
 		}
+		
 		else if (category.equals("Number of bedrooms"))
 			searchByNumberOfBedrooms(Integer.parseInt(value));
+		
 		else if (category.equals("Number of bathrooms"))
 			searchByNumberOfBathrooms(Integer.parseInt(value));
+		
 		else if (category.equals("Price below"))
-			searchByPriceBelow(value);
+			searchByAllowingPets(value);
+		
 		else if (category.equals("Price below"))
-			searchByPriceBelow(value);
+			searchByType(value);
+		
 		else if (category.equals("Price below"))
-			searchByPriceBelow(value);
+			searchByLeaseLength(Integer.parseInt(value));
+		
 		else if (category.equals("Price below"))
-			searchByPriceBelow(value);		
+			searchByAmenities(value);		
 		combinational = true;
+		return;
+	}
+
+
+	private void searchByAmenities(String value) {
+		for(Home h : homes)
+			if(h.chkAmenities(value.split(",")))
+				found_homes.add(h);
+		return;
+	}
+
+
+	private void searchByLeaseLength(int value) {
+		for(Home h : homes)
+			if(h.chkLeaseLength(value))
+				found_homes.add(h);
+		return;
+	}
+
+
+	private void searchByType(String value) {
+		for(Home h : homes)
+			if(h.chkType(value))
+				found_homes.add(h);
+		return;
+	}
+
+
+	private void searchByAllowingPets(String value) {
+		for(Home h : homes)
+			if(h.chkAllowingPets(value))
+				found_homes.add(h);
 		return;
 	}
 
@@ -106,9 +150,9 @@ public class SearchHomes {
 	}
 
 
-	private void searchByPriceBelow(String value) {
+	private void searchByPriceBelow(int value) {
 		for(Home h : homes)
-			if(h.chkPriceBelow(Integer.parseInt(value)))
+			if(h.chkPriceBelow(value))
 				found_homes.add(h);
 		return;
 	}
