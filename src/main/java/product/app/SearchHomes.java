@@ -48,7 +48,7 @@ public class SearchHomes {
 			searchByPriceBetweenRange(Integer.parseInt(range[0]),Integer.parseInt(range[1]));
 		}
 		
-		else if (category.equals("below specific area"))
+		else if (category.equals("Below specific area"))
 			searchByAreaBelow(Integer.parseInt(value));
 		
 		else if (category.equals("Between range of Areas")) {
@@ -62,16 +62,16 @@ public class SearchHomes {
 		else if (category.equals("Number of bathrooms"))
 			searchByNumberOfBathrooms(Integer.parseInt(value));
 		
-		else if (category.equals("Price below"))
+		else if (category.equals("Allowing pets"))
 			searchByAllowingPets(value);
 		
-		else if (category.equals("Price below"))
+		else if (category.equals("Type"))
 			searchByType(value);
 		
-		else if (category.equals("Price below"))
+		else if (category.equals("Lease Length"))
 			searchByLeaseLength(Integer.parseInt(value));
 		
-		else if (category.equals("Price below"))
+		else if (category.equals("Amenities"))
 			searchByAmenities(value);		
 		combinational = true;
 		return;

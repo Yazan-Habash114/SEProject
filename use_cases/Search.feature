@@ -22,7 +22,7 @@ Feature: Search about suitable home
 
   @scenario4
   Scenario: between range of prices/ month
-    When I search about home by "Between range_500,300" 
+    When I search about home by "Between range_300,500" 
     Then A list of homes that are in the price range should be returned and printed on the console
 
   @scenario5
@@ -57,10 +57,10 @@ Feature: Search about suitable home
 
   @scenario11
   Scenario: Lease Length
-    When I search about home by "Lease Length_LONG TERM" 
+    When I search about home by "Lease Length_12" 
     Then A list of homes that match the lease length period should be returned and printed on the console
 
   @scenario12
   Scenario: Amenities
-    When I search about home by "Amenities_AIRCONDITIONG, BALCONY, ELEVATOR" 
+    When I search about home by "Amenities_AIRCONDITIONG,BALCONY,ELEVATOR" 
     Then A list of homes that provid the Amenities specified should be returned and printed on the console
