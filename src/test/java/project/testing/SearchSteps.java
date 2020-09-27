@@ -29,12 +29,7 @@ public class SearchSteps {
 	}
 	
 	
-	@When("I search about home by {string}")
-	public void iSearchAboutHomeBy(String string) {
-	    String[] x = string.split("_");
-	    sh.searchBy(x[0], x[1]);
-	    return;
-	}
+	
 	
 		
 	//scenario 1 
