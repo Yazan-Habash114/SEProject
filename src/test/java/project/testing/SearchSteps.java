@@ -27,18 +27,14 @@ public class SearchSteps {
 			sh.storeHome(list);
 		}
 	}
+
 	
-<<<<<<< HEAD
-	
-	
-=======
 	// Scenario 1
 	@When("I search about home by Placement {string}")
 	public void iSearchAboutHomeByPlacement(String string) {
 	    // Write code here that turns the phrase above into concrete actions
 	    throw new io.cucumber.java.PendingException();
 	}
->>>>>>> branch 'master' of https://github.com/Yazan-Habash114/SEProject
 	
 	
 	// Scenario 2
