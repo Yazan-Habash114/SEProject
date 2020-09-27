@@ -136,10 +136,9 @@ public class SearchSteps {
 			public void aListOfHomesThatMatchThePlacmentSpecificationShouldBeReturnedAndPrintedOnTheConsole(String placement) {
 				System.out.println(" list of homes that placement in a "+ placement+" :");
 				tmp = sh.printFoundHomes();
-				for(Home h:tmp) {
+				for(Home h:tmp) 
 					if (!h.chkPlacement(placement))
 						checktrue1=false;
-				}
 				assertTrue(checktrue1 && tmp.size()==13);
 			    return;
 			}boolean checktrue= true;
