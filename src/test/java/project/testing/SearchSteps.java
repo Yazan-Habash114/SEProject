@@ -16,7 +16,7 @@ public class SearchSteps {
 	private SearchHomes sh;
 	private Map <String, String> data;
 	private ArrayList<Home> tmp;
-	private boolean checktrue1 = true;
+	private boolean checktrue = true;
 	
 	
 	public SearchSteps() {
@@ -130,19 +130,17 @@ public class SearchSteps {
 	// *************************************************** Then **************************************************
 	
 	
-	//scenario 1
+	//scenario 1 
 	@Then("A list of homes that match the placment specification {string} should be returned and printed on the console")
 	public void aListOfHomesThatMatchThePlacmentSpecificationShouldBeReturnedAndPrintedOnTheConsole(String placement) {
 		System.out.println(" list of homes that placement in a "+ placement+" :");
 		tmp = sh.printFoundHomes();
-		for(Home h:tmp) {
+		for(Home h:tmp)
 			if (!h.chkPlacement(placement))
-				checktrue1=false;
-		}
-		assertTrue(checktrue1 && tmp.size()==13);
+				checktrue=false;
+		assertTrue(checktrue && tmp.size()==13);
 	    return;
 	}
-	
 	
 	
 	//scenario 2
