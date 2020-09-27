@@ -231,9 +231,18 @@ public class SearchSteps {
 	
 	
 	//scenario 9
-	@Then("A list of homes that are Allowing pets should be returned and printed on the console")
-	public void aListOfHomesThatAreAllowingPetsShouldBeReturnedAndPrintedOnTheConsole() {
+	@Then("A list of homes that are Allowing pets {string} should be returned and printed on the console")
+	public void aListOfHomesThatAreAllowingPetsShouldBeReturnedAndPrintedOnTheConsole(String allowingpets) {
+		System.out.print("list of homes that are ");
+		if(allowingpets=="NO") 
+			System.out.print("not ");
+		System.out.println(" Allowing pets :");
 		tmp = sh.printFoundHomes();
+		for(Home h: tmp)
+			if(!h.chkAllowingPets(allowingpets))
+				checktrue = false;
+		assertTrue(checktrue && (tmp.size()==12));
+	    return;
 	}
 	
 	
@@ -245,9 +254,15 @@ public class SearchSteps {
 	
 	
 	//scenario 11
-	@Then("A list of homes that match the lease length period should be returned and printed on the console")
-	public void aListOfHomesThatMatchTheLeaseLengthPeriodShouldBeReturnedAndPrintedOnTheConsole() {
+	@Then("A list of homes that match the lease length period {int} should be returned and printed on the console")
+	public void aListOfHomesThatMatchTheLeaseLengthPeriodShouldBeReturnedAndPrintedOnTheConsole(int leaselength) {
+		System.out.println("list of homes that match the lease length period "+leaselength+" months :");
 		tmp = sh.printFoundHomes();
+		for(Home h: tmp)
+			if(!h.chkLeaseLength(leaselength))
+				checktrue = false;
+		assertTrue(checktrue && (tmp.size()==14));
+	    return;
 	}
 	
 	

@@ -72,7 +72,7 @@ Feature: Search about suitable home
   @scenario9
   Scenario: Allowing pets
     When I search about home by Allowing pets "YES" 
-    Then A list of homes that are Allowing pets should be returned and printed on the console
+    Then A list of homes that are Allowing pets "YES" should be returned and printed on the console
 
   @scenario10
   Scenario: type
@@ -82,7 +82,7 @@ Feature: Search about suitable home
   @scenario11
   Scenario: Lease Length
     When I search about home by Lease Length 12
-    Then A list of homes that match the lease length period should be returned and printed on the console
+    Then A list of homes that match the lease length 12 period should be returned and printed on the console
 
   @scenario12
   Scenario: Amenities
