@@ -15,7 +15,7 @@ public class SearchSteps {
 	
 	private SearchHomes sh;
 	private Map <String, String> data;
-	private ArrayList<Home> tmp;
+	private ArrayList <Home> tmp;
 	private boolean checktrue = true;
 	
 	
@@ -130,15 +130,15 @@ public class SearchSteps {
 	// *************************************************** Then **************************************************
 	
 	
-	//scenario 1 
-	@Then("A list of homes that match the placment specification {string} should be returned and printed on the console")
+	//scenario 1
+	@Then("A list of homes that match the placment {string} specification should be returned and printed on the console")
 	public void aListOfHomesThatMatchThePlacmentSpecificationShouldBeReturnedAndPrintedOnTheConsole(String placement) {
-		System.out.println(" list of homes that placement in a "+ placement+" :");
+		System.out.println("List of homes that placement in a " + placement + " :");
 		tmp = sh.printFoundHomes();
-		for(Home h:tmp)
+		for(Home h: tmp)
 			if (!h.chkPlacement(placement))
-				checktrue=false;
-		assertTrue(checktrue && tmp.size()==13);
+				checktrue = false;
+		assertTrue(checktrue && (tmp.size()==13));
 	    return;
 	}
 	
@@ -146,8 +146,12 @@ public class SearchSteps {
 	//scenario 2
 	@Then("A list of homes that match the  Material specification {string} should be returned and printed on the console")
 	public void aListOfHomesThatMatchTheMaterialSpecificationShouldBeReturnedAndPrintedOnTheConsole(String material) {
-		System.out.println(" list of homes that match the  Material specification :");
+		System.out.println("List of homes that match the Material specification :");
 		tmp = sh.printFoundHomes();
+		for(Home h: tmp)
+			if(!h.chkMaterial(material))
+				checktrue = false;
+		assertTrue(checktrue && (tmp.size()==8));
 	    return;
 	}
 	

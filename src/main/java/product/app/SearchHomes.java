@@ -35,7 +35,7 @@ public class SearchHomes {
 		for(Home h: found_homes)
 			System.out.println(h.toString());
 		System.out.println();
-		ArrayList<Home> tmp= found_homes;
+		ArrayList <Home> tmp = found_homes;
 		this.found_homes.clear();
 		this.combinational = false;
 		return tmp;
