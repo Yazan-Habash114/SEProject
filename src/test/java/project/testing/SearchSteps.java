@@ -28,15 +28,112 @@ public class SearchSteps {
 		}
 	}
 	
-	
-	@When("I search about home by {string}")
-	public void iSearchAboutHomeBy(String string) {
-	    String[] x = string.split("_");
-	    sh.searchBy(x[0], x[1]);
-	    return;
+	// Scenario 1
+	@When("I search about home by Placement {string}")
+	public void iSearchAboutHomeByPlacement(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
 	}
 	
-		
+	
+	// Scenario 2
+	@When("I search about home by Material {string}")
+	public void iSearchAboutHomeByMaterial(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+	
+	
+	// Scenario 3
+	@When("I search about home by Price below {string}")
+	public void iSearchAboutHomeByPriceBelow(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+	
+	
+	// Scenario 4
+	@When("I search about home by Between range {string}")
+	public void iSearchAboutHomeByBetweenRange(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+	
+	
+	// Scenario 5
+	@When("I search about home by Below specific area {string}")
+	public void iSearchAboutHomeByBelowSpecificArea(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+	
+	
+	// Scenario 6
+	@When("I search about home by Between range of Areas {string}")
+	public void iSearchAboutHomeByBetweenRangeOfAreas(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+	
+	
+	// Scenario 7
+	@When("I search about home by Number of bedrooms {string}")
+	public void iSearchAboutHomeByNumberOfBedrooms(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+	
+	
+	
+	// Scenario 8
+	@When("I search about home by Number of bathrooms {string}")
+	public void iSearchAboutHomeByNumberOfBathrooms(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+	
+	
+	// Scenario 9
+	@When("I search about home by Allowing pets {string}")
+	public void iSearchAboutHomeByAllowingPets(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+	
+	
+	// Scenario 10
+	@When("I search about home by Type {string}")
+	public void iSearchAboutHomeByType(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+	
+	
+	// Scenario 11
+	@When("I search about home by Lease Length {string}")
+	public void iSearchAboutHomeByLeaseLength(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+	
+	
+	// Scenario 12
+	@When("I search about home by Amenities {string}")
+	public void iSearchAboutHomeByAmenities(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+	
+	
+	// Scenario 13
+	/*@When("I search about home by Amenities {string}")
+	public void iSearchAboutMixedSpecifications(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}*/
+	
+	
+	
 	//scenario 1 
 	@Then("A list of homes that match the placment specification should be returned and printed on the console")
 	public void aListOfHomesThatMatchThePlacmentSpecificationShouldBeReturnedAndPrintedOnTheConsole() {
