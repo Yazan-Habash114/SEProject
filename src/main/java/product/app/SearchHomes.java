@@ -29,6 +29,10 @@ public class SearchHomes {
 		
 		// return the list of homes and print it to console
 		public ArrayList <Home> printFoundHomes() {
+			if(found_homes.isEmpty()) {
+				System.out.println("No homes found !");
+				return null;
+			}
 			for(Home h: found_homes)
 				System.out.println(h.toString());
 			System.out.println();

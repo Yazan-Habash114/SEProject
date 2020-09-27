@@ -1,16 +1,19 @@
 package project.testing;
 
+import java.util.ArrayList;
 import java.util.Map;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import product.app.Home;
 import product.app.SearchHomes;
 
 public class SearchSteps {
 	
 	private SearchHomes sh;
 	private Map <String, String> data;
+	private ArrayList<Home> tmp;
 	
 	public SearchSteps() {
 		sh = new SearchHomes();
@@ -32,57 +35,59 @@ public class SearchSteps {
 	// Scenario 1
 	@When("I search about home by Placement {string}")
 	public void iSearchAboutHomeByPlacement(String string) {
-	    sh.searchByPlacement(string);
+	    
 	}
 	
 	
 	// Scenario 2
 	@When("I search about home by Material {string}")
 	public void iSearchAboutHomeByMaterial(String string) {
-	    sh.searchByMaterial(string);
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
 	}
 	
 	
 	// Scenario 3
-	@When("I search about home by Price below {int}")
-	public void iSearchAboutHomeByPriceBelow(Integer value) {
-	    sh.searchByPriceBelow(value.intValue());
+	@When("I search about home by Price below {string}")
+	public void iSearchAboutHomeByPriceBelow(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
 	}
 	
 	
 	// Scenario 4
 	@When("I search about home by Between range {int} {int}")
-	public void iSearchAboutHomeByBetweenRange(Integer low, Integer high) {
-	    sh.searchBetweenRangeOfAreas(low.intValue(), high.intValue());
+	public void iSearchAboutHomeByBetweenRange(int low, int high) {
+	    sh.searchBetweenRangeOfAreas(low, high);
 	}
 	
 	
 	// Scenario 5
 	@When("I search about home by Below specific area {int}")
-	public void iSearchAboutHomeByBelowSpecificArea(Integer area) {
-	    sh.searchByAreaBelow(area.intValue());
+	public void iSearchAboutHomeByBelowSpecificArea(int area) {
+	    sh.searchByAreaBelow(area);
 	}
 	
 	
 	// Scenario 6
-	@When("I search about home by Between range of Areas {int} {int}")
-	public void iSearchAboutHomeByBetweenRangeOfAreas(Integer low, Integer high) {
-	    sh.searchBetweenRangeOfAreas(low.intValue(), high.intValue());
+	@When("I search about home by Between range of Areas {int} {int)")
+	public void iSearchAboutHomeByBetweenRangeOfAreas(int low , int high) {
+	    sh.searchBetweenRangeOfAreas(low, high);
 	}
 	
 	
 	// Scenario 7
 	@When("I search about home by Number of bedrooms {int}")
-	public void iSearchAboutHomeByNumberOfBedrooms(Integer num) {
-	    sh.searchByNumberOfBedrooms(num.intValue());
+	public void iSearchAboutHomeByNumberOfBedrooms(int num) {
+	    sh.searchByNumberOfBedrooms(num);
 	}
 	
 	
 	
 	// Scenario 8
 	@When("I search about home by Number of bathrooms {int}")
-	public void iSearchAboutHomeByNumberOfBathrooms(Integer num) {
-	    sh.searchByNumberOfBathrooms(num.intValue());
+	public void iSearchAboutHomeByNumberOfBathrooms(int num) {
+	    sh.searchByNumberOfBathrooms(num);
 	}
 	
 	
@@ -102,22 +107,33 @@ public class SearchSteps {
 	
 	// Scenario 11
 	@When("I search about home by Lease Length {int}")
-	public void iSearchAboutHomeByLeaseLength(Integer value) {
-		sh.searchByLeaseLength(value.intValue());
+	public void iSearchAboutHomeByLeaseLength(int value) {
+		sh.searchByLeaseLength(value);
 	}
 	
 	
 	// Scenario 12
 	@When("I search about home by Amenities {string}")
-	public void iSearchAboutHomeByAmenities(String Amenities) {
+	void iSearchAboutHomeByAmenities(String Amenities) {
 	    sh.searchByAmenities(Amenities);
 	}
+	
+	
+	// Scenario 13
+	/*@When("I search about home by Amenities {string}")
+	public void iSearchAboutMixedSpecifications(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}*/
+	
 	
 	
 	//scenario 1 
 	@Then("A list of homes that match the placment specification should be returned and printed on the console")
 	public void aListOfHomesThatMatchThePlacmentSpecificationShouldBeReturnedAndPrintedOnTheConsole() {
-		sh.printFoundHomes();
+		System.out.println("A list of homes that match the placment specification :");
+		tmp = sh.printFoundHomes();
+		
 	    return;
 	}
 	
