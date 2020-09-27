@@ -77,7 +77,7 @@ Feature: Search about suitable home
   @scenario10
   Scenario: type
     When I search about home by Type "HOUSE" 
-    Then A list of homes that match the  type specification should be returned and printed on the console
+    Then A list of homes that match the type "HOUSE" specification should be returned and printed on the console
 
   @scenario11
   Scenario: Lease Length

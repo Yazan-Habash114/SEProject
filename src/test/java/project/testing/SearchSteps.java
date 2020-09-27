@@ -237,9 +237,15 @@ public class SearchSteps {
 	
 	
 	//scenario 10
-	@Then("A list of homes that match the  type specification should be returned and printed on the console")
-	public void aListOfHomesThatMatchTheTypeSpecificationShouldBeReturnedAndPrintedOnTheConsole() {
+	@Then("A list of homes that match the type {string} specification should be returned and printed on the console")
+	public void aListOfHomesThatMatchTheTypeSpecificationShouldBeReturnedAndPrintedOnTheConsole(String type) {
+		System.out.println("List of homes that match the type " + type + " are :");
 		tmp = sh.printFoundHomes();
+		for(Home h: tmp)
+			if(!h.chkType(type))
+				checktrue = false;
+		assertTrue(checktrue && (tmp.size()==14));
+	    return;
 	}
 	
 	
