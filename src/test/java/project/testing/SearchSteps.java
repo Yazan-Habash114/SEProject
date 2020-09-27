@@ -130,13 +130,16 @@ public class SearchSteps {
 	// *************************************************** Then **************************************************
 	
 	
+
+
+
 	//scenario 1 
-	@Then("A list of homes that match the placment specification {string} should be returned and printed on the console")
+	@Then("A list of homes that match the placment {string} specification should be returned and printed on the console")
 	public void aListOfHomesThatMatchThePlacmentSpecificationShouldBeReturnedAndPrintedOnTheConsole(String placement) {
 		System.out.println(" list of homes that placement in a "+ placement+" :");
 		tmp = sh.printFoundHomes();
 		for(Home h:tmp)
-			if (!h.chkPlacement(placement))
+			if (!(h.chkPlacement(placement)))
 				checktrue=false;
 		assertTrue(checktrue && tmp.size()==13);
 	    return;
