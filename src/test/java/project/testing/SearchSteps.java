@@ -32,23 +32,21 @@ public class SearchSteps {
 	// Scenario 1
 	@When("I search about home by Placement {string}")
 	public void iSearchAboutHomeByPlacement(String string) {
-	    
+	    sh.searchByPlacement(string);
 	}
 	
 	
 	// Scenario 2
 	@When("I search about home by Material {string}")
 	public void iSearchAboutHomeByMaterial(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    sh.searchByMaterial(string);
 	}
 	
 	
 	// Scenario 3
 	@When("I search about home by Price below {string}")
 	public void iSearchAboutHomeByPriceBelow(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    sh.searchByPriceBelow(Integer.);
 	}
 	
 	
