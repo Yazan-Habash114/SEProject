@@ -3,6 +3,8 @@ package product.app;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import io.cucumber.java.en.When;
+
 public class SearchHomes {
 	
 	private ArrayList <Home> homes;
@@ -16,7 +18,7 @@ public class SearchHomes {
 		this.combinational = false;
 	}
 	
-	
+	//add to database list
 	public void storeHome(String[] list) {
 		Home h = new Home(list[0], list[1], list[2], list[3], list[4], Integer.parseInt(list[5]),
 				Integer.parseInt(list[6]), Integer.parseInt(list[7]), 
@@ -26,61 +28,49 @@ public class SearchHomes {
 	}
 	
 	
-	public void printFoundHomes() {
+	public ArrayList <Home> printFoundHomes() {
 		for(Home h: found_homes)
 			System.out.println(h.toString());
 		System.out.println();
+		ArrayList<Home> tmp= found_homes;
 		this.found_homes.clear();
 		combinational = false;
+		return tmp;
 	}
 
-	public void searchBy(String category, String value) {
-		
-		System.out.println("All homes found by '" + category
-				+ "' with value '" + value + "':");
-		
-		if (category.equals("Placement"))
-			searchByPlacement(value);
-		
-		else if (category.equals("Material"))
-			searchByMaterial(value);
-		
-		else if (category.equals("Price below"))
-			searchByPriceBelow(Integer.parseInt(value));
-		
-		else if (category.equals("Between range")) {
-			String[] range = value.split(",");
-			searchByPriceBetweenRange(Integer.parseInt(range[0]), Integer.parseInt(range[1]));
+
+		@When("I search about home by Placement {string}")
+		public void iSearchAboutHomeByPlacement(String value) {
+			if (combinational) {
+				Iterator <Home> it = found_homes.iterator();
+				while(it.hasNext())
+					if(!it.next().chkPlacement(value))
+						it.remove();
+			}
+			else 
+				for(Home h : homes)
+					if(h.chkPlacement(value))
+						found_homes.add(h);
+			return;
 		}
-		
-		else if (category.equals("Below specific area"))
-			searchByAreaBelow(Integer.parseInt(value));
-		
-		else if (category.equals("Between range of Areas")) {
-			String[] range = value.split(",");
-			searchBetweenRangeOfAreas(Integer.parseInt(range[0]), Integer.parseInt(range[1]));
+
+
+		@When("I search about home by Material {string}")
+		public void iSearchAboutHomeByMaterial(String value) {
+			if (combinational) {
+				Iterator <Home> it = found_homes.iterator();
+				while(it.hasNext())
+					if(!it.next().chkMaterial(value))
+						it.remove();
+			}
+			else 
+				for(Home h : homes)
+					if(h.chkMaterial(value))
+						found_homes.add(h);
+			return;
 		}
-		
-		else if (category.equals("Number of bedrooms"))
-			searchByNumberOfBedrooms(Integer.parseInt(value));
-		
-		else if (category.equals("Number of bathrooms"))
-			searchByNumberOfBathrooms(Integer.parseInt(value));
-		
-		else if (category.equals("Allowing pets"))
-			searchByAllowingPets(value);
-		
-		else if (category.equals("Type"))
-			searchByType(value);
-		
-		else if (category.equals("Lease Length"))
-			searchByLeaseLength(Integer.parseInt(value));
-		
-		else if (category.equals("Amenities"))
-			searchByAmenities(value);		
-		combinational = true;
-		return;
-	}
+
+
 
 
 	private void searchByAmenities(String value) {
@@ -234,34 +224,4 @@ public class SearchHomes {
 		return;
 	}
 
-
-	private void searchByMaterial(String value) {
-		if (combinational) {
-			Iterator <Home> it = found_homes.iterator();
-			while(it.hasNext())
-				if(!it.next().chkMaterial(value))
-					it.remove();
-		}
-		else 
-			for(Home h : homes)
-				if(h.chkMaterial(value))
-					found_homes.add(h);
-		return;
-	}
-
-
-	private void searchByPlacement(String value) {
-		if (combinational) {
-			Iterator <Home> it = found_homes.iterator();
-			while(it.hasNext())
-				if(!it.next().chkPlacement(value))
-					it.remove();
-		}
-		else 
-			for(Home h : homes)
-				if(h.chkPlacement(value))
-					found_homes.add(h);
-		return;
-	}
-	
 }
