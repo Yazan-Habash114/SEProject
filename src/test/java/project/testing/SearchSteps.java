@@ -130,8 +130,9 @@ public class SearchSteps {
 	// *************************************************** Then **************************************************
 	
 	
-	//scenario 1
-	@Then("A list of homes that match the placment {string} specification should be returned and printed on the console")
+	
+	//scenario 1 
+	@Then("A list of homes that match the placement {string} specification should be returned and printed on the console")
 	public void aListOfHomesThatMatchThePlacmentSpecificationShouldBeReturnedAndPrintedOnTheConsole(String placement) {
 		System.out.println("List of homes that placement in a " + placement + " :");
 		tmp = sh.printFoundHomes();
