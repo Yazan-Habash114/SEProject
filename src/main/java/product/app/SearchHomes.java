@@ -54,7 +54,7 @@ public class SearchHomes {
 			return;
 		}
 
-		//
+		//search by giving material 
 		public void searchByMaterial(String value) {
 			if (combinational) {
 				Iterator <Home> it = found_homes.iterator();
@@ -69,6 +69,7 @@ public class SearchHomes {
 			return;
 		}
 
+		//search by giving price limit
 		public void searchByPriceBelow(int value) {
 			if (combinational) {
 				Iterator <Home> it = found_homes.iterator();
@@ -83,7 +84,7 @@ public class SearchHomes {
 			return;
 		}
 
-
+		//search by giving price range
     	public void searchByAmenities(String value) {
 			if (combinational) {
 				Iterator <Home> it = found_homes.iterator();
@@ -98,6 +99,7 @@ public class SearchHomes {
 			return;
 		}
 	
+    	//search by giving lease length
 		public void searchByLeaseLength(int value) {
 			if (combinational) {
 				Iterator <Home> it = found_homes.iterator();
@@ -112,6 +114,7 @@ public class SearchHomes {
 			return;
 		}
 
+		//search by giving type
 		public void searchByType(String value) {
 			if (combinational) {
 				Iterator <Home> it = found_homes.iterator();
@@ -126,6 +129,7 @@ public class SearchHomes {
 			return;
 		}
 
+		//search by Allowing pets or not
 		public void searchByAllowingPets(String value) {
 			if (combinational) {
 				Iterator <Home> it = found_homes.iterator();
@@ -140,8 +144,8 @@ public class SearchHomes {
 			return;
 		}
 	
-	
-		private void searchByNumberOfBathrooms(int num) {
+		//search by giving number of bathrooms
+		public void searchByNumberOfBathrooms(int num) {
 			if (combinational) {
 				Iterator <Home> it = found_homes.iterator();
 				while(it.hasNext())
@@ -156,8 +160,8 @@ public class SearchHomes {
 			return;
 		}
 	
-	
-		private void searchByNumberOfBedrooms(int num) {
+		//search by giving number of bedrooms
+		public void searchByNumberOfBedrooms(int num) {
 			
 			if (combinational) {
 				Iterator <Home> it = found_homes.iterator();
@@ -172,8 +176,8 @@ public class SearchHomes {
 			return;
 		}
 	
-	
-		private void searchBetweenRangeOfAreas(int low, int high) {
+		//search by giving area range 
+		public  void searchBetweenRangeOfAreas(int low, int high) {
 			if (combinational) {
 				Iterator <Home> it = found_homes.iterator();
 				while(it.hasNext())
@@ -187,8 +191,8 @@ public class SearchHomes {
 			return;
 		}
 	
-	
-		private void searchByAreaBelow(int area) {
+		//search by giving area limit
+		public void searchByAreaBelow(int area) {
 			if (combinational) {
 				Iterator <Home> it = found_homes.iterator();
 				while(it.hasNext())
@@ -202,8 +206,8 @@ public class SearchHomes {
 			return;
 		}
 	
-	
-		private void searchByPriceBetweenRange(int low, int high) {
+		//search by giving price range
+		public void searchByPriceBetweenRange(int low, int high) {
 			if (combinational) {
 				Iterator <Home> it = found_homes.iterator();
 				while(it.hasNext())
