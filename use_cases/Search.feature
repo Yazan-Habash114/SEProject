@@ -47,7 +47,7 @@ Feature: Search about suitable home
   @scenario4
   Scenario: between range of prices/ month
     When I search about home by Between range 300 500
-    Then A list of homes that are in the price range 300 500 should be returned and printed on the console
+    Then A list of homes that are in the price range 300-500 should be returned and printed on the console
 
   @scenario5
   Scenario: By below specific area/ meter square
@@ -57,12 +57,12 @@ Feature: Search about suitable home
   @scenario6
   Scenario: By between range of Areas/ meter square
     When I search about home by Between range of Areas 135 155
-    Then A list of homes that in the Area range 135 155 should be returned and printed on the console
+    Then A list of homes that in the Area range 135-155 should be returned and printed on the console
 
   @scenario7
   Scenario: Number of bedrooms
     When I search about home by Number of bedrooms 3 
-    Then A list of homes that match the Number of bedrooms should be returned and printed on the console
+    Then A list of homes that match the Number of bedrooms 3 should be returned and printed on the console
 
   @scenario8
   Scenario: Number of bathrooms

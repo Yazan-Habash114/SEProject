@@ -171,7 +171,7 @@ public class SearchSteps {
 	
 	
 	//scenario 4
-	@Then("A list of homes that are in the price range {int} {int} should be returned and printed on the console")
+	@Then("A list of homes that are in the price range {int}-{int} should be returned and printed on the console")
 	public void aListOfHomesThatAreInThePriceRangeShouldBeReturnedAndPrintedOnTheConsole(Integer low, Integer high) {
 		System.out.println("List of homes that are in the price range (" + low.toString() + ", " + high.toString() + "):");
 		tmp = sh.printFoundHomes();
@@ -197,7 +197,7 @@ public class SearchSteps {
 	
 	
 	//scenario 6
-	@Then("A list of homes that in the Area range {int} {int} should be returned and printed on the console")
+	@Then("A list of homes that in the Area range {int}-{int} should be returned and printed on the console")
 	public void aListOfHomesThatInTheAreaRangeShouldBeReturnedAndPrintedOnTheConsole(Integer low, Integer high) {
 		System.out.println("List of homes that are in the area range (" + low.toString() + ", " + high.toString() + "):");
 		tmp = sh.printFoundHomes();
@@ -210,10 +210,17 @@ public class SearchSteps {
 	
 	
 	//scenario 7
-	@Then("A list of homes that match the Number of bedrooms should be returned and printed on the console")
-	public void aListOfHomesThatMatchTheNumberOfBedroomsShouldBeReturnedAndPrintedOnTheConsole() {
+	@Then("A list of homes that match the Number of bedrooms {int} should be returned and printed on the console")
+	public void aListOfHomesThatMatchTheNumberOfBedroomsShouldBeReturnedAndPrintedOnTheConsole(int numofbedrooms) {
+		System.out.println("list of homes that match the Number of bedrooms "+numofbedrooms+"  :");
 		tmp = sh.printFoundHomes();
+		for(Home h: tmp)
+			if(!h.chkNumberOfBedrooms(numofbedrooms))
+				checktrue = false;
+		assertTrue(checktrue && (tmp.size()==9));
+	    return;
 	}
+	
 	
 	
 	//scenario 8
