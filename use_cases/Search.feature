@@ -87,12 +87,12 @@ Feature: Search about suitable home
   @scenario12
   Scenario: Amenities
     When I search about home by Amenities "AIRCONDITIONING,BALCONY,ELEVATOR" 
-    Then A list of homes that provid the Amenities specified should be returned and printed on the console
+    Then A list of homes that provide the Amenities specified should be returned and printed on the console
     
   @scenario13
   Scenario: mixing more than one feature 
     When I search about home by Amenities "AIRCONDITIONING,BALCONY,ELEVATOR" 
     And I search about home by Lease Length 12 
     And I search about home by Placement "CITY" 
-    Then A list of homes that provid the Amenities specified should be returned and printed on the console 
+    Then A list of homes that provide the Amenities specified should be returned and printed on the console 
   
