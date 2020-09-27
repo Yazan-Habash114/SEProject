@@ -56,43 +56,43 @@ Feature: Search about suitable home
 
   @scenario6
   Scenario: By between range of Areas/ meter square
-    When I search about home by "Between range of Areas_135,155" 
+    When I search about home by Between range of Areas "135,155" 
     Then A list of homes that in the Area range should be returned and printed on the console
 
   @scenario7
   Scenario: Number of bedrooms
-    When I search about home by "Number of bedrooms_3" 
+    When I search about home by Number of bedrooms "3" 
     Then A list of homes that match the Number of bedrooms should be returned and printed on the console
 
   @scenario8
   Scenario: Number of bathrooms
-    When I search about home by "Number of bathrooms_2" 
+    When I search about home by Number of bathrooms "2" 
     Then A list of homes that match the Number of bathrooms should be returned and printed on the console
 
   @scenario9
   Scenario: Allowing pets
-    When I search about home by "Allowing pets_YES" 
+    When I search about home by Allowing pets "YES" 
     Then A list of homes that are Allowing pets should be returned and printed on the console
 
   @scenario10
   Scenario: type
-    When I search about home by "Type_HOUSE" 
+    When I search about home by Type "HOUSE" 
     Then A list of homes that match the  type specification should be returned and printed on the console
 
   @scenario11
   Scenario: Lease Length
-    When I search about home by "Lease Length_12" 
+    When I search about home by Lease Length "12" 
     Then A list of homes that match the lease length period should be returned and printed on the console
 
   @scenario12
   Scenario: Amenities
-    When I search about home by "Amenities_AIRCONDITIONING,BALCONY,ELEVATOR" 
+    When I search about home by Amenities "AIRCONDITIONING,BALCONY,ELEVATOR" 
     Then A list of homes that provid the Amenities specified should be returned and printed on the console
     
   @scenario13
   Scenario: mixing more than one feature 
-    When I search about home by "Amenities_AIRCONDITIONING,BALCONY,ELEVATOR" 
-    And I search about home by "Lease Length_12" 
-    And I search about home by "Placement_CITY" 
+    When I search about home by Amenities "AIRCONDITIONING,BALCONY,ELEVATOR" 
+    And I search about home by Lease Length "12" 
+    And I search about home by Placement "CITY" 
     Then A list of homes that provid the Amenities specified should be returned and printed on the console 
   
