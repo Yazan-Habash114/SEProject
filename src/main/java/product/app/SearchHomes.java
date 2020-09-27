@@ -3,8 +3,6 @@ package product.app;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import io.cucumber.java.en.When;
-
 public class SearchHomes {
 	
 	private ArrayList <Home> homes;
