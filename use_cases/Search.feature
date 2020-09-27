@@ -37,7 +37,7 @@ Feature: Search about suitable home
   @scenario2
   Scenario: search home by Material
     When I search about home by Material "BRICK" 
-    Then A list of homes that match the  Material specification should be returned and printed on the console
+    Then A list of homes that match the  Material specification "BRICK" should be returned and printed on the console
 
   @scenario3
   Scenario: below specific price/ month

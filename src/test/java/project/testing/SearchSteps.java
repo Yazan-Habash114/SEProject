@@ -144,8 +144,8 @@ public class SearchSteps {
 	
 	
 	//scenario 2
-	@Then("A list of homes that match the  Material specification should be returned and printed on the console")
-	public void aListOfHomesThatMatchTheMaterialSpecificationShouldBeReturnedAndPrintedOnTheConsole() {
+	@Then("A list of homes that match the  Material specification {string} should be returned and printed on the console")
+	public void aListOfHomesThatMatchTheMaterialSpecificationShouldBeReturnedAndPrintedOnTheConsole(String material) {
 		System.out.println(" list of homes that match the  Material specification :");
 		tmp = sh.printFoundHomes();
 	    return;
