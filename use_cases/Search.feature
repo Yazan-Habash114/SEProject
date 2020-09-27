@@ -93,5 +93,6 @@ Feature: Search about suitable home
   Scenario: mixing more than one feature 
     When I search about home by "Amenities_AIRCONDITIONING,BALCONY,ELEVATOR" 
     And I search about home by "Lease Length_12" 
+    And I search about home by "Placement_CITY" 
     Then A list of homes that provid the Amenities specified should be returned and printed on the console 
   
