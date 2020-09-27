@@ -104,7 +104,7 @@ public class Home {
 		return(this.lease_length == value);
 	}
 
-
+	
 	public boolean chkAmenities(String[] Amenities) {
 		for (String amenity : Amenities)
 			if (amenity.equals("AIRCONDITIONING") && !this.air_Condition)
