@@ -1,5 +1,7 @@
 package project.testing;
 
+import static org.junit.Assert.assertTrue;
+
 import java.util.ArrayList;
 import java.util.Map;
 import io.cucumber.datatable.DataTable;
@@ -14,11 +16,12 @@ public class SearchSteps {
 	private SearchHomes sh;
 	private Map <String, String> data;
 	private ArrayList<Home> tmp;
+	private boolean checktrue1 = true;
+	
 	
 	public SearchSteps() {
 		sh = new SearchHomes();
 	}
-	
 	
 	@Given("these homes are contained in the system")
 	public void theseHomesAreContainedInTheSystem(DataTable tb) {
@@ -129,19 +132,25 @@ public class SearchSteps {
 	
 	
 	//scenario 1 
-	@Then("A list of homes that match the placment specification should be returned and printed on the console")
-	public void aListOfHomesThatMatchThePlacmentSpecificationShouldBeReturnedAndPrintedOnTheConsole() {
-		System.out.println("A list of homes that match the placment specification :");
-		tmp = sh.printFoundHomes();
+			@Then("A list of homes that match the placment specification {string} should be returned and printed on the console")
+			public void aListOfHomesThatMatchThePlacmentSpecificationShouldBeReturnedAndPrintedOnTheConsole(String placement) {
+				System.out.println(" list of homes that placement in a "+ placement+" :");
+				tmp = sh.printFoundHomes();
+				for(Home h:tmp) {
+					if (!h.chkPlacement(placement))
+						checktrue1=false;
+				}
+				assertTrue(checktrue1 && tmp.size()==13);
+			    return;
+			}boolean checktrue= true;
 		
-	    return;
-	}
 	
 	
 	//scenario 2
 	@Then("A list of homes that match the  Material specification should be returned and printed on the console")
 	public void aListOfHomesThatMatchTheMaterialSpecificationShouldBeReturnedAndPrintedOnTheConsole() {
-		sh.printFoundHomes();
+		System.out.println(" list of homes that match the  Material specification :");
+		tmp = sh.printFoundHomes();
 	    return;
 	}
 	
@@ -149,6 +158,7 @@ public class SearchSteps {
 	//scenario 3
 	@Then("A list of homes that are below a specified price should be returned and printed on the console")
 	public void aListOfHomesThatAreBelowASpecifiedPriceShouldBeReturnedAndPrintedOnTheConsole() {
+		System.out.println("list of homes that are below a specified price :");
 		sh.printFoundHomes();
 	    return;
 	}
@@ -157,6 +167,7 @@ public class SearchSteps {
 	//scenario 4
 	@Then("A list of homes that are in the price range should be returned and printed on the console")
 	public void aListOfHomesThatAreInThePriceRangeShouldBeReturnedAndPrintedOnTheConsole() {
+		System.out.println("list of homes that are in the price range :");
 		sh.printFoundHomes();
 	    return;
 	}
@@ -165,6 +176,7 @@ public class SearchSteps {
 	//scenario 5
 	@Then("A list of homes that below a specified area should be returned and printed on the console")
 	public void aListOfHomesThatBelowASpecifiedAreaShouldBeReturnedAndPrintedOnTheConsole() {
+		System.out.println("list of homes that below a specified area :");
 		sh.printFoundHomes();
 	    return;
 	}
