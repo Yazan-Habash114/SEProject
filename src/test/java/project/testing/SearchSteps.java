@@ -217,9 +217,15 @@ public class SearchSteps {
 	
 	
 	//scenario 8
-	@Then("A list of homes that match the Number of bathrooms should be returned and printed on the console")
-	public void aListOfHomesThatMatchTheNumberOfBathroomsShouldBeReturnedAndPrintedOnTheConsole() {
+	@Then("A list of homes that match the Number of bathrooms {int} should be returned and printed on the console")
+	public void aListOfHomesThatMatchTheNumberOfBathroomsShouldBeReturnedAndPrintedOnTheConsole(Integer value) {
+		System.out.println("List of homes that have number of bathrooms = " + value.intValue() + " :");
 		tmp = sh.printFoundHomes();
+		for(Home h: tmp)
+			if(!h.chkNumberOfBathrooms(value))
+				checktrue = false;
+		assertTrue(checktrue && (tmp.size()==14));
+	    return;
 	}
 	
 	

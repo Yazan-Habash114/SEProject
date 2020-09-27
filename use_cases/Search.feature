@@ -67,7 +67,7 @@ Feature: Search about suitable home
   @scenario8
   Scenario: Number of bathrooms
     When I search about home by Number of bathrooms 2
-    Then A list of homes that match the Number of bathrooms should be returned and printed on the console
+    Then A list of homes that match the Number of bathrooms 2 should be returned and printed on the console
 
   @scenario9
   Scenario: Allowing pets
