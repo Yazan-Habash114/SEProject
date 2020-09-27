@@ -54,7 +54,6 @@ public class SearchHomes {
 			return;
 		}
 
-
 		@When("I search about home by Material {string}")
 		public void iSearchAboutHomeByMaterial(String value) {
 			if (combinational) {
@@ -69,6 +68,23 @@ public class SearchHomes {
 						found_homes.add(h);
 			return;
 		}
+
+		@When("I search about home by Price below {int}")
+		public void iSearchAboutHomeByPriceBelow(int value) {
+			if (combinational) {
+				Iterator <Home> it = found_homes.iterator();
+				while(it.hasNext())
+					if(!it.next().chkPriceBelow(value))
+						it.remove();
+			}
+			else 
+				for(Home h : homes)
+					if(h.chkPriceBelow(value))
+						found_homes.add(h);
+			return;
+		}
+
+
 
 
 
@@ -209,19 +225,5 @@ public class SearchHomes {
 		return;
 	}
 
-
-	private void searchByPriceBelow(int value) {
-		if (combinational) {
-			Iterator <Home> it = found_homes.iterator();
-			while(it.hasNext())
-				if(!it.next().chkPriceBelow(value))
-					it.remove();
-		}
-		else 
-			for(Home h : homes)
-				if(h.chkPriceBelow(value))
-					found_homes.add(h);
-		return;
-	}
 
 }
