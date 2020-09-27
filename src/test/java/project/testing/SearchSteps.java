@@ -286,8 +286,22 @@ public class SearchSteps {
 		for(Home h: tmp)
 			if(!h.chkAmenities(amenities.split(",")))
 				checktrue = false;
-		assertTrue(checktrue && true);
+		assertTrue(checktrue && (tmp.size()==2));
 	    return;
 	}
+
 	
+	//scenario 13
+	@Then("A list of homes that provide the Amenities {string} and matches the lease length period {int} and placed in a {string} should be returned and printed on the console")
+	public void aListOfHomesThatProvideTheAmenitiesAIRCONDITIONINGBALCONYELEVATORAndMatchesTheLeaseLengthPeriodAndPlacedInAShouldBeReturnedAndPrintedOnTheConsole(String Amenities, Integer leaselength, String placement) {
+		System.out.println("list of homes that provide the Amenities "+Amenities+" and matches the lease length period "+leaselength+" months and placed in a"+placement+" :");
+		tmp = sh.printFoundHomes();
+		for(Home h: tmp)
+			if(!(h.chkAmenities(Amenities.split(",")) && h.chkPlacement(placement) && h.chkLeaseLength(leaselength)))
+				checktrue = false;
+		assertTrue(checktrue && (tmp.size()==1));
+	    return;
+	}
+
+
 }
