@@ -263,9 +263,15 @@ public class SearchSteps {
 	
 	
 	//scenario 12
-	@Then("A list of homes that provide the Amenities specified should be returned and printed on the console")
-	public void aListOfHomesThatProvidTheAmenitiesSpecifiedShouldBeReturnedAndPrintedOnTheConsole() {
+	@Then("A list of homes that provide the Amenities {string} specified should be returned and printed on the console")
+	public void aListOfHomesThatProvidTheAmenitiesSpecifiedShouldBeReturnedAndPrintedOnTheConsole(String amenities) {
+		System.out.println("List of homes that have amenites '" + amenities + "' are :");
 		tmp = sh.printFoundHomes();
+		for(Home h: tmp)
+			if(!h.chkAmenities(amenities.split(",")))
+				checktrue = false;
+		assertTrue(checktrue && true);
+	    return;
 	}
 	
 }
