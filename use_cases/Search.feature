@@ -82,7 +82,7 @@ Feature: Search about suitable home
   @scenario11
   Scenario: Lease Length
     When I search about home by Lease Length 12
-    Then A list of homes that match the lease length period should be returned and printed on the console
+    Then A list of homes that match the lease length period 12 should be returned and printed on the console
 
   @scenario12
   Scenario: Amenities

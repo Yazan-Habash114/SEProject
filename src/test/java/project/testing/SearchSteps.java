@@ -250,9 +250,15 @@ public class SearchSteps {
 	
 	
 	//scenario 11
-	@Then("A list of homes that match the lease length period should be returned and printed on the console")
-	public void aListOfHomesThatMatchTheLeaseLengthPeriodShouldBeReturnedAndPrintedOnTheConsole() {
+	@Then("A list of homes that match the lease length period {int} should be returned and printed on the console")
+	public void aListOfHomesThatMatchTheLeaseLengthPeriodShouldBeReturnedAndPrintedOnTheConsole(Integer length) {
+		System.out.println("List of homes that have lease length of " + length.intValue() + " are :");
 		tmp = sh.printFoundHomes();
+		for(Home h: tmp)
+			if(!h.chkLeaseLength(length))
+				checktrue = false;
+		assertTrue(checktrue && (tmp.size()==14));
+	    return;
 	}
 	
 	
