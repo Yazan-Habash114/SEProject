@@ -57,7 +57,7 @@ Feature: Search about suitable home
   @scenario6
   Scenario: By between range of Areas/ meter square
     When I search about home by Between range of Areas 135 155
-    Then A list of homes that in the Area range should be returned and printed on the console
+    Then A list of homes that in the Area range 135 155 should be returned and printed on the console
 
   @scenario7
   Scenario: Number of bedrooms
