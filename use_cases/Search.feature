@@ -41,32 +41,32 @@ Feature: Search about suitable home
 
   @scenario3
   Scenario: below specific price/ month
-    When I search about home by Price below "400" 
+    When I search about home by Price below 400
     Then A list of homes that are below a specified price should be returned and printed on the console
 
   @scenario4
   Scenario: between range of prices/ month
-    When I search about home by Between range "300,500" 
+    When I search about home by Between range 300 500
     Then A list of homes that are in the price range should be returned and printed on the console
 
   @scenario5
   Scenario: By below specific area/ meter square
-    When I search about home by Below specific area "135" 
+    When I search about home by Below specific area 135
     Then A list of homes that below a specified area should be returned and printed on the console
 
   @scenario6
   Scenario: By between range of Areas/ meter square
-    When I search about home by Between range of Areas "135,155" 
+    When I search about home by Between range of Areas 135 155
     Then A list of homes that in the Area range should be returned and printed on the console
 
   @scenario7
   Scenario: Number of bedrooms
-    When I search about home by Number of bedrooms "3" 
+    When I search about home by Number of bedrooms 3 
     Then A list of homes that match the Number of bedrooms should be returned and printed on the console
 
   @scenario8
   Scenario: Number of bathrooms
-    When I search about home by Number of bathrooms "2" 
+    When I search about home by Number of bathrooms 2
     Then A list of homes that match the Number of bathrooms should be returned and printed on the console
 
   @scenario9
@@ -81,7 +81,7 @@ Feature: Search about suitable home
 
   @scenario11
   Scenario: Lease Length
-    When I search about home by Lease Length "12" 
+    When I search about home by Lease Length 12
     Then A list of homes that match the lease length period should be returned and printed on the console
 
   @scenario12
@@ -92,7 +92,7 @@ Feature: Search about suitable home
   @scenario13
   Scenario: mixing more than one feature 
     When I search about home by Amenities "AIRCONDITIONING,BALCONY,ELEVATOR" 
-    And I search about home by Lease Length "12" 
+    And I search about home by Lease Length 12 
     And I search about home by Placement "CITY" 
     Then A list of homes that provid the Amenities specified should be returned and printed on the console 
   
