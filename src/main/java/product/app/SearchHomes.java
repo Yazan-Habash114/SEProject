@@ -1,6 +1,7 @@
 package product.app;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class SearchHomes {
 	
@@ -29,7 +30,7 @@ public class SearchHomes {
 		for(Home h: found_homes)
 			System.out.println(h.toString());
 		System.out.println();
-		found_homes.clear();
+		this.found_homes.clear();
 		combinational = false;
 	}
 
@@ -84,11 +85,12 @@ public class SearchHomes {
 
 	private void searchByAmenities(String value) {
 		if (combinational) {
-			for(Home h : found_homes)
-				if(h.chkAmenities(value.split(",")))
-					found_homes.remove(h);
+			Iterator <Home> it = found_homes.iterator();
+			while(it.hasNext())
+				if(!it.next().chkAmenities(value.split(",")))
+					it.remove();
 		}
-		else 
+		else
 			for(Home h : homes)
 				if(h.chkAmenities(value.split(",")))
 					found_homes.add(h);
@@ -98,9 +100,10 @@ public class SearchHomes {
 	
 	private void searchByLeaseLength(int value) {
 		if (combinational) {
-			for(Home h : found_homes)
-				if(h.chkLeaseLength(value))
-					found_homes.remove(h);
+			Iterator <Home> it = found_homes.iterator();
+			while(it.hasNext())
+				if(!it.next().chkLeaseLength(value))
+					it.remove();
 		}
 		else 
 			for(Home h : homes)
@@ -112,9 +115,10 @@ public class SearchHomes {
 
 	private void searchByType(String value) {
 		if (combinational) {
-			for(Home h : found_homes)
-				if(h.chkType(value))
-					found_homes.remove(h);
+			Iterator <Home> it = found_homes.iterator();
+			while(it.hasNext())
+				if(!it.next().chkType(value))
+					it.remove();
 		}
 		else 
 			for(Home h : homes)
@@ -126,9 +130,10 @@ public class SearchHomes {
 
 	private void searchByAllowingPets(String value) {
 		if (combinational) {
-			for(Home h : found_homes)
-				if(h.chkAllowingPets(value))
-					found_homes.remove(h);
+			Iterator <Home> it = found_homes.iterator();
+			while(it.hasNext())
+				if(!it.next().chkAllowingPets(value))
+					it.remove();
 		}
 		else 
 			for(Home h : homes)
@@ -140,9 +145,10 @@ public class SearchHomes {
 
 	private void searchByNumberOfBathrooms(int num) {
 		if (combinational) {
-			for(Home h : found_homes)
-				if(h.chkNumberOfBathrooms(num))
-					found_homes.remove(h);
+			Iterator <Home> it = found_homes.iterator();
+			while(it.hasNext())
+				if(!it.next().chkNumberOfBathrooms(num))
+					it.remove();
 		}
 		
 		else 
@@ -156,9 +162,10 @@ public class SearchHomes {
 	private void searchByNumberOfBedrooms(int num) {
 		
 		if (combinational) {
-			for(Home h : found_homes)
-				if(h.chkNumberOfBedrooms(num))
-					found_homes.remove(h);
+			Iterator <Home> it = found_homes.iterator();
+			while(it.hasNext())
+				if(!it.next().chkNumberOfBedrooms(num))
+					it.remove();
 		}
 		else 
 			for(Home h : homes)
@@ -170,9 +177,10 @@ public class SearchHomes {
 
 	private void searchBetweenRangeOfAreas(int low, int high) {
 		if (combinational) {
-			for(Home h : found_homes)
-				if(h.chkAreaInRange(low , high))
-					found_homes.remove(h);
+			Iterator <Home> it = found_homes.iterator();
+			while(it.hasNext())
+				if(!it.next().chkAreaInRange(low, high))
+					it.remove();
 		}
 		else 
 			for(Home h : homes)
@@ -184,9 +192,10 @@ public class SearchHomes {
 
 	private void searchByAreaBelow(int area) {
 		if (combinational) {
-			for(Home h : found_homes)
-				if(h.chkAreaBelow(area))
-					found_homes.remove(h);
+			Iterator <Home> it = found_homes.iterator();
+			while(it.hasNext())
+				if(!it.next().chkAreaBelow(area))
+					it.remove();
 		}
 		else 
 			for(Home h : homes)
@@ -198,9 +207,10 @@ public class SearchHomes {
 
 	private void searchByPriceBetweenRange(int low, int high) {
 		if (combinational) {
-			for(Home h : found_homes)
-				if(h.chkPriceInRange(low , high))
-					found_homes.remove(h);
+			Iterator <Home> it = found_homes.iterator();
+			while(it.hasNext())
+				if(!it.next().chkPriceInRange(low, high))
+					it.remove();
 		}
 		else 
 			for(Home h : homes)
@@ -212,9 +222,10 @@ public class SearchHomes {
 
 	private void searchByPriceBelow(int value) {
 		if (combinational) {
-			for(Home h : found_homes)
-				if(h.chkPriceBelow(value))
-					found_homes.remove(h);
+			Iterator <Home> it = found_homes.iterator();
+			while(it.hasNext())
+				if(!it.next().chkPriceBelow(value))
+					it.remove();
 		}
 		else 
 			for(Home h : homes)
@@ -226,9 +237,10 @@ public class SearchHomes {
 
 	private void searchByMaterial(String value) {
 		if (combinational) {
-			for(Home h : found_homes)
-				if(h.chkMaterial(value))
-					found_homes.remove(h);
+			Iterator <Home> it = found_homes.iterator();
+			while(it.hasNext())
+				if(!it.next().chkMaterial(value))
+					it.remove();
 		}
 		else 
 			for(Home h : homes)
@@ -240,9 +252,10 @@ public class SearchHomes {
 
 	private void searchByPlacement(String value) {
 		if (combinational) {
-			for(Home h : found_homes)
-				if(h.chkPlacement(value))
-					found_homes.remove(h);
+			Iterator <Home> it = found_homes.iterator();
+			while(it.hasNext())
+				if(!it.next().chkPlacement(value))
+					it.remove();
 		}
 		else 
 			for(Home h : homes)
