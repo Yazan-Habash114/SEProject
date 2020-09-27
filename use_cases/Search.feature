@@ -52,7 +52,7 @@ Feature: Search about suitable home
   @scenario5
   Scenario: By below specific area/ meter square
     When I search about home by Below specific area 135
-    Then A list of homes that below a specified area should be returned and printed on the console
+    Then A list of homes that below a specified area 135 should be returned and printed on the console
 
   @scenario6
   Scenario: By between range of Areas/ meter square
