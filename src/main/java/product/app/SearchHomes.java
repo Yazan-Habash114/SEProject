@@ -36,7 +36,7 @@ public class SearchHomes {
 			System.out.println(h.toString());
 		System.out.println();
 		ArrayList<Home> tmp= found_homes;
-		this.found_homes.clear();
+		this.found_homes=null;
 		this.combinational = false;
 		return tmp;
 	}
