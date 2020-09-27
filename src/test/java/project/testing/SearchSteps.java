@@ -224,9 +224,15 @@ public class SearchSteps {
 	
 	
 	//scenario 8
-	@Then("A list of homes that match the Number of bathrooms should be returned and printed on the console")
-	public void aListOfHomesThatMatchTheNumberOfBathroomsShouldBeReturnedAndPrintedOnTheConsole() {
+	@Then("A list of homes that match the Number of bathrooms {int} should be returned and printed on the console")
+	public void aListOfHomesThatMatchTheNumberOfBathroomsShouldBeReturnedAndPrintedOnTheConsole(Integer value) {
+		System.out.println("List of homes that have number of bathrooms = " + value.intValue() + " :");
 		tmp = sh.printFoundHomes();
+		for(Home h: tmp)
+			if(!h.chkNumberOfBathrooms(value))
+				checktrue = false;
+		assertTrue(checktrue && (tmp.size()==14));
+	    return;
 	}
 	
 	
@@ -247,19 +253,25 @@ public class SearchSteps {
 	
 	
 	//scenario 10
-	@Then("A list of homes that match the  type specification should be returned and printed on the console")
-	public void aListOfHomesThatMatchTheTypeSpecificationShouldBeReturnedAndPrintedOnTheConsole() {
+	@Then("A list of homes that match the type {string} specification should be returned and printed on the console")
+	public void aListOfHomesThatMatchTheTypeSpecificationShouldBeReturnedAndPrintedOnTheConsole(String type) {
+		System.out.println("List of homes that match the type " + type + " are :");
 		tmp = sh.printFoundHomes();
+		for(Home h: tmp)
+			if(!h.chkType(type))
+				checktrue = false;
+		assertTrue(checktrue && (tmp.size()==14));
+	    return;
 	}
 	
 	
 	//scenario 11
 	@Then("A list of homes that match the lease length period {int} should be returned and printed on the console")
-	public void aListOfHomesThatMatchTheLeaseLengthPeriodShouldBeReturnedAndPrintedOnTheConsole(int leaselength) {
-		System.out.println("list of homes that match the lease length period "+leaselength+" months :");
+	public void aListOfHomesThatMatchTheLeaseLengthPeriodShouldBeReturnedAndPrintedOnTheConsole(Integer length) {
+		System.out.println("List of homes that have lease length of " + length.intValue() + " are :");
 		tmp = sh.printFoundHomes();
 		for(Home h: tmp)
-			if(!h.chkLeaseLength(leaselength))
+			if(!h.chkLeaseLength(length))
 				checktrue = false;
 		assertTrue(checktrue && (tmp.size()==14));
 	    return;

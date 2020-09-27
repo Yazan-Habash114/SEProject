@@ -67,7 +67,7 @@ Feature: Search about suitable home
   @scenario8
   Scenario: Number of bathrooms
     When I search about home by Number of bathrooms 2
-    Then A list of homes that match the Number of bathrooms should be returned and printed on the console
+    Then A list of homes that match the Number of bathrooms 2 should be returned and printed on the console
 
   @scenario9
   Scenario: Allowing pets
@@ -77,12 +77,12 @@ Feature: Search about suitable home
   @scenario10
   Scenario: type
     When I search about home by Type "HOUSE" 
-    Then A list of homes that match the  type specification should be returned and printed on the console
+    Then A list of homes that match the type "HOUSE" specification should be returned and printed on the console
 
   @scenario11
   Scenario: Lease Length
     When I search about home by Lease Length 12
-    Then A list of homes that match the lease length 12 period should be returned and printed on the console
+    Then A list of homes that match the lease length period 12 should be returned and printed on the console
 
   @scenario12
   Scenario: Amenities
