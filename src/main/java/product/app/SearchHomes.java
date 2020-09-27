@@ -39,36 +39,36 @@ public class SearchHomes {
 	}
 
 
-		@When("I search about home by Placement {string}")
-		public void iSearchAboutHomeByPlacement(String value) {
-			if (combinational) {
-				Iterator <Home> it = found_homes.iterator();
-				while(it.hasNext())
-					if(!it.next().chkPlacement(value))
-						it.remove();
-			}
-			else 
-				for(Home h : homes)
-					if(h.chkPlacement(value))
-						found_homes.add(h);
-			return;
+	@When("I search about home by Placement {string}")
+	public void iSearchAboutHomeByPlacement(String value) {
+		if (combinational) {
+			Iterator <Home> it = found_homes.iterator();
+			while(it.hasNext())
+				if(!it.next().chkPlacement(value))
+					it.remove();
 		}
+		else 
+			for(Home h : homes)
+				if(h.chkPlacement(value))
+					found_homes.add(h);
+		return;
+	}
 
 
-		@When("I search about home by Material {string}")
-		public void iSearchAboutHomeByMaterial(String value) {
-			if (combinational) {
-				Iterator <Home> it = found_homes.iterator();
-				while(it.hasNext())
-					if(!it.next().chkMaterial(value))
-						it.remove();
-			}
-			else 
-				for(Home h : homes)
-					if(h.chkMaterial(value))
-						found_homes.add(h);
-			return;
+	@When("I search about home by Material {string}")
+	public void iSearchAboutHomeByMaterial(String value) {
+		if (combinational) {
+			Iterator <Home> it = found_homes.iterator();
+			while(it.hasNext())
+				if(!it.next().chkMaterial(value))
+					it.remove();
 		}
+		else 
+			for(Home h : homes)
+				if(h.chkMaterial(value))
+					found_homes.add(h);
+		return;
+	}
 
 
 
