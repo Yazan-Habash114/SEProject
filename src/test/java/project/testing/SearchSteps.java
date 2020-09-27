@@ -27,6 +27,7 @@ public class SearchSteps {
 			sh.storeHome(list);
 		}
 	}
+
 	
 	// Scenario 1
 	@When("I search about home by Placement {string}")
