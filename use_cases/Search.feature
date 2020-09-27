@@ -42,7 +42,7 @@ Feature: Search about suitable home
   @scenario3
   Scenario: below specific price/ month
     When I search about home by Price below 400
-    Then A list of homes that are below a specified price should be returned and printed on the console
+    Then A list of homes that are below a specified price 400 should be returned and printed on the console
 
   @scenario4
   Scenario: between range of prices/ month

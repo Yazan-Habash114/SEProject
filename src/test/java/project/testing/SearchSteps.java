@@ -147,7 +147,7 @@ public class SearchSteps {
 	//scenario 2
 	@Then("A list of homes that match the  Material specification {string} should be returned and printed on the console")
 	public void aListOfHomesThatMatchTheMaterialSpecificationShouldBeReturnedAndPrintedOnTheConsole(String material) {
-		System.out.println("List of homes that match the Material specification :");
+		System.out.println("List of homes that match the Material specification "+material+" :");
 		tmp = sh.printFoundHomes();
 		for(Home h: tmp)
 			if(!h.chkMaterial(material))
@@ -158,10 +158,14 @@ public class SearchSteps {
 	
 	
 	//scenario 3
-	@Then("A list of homes that are below a specified price should be returned and printed on the console")
-	public void aListOfHomesThatAreBelowASpecifiedPriceShouldBeReturnedAndPrintedOnTheConsole() {
-		System.out.println("list of homes that are below a specified price :");
-		sh.printFoundHomes();
+	@Then("A list of homes that are below a specified price {int} should be returned and printed on the console")
+	public void aListOfHomesThatAreBelowASpecifiedPriceShouldBeReturnedAndPrintedOnTheConsole(int price) {
+		System.out.println("list of homes that are below a specified price "+price+" :");
+		tmp = sh.printFoundHomes();
+		for(Home h: tmp)
+			if(!h.chkPriceBelow(price))
+				checktrue = false;
+		assertTrue(checktrue && (tmp.size()==17));
 	    return;
 	}
 	
