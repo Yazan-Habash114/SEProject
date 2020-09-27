@@ -31,27 +31,27 @@ Feature: Search about suitable home
       
   @scenario1
   Scenario: search home by Placement
-    When I search about home by "Placement_CITY" 
+    When I search about home by Placement "CITY" 
     Then A list of homes that match the placment specification should be returned and printed on the console
 
   @scenario2
   Scenario: search home by Material
-    When I search about home by "Material_BRICK" 
+    When I search about home by Material "BRICK" 
     Then A list of homes that match the  Material specification should be returned and printed on the console
 
   @scenario3
   Scenario: below specific price/ month
-    When I search about home by "Price below_400" 
+    When I search about home by Price below "400" 
     Then A list of homes that are below a specified price should be returned and printed on the console
 
   @scenario4
   Scenario: between range of prices/ month
-    When I search about home by "Between range_300,500" 
+    When I search about home by Between range "300,500" 
     Then A list of homes that are in the price range should be returned and printed on the console
 
   @scenario5
   Scenario: By below specific area/ meter square
-    When I search about home by "Below specific area_135" 
+    When I search about home by Below specific area "135" 
     Then A list of homes that below a specified area should be returned and printed on the console
 
   @scenario6
