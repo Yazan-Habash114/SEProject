@@ -32,7 +32,7 @@ Feature: Search about suitable home
   @scenario1
   Scenario: search home by Placement
     When I search about home by Placement "CITY" 
-    Then A list of homes that match the placment specification should be returned and printed on the console
+    Then A list of homes that match the placment "CITY" specification should be returned and printed on the console
 
   @scenario2
   Scenario: search home by Material
