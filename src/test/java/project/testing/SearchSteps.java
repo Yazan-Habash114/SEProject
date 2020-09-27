@@ -44,45 +44,45 @@ public class SearchSteps {
 	
 	
 	// Scenario 3
-	@When("I search about home by Price below {string}")
-	public void iSearchAboutHomeByPriceBelow(String string) {
-	    sh.searchByPriceBelow(Integer.);
+	@When("I search about home by Price below {int}")
+	public void iSearchAboutHomeByPriceBelow(Integer value) {
+	    sh.searchByPriceBelow(value.intValue());
 	}
 	
 	
 	// Scenario 4
 	@When("I search about home by Between range {int} {int}")
-	public void iSearchAboutHomeByBetweenRange(int low, int high) {
-	    sh.searchBetweenRangeOfAreas(low, high);
+	public void iSearchAboutHomeByBetweenRange(Integer low, Integer high) {
+	    sh.searchBetweenRangeOfAreas(low.intValue(), high.intValue());
 	}
 	
 	
 	// Scenario 5
 	@When("I search about home by Below specific area {int}")
-	public void iSearchAboutHomeByBelowSpecificArea(int area) {
-	    sh.searchByAreaBelow(area);
+	public void iSearchAboutHomeByBelowSpecificArea(Integer area) {
+	    sh.searchByAreaBelow(area.intValue());
 	}
 	
 	
 	// Scenario 6
-	@When("I search about home by Between range of Areas {int} {int)")
-	public void iSearchAboutHomeByBetweenRangeOfAreas(int low , int high) {
-	    sh.searchBetweenRangeOfAreas(low, high);
+	@When("I search about home by Between range of Areas {int} {int}")
+	public void iSearchAboutHomeByBetweenRangeOfAreas(Integer low, Integer high) {
+	    sh.searchBetweenRangeOfAreas(low.intValue(), high.intValue());
 	}
 	
 	
 	// Scenario 7
 	@When("I search about home by Number of bedrooms {int}")
-	public void iSearchAboutHomeByNumberOfBedrooms(int num) {
-	    sh.searchByNumberOfBedrooms(num);
+	public void iSearchAboutHomeByNumberOfBedrooms(Integer num) {
+	    sh.searchByNumberOfBedrooms(num.intValue());
 	}
 	
 	
 	
 	// Scenario 8
 	@When("I search about home by Number of bathrooms {int}")
-	public void iSearchAboutHomeByNumberOfBathrooms(int num) {
-	    sh.searchByNumberOfBathrooms(num);
+	public void iSearchAboutHomeByNumberOfBathrooms(Integer num) {
+	    sh.searchByNumberOfBathrooms(num.intValue());
 	}
 	
 	
@@ -102,25 +102,16 @@ public class SearchSteps {
 	
 	// Scenario 11
 	@When("I search about home by Lease Length {int}")
-	public void iSearchAboutHomeByLeaseLength(int value) {
-		sh.searchByLeaseLength(value);
+	public void iSearchAboutHomeByLeaseLength(Integer value) {
+		sh.searchByLeaseLength(value.intValue());
 	}
 	
 	
 	// Scenario 12
 	@When("I search about home by Amenities {string}")
-	void iSearchAboutHomeByAmenities(String Amenities) {
+	public void iSearchAboutHomeByAmenities(String Amenities) {
 	    sh.searchByAmenities(Amenities);
 	}
-	
-	
-	// Scenario 13
-	/*@When("I search about home by Amenities {string}")
-	public void iSearchAboutMixedSpecifications(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}*/
-	
 	
 	
 	//scenario 1 
