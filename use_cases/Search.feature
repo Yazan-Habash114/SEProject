@@ -95,8 +95,4 @@ Feature: Search about suitable home
     And I search about home by Lease Length 12 
     And I search about home by Placement "CITY" 
     Then A list of homes that provide the Amenities "AIRCONDITIONING,BALCONY,ELEVATOR" and matches the lease length period 12 and placed in a "CITY" should be returned and printed on the console 
-
-
-
-
-  
+    
