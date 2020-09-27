@@ -47,7 +47,7 @@ Feature: Search about suitable home
   @scenario4
   Scenario: between range of prices/ month
     When I search about home by Between range 300 500
-    Then A list of homes that are in the price range should be returned and printed on the console
+    Then A list of homes that are in the price range 300 500 should be returned and printed on the console
 
   @scenario5
   Scenario: By below specific area/ meter square

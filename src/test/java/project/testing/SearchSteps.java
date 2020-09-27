@@ -167,10 +167,14 @@ public class SearchSteps {
 	
 	
 	//scenario 4
-	@Then("A list of homes that are in the price range should be returned and printed on the console")
-	public void aListOfHomesThatAreInThePriceRangeShouldBeReturnedAndPrintedOnTheConsole() {
+	@Then("A list of homes that are in the price range {int} {int} should be returned and printed on the console")
+	public void aListOfHomesThatAreInThePriceRangeShouldBeReturnedAndPrintedOnTheConsole(Integer low, Integer high) {
 		System.out.println("list of homes that are in the price range :");
 		sh.printFoundHomes();
+		for(Home h: tmp)
+			if(!h.chkPriceInRange(low, high))
+				checktrue = false;
+		assertTrue(checktrue && true);
 	    return;
 	}
 	
