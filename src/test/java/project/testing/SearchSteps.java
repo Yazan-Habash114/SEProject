@@ -31,8 +31,7 @@ public class SearchSteps {
 	// Scenario 1
 	@When("I search about home by Placement {string}")
 	public void iSearchAboutHomeByPlacement(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    
 	}
 	
 	
