@@ -180,10 +180,14 @@ public class SearchSteps {
 	
 	
 	//scenario 5
-	@Then("A list of homes that below a specified area should be returned and printed on the console")
-	public void aListOfHomesThatBelowASpecifiedAreaShouldBeReturnedAndPrintedOnTheConsole() {
-		System.out.println("list of homes that below a specified area :");
-		sh.printFoundHomes();
+	@Then("A list of homes that below a specified area {int} should be returned and printed on the console")
+	public void aListOfHomesThatBelowASpecifiedAreaShouldBeReturnedAndPrintedOnTheConsole(int area) {
+		System.out.println("list of homes that are below a specified area "+area+" m2 :");
+		tmp = sh.printFoundHomes();
+		for(Home h: tmp)
+			if(!h.chkAreaBelow(area))
+				checktrue = false;
+		assertTrue(checktrue && (tmp.size()==8));
 	    return;
 	}
 	
