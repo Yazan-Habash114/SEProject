@@ -1,7 +1,6 @@
 package project.testing;
 
 import static org.junit.Assert.assertTrue;
-
 import java.util.ArrayList;
 import java.util.Map;
 import io.cucumber.datatable.DataTable;
@@ -134,7 +133,7 @@ public class SearchSteps {
 	//scenario 1 
 	@Then("A list of homes that match the placement {string} specification should be returned and printed on the console")
 	public void aListOfHomesThatMatchThePlacmentSpecificationShouldBeReturnedAndPrintedOnTheConsole(String placement) {
-		System.out.println("List of homes that placement in a " + placement + " :");
+		System.out.println("List of homes that are placed in a '" + placement + "' :");
 		tmp = sh.printFoundHomes();
 		for(Home h: tmp)
 			if (!h.chkPlacement(placement))
@@ -147,7 +146,7 @@ public class SearchSteps {
 	//scenario 2
 	@Then("A list of homes that match the  Material specification {string} should be returned and printed on the console")
 	public void aListOfHomesThatMatchTheMaterialSpecificationShouldBeReturnedAndPrintedOnTheConsole(String material) {
-		System.out.println("List of homes that match the Material specification "+material+" :");
+		System.out.println("List of homes that match the Material specification '" + material + "' :");
 		tmp = sh.printFoundHomes();
 		for(Home h: tmp)
 			if(!h.chkMaterial(material))
@@ -160,7 +159,7 @@ public class SearchSteps {
 	//scenario 3
 	@Then("A list of homes that are below a specified price {int} should be returned and printed on the console")
 	public void aListOfHomesThatAreBelowASpecifiedPriceShouldBeReturnedAndPrintedOnTheConsole(int price) {
-		System.out.println("list of homes that are below a specified price "+price+" :");
+		System.out.println("list of homes that are below a specified price '" + price + "' :");
 		tmp = sh.printFoundHomes();
 		for(Home h: tmp)
 			if(!h.chkPriceBelow(price))
@@ -186,7 +185,7 @@ public class SearchSteps {
 	//scenario 5
 	@Then("A list of homes that below a specified area {int} should be returned and printed on the console")
 	public void aListOfHomesThatBelowASpecifiedAreaShouldBeReturnedAndPrintedOnTheConsole(int area) {
-		System.out.println("list of homes that are below a specified area "+area+" m2 :");
+		System.out.println("list of homes that are below a specified area '" + area + " m2' :");
 		tmp = sh.printFoundHomes();
 		for(Home h: tmp)
 			if(!h.chkAreaBelow(area))
@@ -212,7 +211,7 @@ public class SearchSteps {
 	//scenario 7
 	@Then("A list of homes that match the Number of bedrooms {int} should be returned and printed on the console")
 	public void aListOfHomesThatMatchTheNumberOfBedroomsShouldBeReturnedAndPrintedOnTheConsole(int numofbedrooms) {
-		System.out.println("list of homes that match the Number of bedrooms "+numofbedrooms+"  :");
+		System.out.println("list of homes that match the Number of bedrooms = " + numofbedrooms + " :");
 		tmp = sh.printFoundHomes();
 		for(Home h: tmp)
 			if(!h.chkNumberOfBedrooms(numofbedrooms))
@@ -255,7 +254,7 @@ public class SearchSteps {
 	//scenario 10
 	@Then("A list of homes that match the type {string} specification should be returned and printed on the console")
 	public void aListOfHomesThatMatchTheTypeSpecificationShouldBeReturnedAndPrintedOnTheConsole(String type) {
-		System.out.println("List of homes that match the type " + type + " are :");
+		System.out.println("List of homes that match the type '" + type + "' are :");
 		tmp = sh.printFoundHomes();
 		for(Home h: tmp)
 			if(!h.chkType(type))
@@ -268,7 +267,7 @@ public class SearchSteps {
 	//scenario 11
 	@Then("A list of homes that match the lease length period {int} should be returned and printed on the console")
 	public void aListOfHomesThatMatchTheLeaseLengthPeriodShouldBeReturnedAndPrintedOnTheConsole(Integer length) {
-		System.out.println("List of homes that have lease length of " + length.intValue() + " are :");
+		System.out.println("List of homes that have lease length of '" + length.intValue() + "' are :");
 		tmp = sh.printFoundHomes();
 		for(Home h: tmp)
 			if(!h.chkLeaseLength(length))
@@ -294,7 +293,8 @@ public class SearchSteps {
 	//scenario 13
 	@Then("A list of homes that provide the Amenities {string} and matches the lease length period {int} and placed in a {string} should be returned and printed on the console")
 	public void aListOfHomesThatProvideTheAmenitiesAIRCONDITIONINGBALCONYELEVATORAndMatchesTheLeaseLengthPeriodAndPlacedInAShouldBeReturnedAndPrintedOnTheConsole(String Amenities, Integer leaselength, String placement) {
-		System.out.println("list of homes that provide the Amenities "+Amenities+" and matches the lease length period "+leaselength+" months and placed in a"+placement+" :");
+		System.out.println("list of homes that provide the Amenities '" + Amenities +
+				"' and matche the lease length period = (" + leaselength + ") months and placed in a '" + placement + "' :");
 		tmp = sh.printFoundHomes();
 		for(Home h: tmp)
 			if(!(h.chkAmenities(Amenities.split(",")) && h.chkPlacement(placement) && h.chkLeaseLength(leaselength)))
