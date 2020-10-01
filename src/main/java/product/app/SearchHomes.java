@@ -9,7 +9,7 @@ public class SearchHomes {
 	private ArrayList <Home> found_homes;
 	private boolean combinational;
 	
-	//Constructor
+	// Constructor
 	public SearchHomes() {
 		this.homes = new ArrayList <Home>();
 		this.found_homes = new ArrayList <Home>();
@@ -18,7 +18,7 @@ public class SearchHomes {
 
 
 	
-	//add to database list
+	// Add to database list
 	public void storeHome(String[] list) {
 		Home h = new Home(list[0], list[1], list[2], list[3], list[4], Integer.parseInt(list[5]),
 				Integer.parseInt(list[6]), Integer.parseInt(list[7]), 
@@ -26,7 +26,7 @@ public class SearchHomes {
 		homes.add(h);
 	}
 	
-	// return the list of homes and print it to console
+	// Return the list of homes and print it to console
 	public ArrayList <Home> printFoundHomes() {
 		if(found_homes.isEmpty()) {
 			System.out.println("No homes found !");
@@ -41,8 +41,7 @@ public class SearchHomes {
 		return tmp;
 	}
 
-
-	// search by giving placement
+	// Search by giving placement
 	public void searchByPlacement(String value) {
 		if (combinational) {
 			Iterator <Home> it = found_homes.iterator();
@@ -57,8 +56,8 @@ public class SearchHomes {
 		this.combinational = true;
 		return;
 	}
-
-	//search by giving material 
+	
+	// Search by giving material 
 	public void searchByMaterial(String value) {
 		if (combinational) {
 			Iterator <Home> it = found_homes.iterator();
@@ -74,7 +73,7 @@ public class SearchHomes {
 		return;
 	}
 
-	//search by giving price limit
+	// Search by giving price limit
 	public void searchByPriceBelow(int value) {
 		if (combinational) {
 			Iterator <Home> it = found_homes.iterator();
@@ -91,7 +90,7 @@ public class SearchHomes {
 	}
 	
 	
-	//search by giving price range
+	// Search by giving price range
 	public void searchByAmenities(String value) {
 		if (combinational) {
 			Iterator <Home> it = found_homes.iterator();
@@ -107,7 +106,7 @@ public class SearchHomes {
 		return;
 	}
 
-	//search by giving lease length
+	// Search by giving lease length
 	public void searchByLeaseLength(int value) {
 		if (combinational) {
 			Iterator <Home> it = found_homes.iterator();
@@ -123,7 +122,7 @@ public class SearchHomes {
 		return;
 	}
 
-	//search by giving type
+	// Search by giving type
 	public void searchByType(String value) {
 		if (combinational) {
 			Iterator <Home> it = found_homes.iterator();
@@ -139,7 +138,7 @@ public class SearchHomes {
 		return;
 	}
 
-	//search by Allowing pets or not
+	// Search by Allowing pets or not
 	public void searchByAllowingPets(String value) {
 		if (combinational) {
 			Iterator <Home> it = found_homes.iterator();
@@ -155,7 +154,7 @@ public class SearchHomes {
 		return;
 	}
 
-	//search by giving number of bathrooms
+	// Search by giving number of bathrooms
 	public void searchByNumberOfBathrooms(int num) {
 		if (combinational) {
 			Iterator <Home> it = found_homes.iterator();
@@ -171,7 +170,7 @@ public class SearchHomes {
 		return;
 	}
 
-	//search by giving number of bedrooms
+	// Search by giving number of bedrooms
 	public void searchByNumberOfBedrooms(int num) {
 		
 		if (combinational) {
@@ -188,7 +187,7 @@ public class SearchHomes {
 		return;
 	}
 
-	//search by giving area range 
+	// Search by giving area range 
 	public void searchBetweenRangeOfAreas(int low, int high) {
 		if (combinational) {
 			Iterator <Home> it = found_homes.iterator();
@@ -204,7 +203,7 @@ public class SearchHomes {
 		return;
 	}
 
-	//search by giving area limit
+	// Search by giving area limit
 	public void searchByAreaBelow(int area) {
 		if (combinational) {
 			Iterator <Home> it = found_homes.iterator();
@@ -220,7 +219,7 @@ public class SearchHomes {
 		return;
 	}
 
-	//search by giving price range
+	// Search by giving price range
 	public void searchByPriceBetweenRange(int low, int high) {
 		if (combinational) {
 			Iterator <Home> it = found_homes.iterator();
