@@ -38,7 +38,7 @@ public class SearchHomes {
 		ArrayList <Home> tmp = found_homes;
 		this.found_homes = null;
 		this.combinational = false;
-		return tmp;
+		return (tmp);
 	}
 
 	// Search by giving placement
