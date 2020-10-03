@@ -123,7 +123,7 @@ public class SearchSteps {
 	
 	
 	
-	//scenario 1 
+	// Scenario 1 
 	@Then("A list of homes that match the placement {string} specification should be returned and printed on the console")
 	public void aListOfHomesThatMatchThePlacmentSpecificationShouldBeReturnedAndPrintedOnTheConsole(String placement) {
 		System.out.println("OTHMAN S OTHMAN && YAZAN N HABASH");
@@ -137,7 +137,7 @@ public class SearchSteps {
 	}
 	
 	
-	//scenario 2
+	// Scenario 2
 	@Then("A list of homes that match the  Material specification {string} should be returned and printed on the console")
 	public void aListOfHomesThatMatchTheMaterialSpecificationShouldBeReturnedAndPrintedOnTheConsole(String material) {
 		System.out.println("List of homes that match the Material specification '" + material + "' :");
@@ -150,7 +150,7 @@ public class SearchSteps {
 	}
 	
 	
-	//scenario 3
+	// Scenario 3
 	@Then("A list of homes that are below a specified price {int} should be returned and printed on the console")
 	public void aListOfHomesThatAreBelowASpecifiedPriceShouldBeReturnedAndPrintedOnTheConsole(int price) {
 		System.out.println("list of homes that are below a specified price '" + price + "' :");
@@ -163,7 +163,7 @@ public class SearchSteps {
 	}
 	
 	
-	//scenario 4
+	// Scenario 4
 	@Then("A list of homes that are in the price range {int}-{int} should be returned and printed on the console")
 	public void aListOfHomesThatAreInThePriceRangeShouldBeReturnedAndPrintedOnTheConsole(Integer low, Integer high) {
 		System.out.println("List of homes that are in the price range (" + low.toString() + ", " + high.toString() + "):");
@@ -176,7 +176,7 @@ public class SearchSteps {
 	}
 	
 	
-	//scenario 5
+	// Scenario 5
 	@Then("A list of homes that below a specified area {int} should be returned and printed on the console")
 	public void aListOfHomesThatBelowASpecifiedAreaShouldBeReturnedAndPrintedOnTheConsole(int area) {
 		System.out.println("list of homes that are below a specified area '" + area + " m2' :");
@@ -189,7 +189,7 @@ public class SearchSteps {
 	}
 	
 	
-	//scenario 6
+	// Scenario 6
 	@Then("A list of homes that in the Area range {int}-{int} should be returned and printed on the console")
 	public void aListOfHomesThatInTheAreaRangeShouldBeReturnedAndPrintedOnTheConsole(Integer low, Integer high) {
 		System.out.println("List of homes that are in the area range (" + low.toString() + ", " + high.toString() + "):");
@@ -202,7 +202,7 @@ public class SearchSteps {
 	}
 	
 	
-	//scenario 7
+	// Scenario 7
 	@Then("A list of homes that match the Number of bedrooms {int} should be returned and printed on the console")
 	public void aListOfHomesThatMatchTheNumberOfBedroomsShouldBeReturnedAndPrintedOnTheConsole(int numofbedrooms) {
 		System.out.println("list of homes that match the Number of bedrooms = " + numofbedrooms + " :");
@@ -216,7 +216,7 @@ public class SearchSteps {
 	
 	
 	
-	//scenario 8
+	// Scenario 8
 	@Then("A list of homes that match the Number of bathrooms {int} should be returned and printed on the console")
 	public void aListOfHomesThatMatchTheNumberOfBathroomsShouldBeReturnedAndPrintedOnTheConsole(Integer value) {
 		System.out.println("List of homes that have number of bathrooms = " + value.intValue() + " :");
@@ -229,7 +229,7 @@ public class SearchSteps {
 	}
 	
 	
-	//scenario 9
+	// Scenario 9
 	@Then("A list of homes that are Allowing pets {string} should be returned and printed on the console")
 	public void aListOfHomesThatAreAllowingPetsShouldBeReturnedAndPrintedOnTheConsole(String allowingpets) {
 		System.out.print("list of homes that are ");
@@ -245,7 +245,7 @@ public class SearchSteps {
 	}
 	
 	
-	//scenario 10
+	// Scenario 10
 	@Then("A list of homes that match the type {string} specification should be returned and printed on the console")
 	public void aListOfHomesThatMatchTheTypeSpecificationShouldBeReturnedAndPrintedOnTheConsole(String type) {
 		System.out.println("List of homes that match the type '" + type + "' are :");
@@ -258,7 +258,7 @@ public class SearchSteps {
 	}
 	
 	
-	//scenario 11
+	// Scenario 11
 	@Then("A list of homes that match the lease length period {int} should be returned and printed on the console")
 	public void aListOfHomesThatMatchTheLeaseLengthPeriodShouldBeReturnedAndPrintedOnTheConsole(Integer length) {
 		System.out.println("List of homes that have lease length of '" + length.intValue() + "' are :");
@@ -271,7 +271,7 @@ public class SearchSteps {
 	}
 	
 	
-	//scenario 12
+	// Scenario 12
 	@Then("A list of homes that provide the Amenities {string} specified should be returned and printed on the console")
 	public void aListOfHomesThatProvidTheAmenitiesSpecifiedShouldBeReturnedAndPrintedOnTheConsole(String amenities) {
 		System.out.println("List of homes that have amenites '" + amenities + "' are :");
@@ -284,11 +284,11 @@ public class SearchSteps {
 	}
 
 	
-	//scenario 13
-	@Then("A list of homes that provide the Amenities {string} and matches the lease length period {int} and placed in a {string} should be returned and printed on the console")
+	// Scenario 13
+	@Then("A list of homes that provide the Amenities {string} and match the lease length period {int} and placed in a {string} should be returned and printed on the console")
 	public void aListOfHomesThatProvideTheAmenitiesAIRCONDITIONINGBALCONYELEVATORAndMatchesTheLeaseLengthPeriodAndPlacedInAShouldBeReturnedAndPrintedOnTheConsole(String Amenities, Integer leaselength, String placement) {
 		System.out.println("list of homes that provide the Amenities '" + Amenities +
-				"' and matche the lease length period = (" + leaselength + ") months and placed in a '" + placement + "' :");
+				"' and match the lease length period = (" + leaselength + ") months and placed in a '" + placement + "' :");
 		tmp = sh.printFoundHomes();
 		for(Home h: tmp)
 			if(!(h.chkAmenities(Amenities.split(",")) && h.chkPlacement(placement) && h.chkLeaseLength(leaselength)))
