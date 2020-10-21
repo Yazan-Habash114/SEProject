@@ -1,7 +1,7 @@
 package project.testing;
 
 import static org.junit.Assert.assertTrue;
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
@@ -14,7 +14,7 @@ public class SearchSteps {
 	
 	private SearchHomes sh;
 	private Map <String, String> data;
-	private ArrayList <Home> tmp;
+	private List <Home> tmp;
 	private boolean checktrue = true;
 	
 	
@@ -129,13 +129,12 @@ public class SearchSteps {
 		System.out.println("OTHMAN S OTHMAN && YAZAN N HABASH");
 		System.out.println("List of homes that are placed in a '" + placement + "' :");
 		tmp = sh.printFoundHomes();
-		if(tmp != null) {
+		if(!tmp.isEmpty()) {
 			for(Home h: tmp)
 				if (!h.chkPlacement(placement))
 					checktrue = false;
 			assertTrue(checktrue && (tmp.size()==2));
 		}
-	    return;
 	}
 	
 	
@@ -144,13 +143,12 @@ public class SearchSteps {
 	public void aListOfHomesThatMatchTheMaterialSpecificationShouldBeReturnedAndPrintedOnTheConsole(String material) {
 		System.out.println("List of homes that match the Material specification '" + material + "' :");
 		tmp = sh.printFoundHomes();
-		if(tmp != null) {
+		if(!tmp.isEmpty()) {
 			for(Home h: tmp)
 				if(!h.chkMaterial(material))
 					checktrue = false;
 			assertTrue(checktrue && (tmp.size()==1));
 		}
-	    return;
 	}
 	
 	
@@ -159,13 +157,12 @@ public class SearchSteps {
 	public void aListOfHomesThatAreBelowASpecifiedPriceShouldBeReturnedAndPrintedOnTheConsole(int price) {
 		System.out.println("list of homes that are below a specified price '" + price + "' :");
 		tmp = sh.printFoundHomes();
-		if(tmp != null) {
+		if(!tmp.isEmpty()) {
 			for(Home h: tmp)
 				if(!h.chkPriceBelow(price))
 					checktrue = false;
 			assertTrue(checktrue && (tmp.size()==2));
 		}
-	    return;
 	}
 	
 	
@@ -174,13 +171,12 @@ public class SearchSteps {
 	public void aListOfHomesThatAreInThePriceRangeShouldBeReturnedAndPrintedOnTheConsole(Integer low, Integer high) {
 		System.out.println("List of homes that are in the price range (" + low.toString() + ", " + high.toString() + "):");
 		tmp = sh.printFoundHomes();
-		if(tmp != null) {
+		if(!tmp.isEmpty()) {
 			for(Home h: tmp)
 				if(!h.chkPriceInRange(low.intValue(), high.intValue()))
 					checktrue = false;
 			assertTrue(checktrue && (tmp.size()==0));
 		}
-	    return;
 	}
 	
 	
@@ -189,13 +185,12 @@ public class SearchSteps {
 	public void aListOfHomesThatBelowASpecifiedAreaShouldBeReturnedAndPrintedOnTheConsole(int area) {
 		System.out.println("list of homes that are below a specified area '" + area + " m2' :");
 		tmp = sh.printFoundHomes();
-		if(tmp != null) {
+		if(!tmp.isEmpty()) {
 			for(Home h: tmp)
 				if(!h.chkAreaBelow(area))
 					checktrue = false;
 			assertTrue(checktrue && (tmp.size()==1));
 		}
-	    return;
 	}
 	
 	
@@ -204,13 +199,12 @@ public class SearchSteps {
 	public void aListOfHomesThatInTheAreaRangeShouldBeReturnedAndPrintedOnTheConsole(Integer low, Integer high) {
 		System.out.println("List of homes that are in the area range (" + low.toString() + ", " + high.toString() + "):");
 		tmp = sh.printFoundHomes();
-		if(tmp != null) {
+		if(!tmp.isEmpty()) {
 			for(Home h: tmp)
 				if(!h.chkAreaInRange(low.intValue(), high.intValue()))
 					checktrue = false;
 			assertTrue(checktrue && (tmp.size()==1));
 		}
-	    return;
 	}
 	
 	
@@ -219,13 +213,12 @@ public class SearchSteps {
 	public void aListOfHomesThatMatchTheNumberOfBedroomsShouldBeReturnedAndPrintedOnTheConsole(int numofbedrooms) {
 		System.out.println("list of homes that match the Number of bedrooms = " + numofbedrooms + " :");
 		tmp = sh.printFoundHomes();
-		if(tmp != null) {
+		if(!tmp.isEmpty()) {
 			for(Home h: tmp)
 				if(!h.chkNumberOfBedrooms(numofbedrooms))
 					checktrue = false;
 			assertTrue(checktrue && (tmp.size()==2));
 		}
-	    return;
 	}
 	
 	
@@ -235,13 +228,12 @@ public class SearchSteps {
 	public void aListOfHomesThatMatchTheNumberOfBathroomsShouldBeReturnedAndPrintedOnTheConsole(Integer value) {
 		System.out.println("List of homes that have number of bathrooms = " + value.intValue() + " :");
 		tmp = sh.printFoundHomes();
-		if(tmp != null) {
+		if(!tmp.isEmpty()) {
 			for(Home h: tmp)
 				if(!h.chkNumberOfBathrooms(value))
 					checktrue = false;
 			assertTrue(checktrue && (tmp.size()==2));
 		}
-	    return;
 	}
 	
 	
@@ -253,13 +245,12 @@ public class SearchSteps {
 			System.out.print("not ");
 		System.out.println(" Allowing pets :");
 		tmp = sh.printFoundHomes();
-		if(tmp != null) {
+		if(!tmp.isEmpty()) {
 			for(Home h: tmp)
 				if(!h.chkAllowingPets(allowingpets))
 					checktrue = false;
 			assertTrue(checktrue && (tmp.size()==1));
 		}
-	    return;
 	}
 	
 	
@@ -268,13 +259,12 @@ public class SearchSteps {
 	public void aListOfHomesThatMatchTheTypeSpecificationShouldBeReturnedAndPrintedOnTheConsole(String type) {
 		System.out.println("List of homes that match the type '" + type + "' are :");
 		tmp = sh.printFoundHomes();
-		if(tmp != null) {
+		if(!tmp.isEmpty()) {
 			for(Home h: tmp)
 				if(!h.chkType(type))
 					checktrue = false;
 			assertTrue(checktrue && (tmp.size()==2));
 		}
-	    return;
 	}
 	
 	
@@ -283,13 +273,12 @@ public class SearchSteps {
 	public void aListOfHomesThatMatchTheLeaseLengthPeriodShouldBeReturnedAndPrintedOnTheConsole(Integer length) {
 		System.out.println("List of homes that have lease length of '" + length.intValue() + "' are :");
 		tmp = sh.printFoundHomes();
-		if(tmp != null) {
+		if(!tmp.isEmpty()) {
 			for(Home h: tmp)
 				if(!h.chkLeaseLength(length))
 					checktrue = false;
 			assertTrue(checktrue && (tmp.size()==2));
 		}
-	    return;
 	}
 	
 	
@@ -298,13 +287,12 @@ public class SearchSteps {
 	public void aListOfHomesThatProvidTheAmenitiesSpecifiedShouldBeReturnedAndPrintedOnTheConsole(String amenities) {
 		System.out.println("List of homes that have amenites '" + amenities + "' are :");
 		tmp = sh.printFoundHomes();
-		if(tmp != null) {
+		if(!tmp.isEmpty()) {
 			for(Home h: tmp)
 				if(!h.chkAmenities(amenities.split(",")))
 					checktrue = false;
 			assertTrue(checktrue && (tmp.size()==1));
 		}
-	    return;
 	}
 
 	
@@ -314,13 +302,12 @@ public class SearchSteps {
 		System.out.println("list of homes that provide the Amenities '" + Amenities +
 				"' and match the lease length period = (" + leaselength + ") months and placed in a '" + placement + "' :");
 		tmp = sh.printFoundHomes();
-		if(tmp != null) {
+		if(!tmp.isEmpty()) {
 			for(Home h: tmp)
 				if(!(h.chkAmenities(Amenities.split(",")) && h.chkPlacement(placement) && h.chkLeaseLength(leaselength)))
 					checktrue = false;
 			assertTrue(checktrue && (tmp.size()==1));
 		}
-	    return;
 	}
 
 
