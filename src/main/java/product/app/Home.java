@@ -8,19 +8,19 @@ public class Home {
 	private int area;
 	private int bedrooms;
 	private int bathrooms;
-	private boolean allow_pets;
+	private boolean allowPets;
 	private String type;
-	private int lease_length;
-	private boolean air_Condition;
+	private int leaseLength;
+	private boolean airCondition;
 	private boolean balcony;
 	private boolean elevator;
-	private boolean fire_place;
-	private boolean garage_parking;
-	private boolean swimming_pool;
+	private boolean firePlace;
+	private boolean garageParking;
+	private boolean swimmingPool;
 	
 		
 	public Home(String type, String material, String placement, String pets, String amenities, 
-			int price, int area, int bedrooms, int bathrooms, int lease_length){
+			int price, int area, int bedrooms, int bathrooms, int leaseLength){
 		// Initialize the attributes
 		this.placement = placement;
 		this.material = material;
@@ -28,25 +28,25 @@ public class Home {
 		this.area = area;
 		this.bedrooms = bedrooms;
 		this.bathrooms = bathrooms;
-		this.allow_pets = pets.equals("YES") ? true: false;
+		this.allowPets = pets.equals("YES");
 		this.type = type;
-		this.lease_length = lease_length;
-		this.air_Condition = amenities.contains("AIRCONDITIONING") ? true: false;
-		this.balcony = amenities.contains("BALCONY") ? true: false;
-		this.elevator = amenities.contains("ELEVATOR") ? true: false;
-		this.fire_place = amenities.contains("FIREPLACE") ? true: false;
-		this.garage_parking = amenities.contains("GARAGEPARKING") ? true: false;
-		this.swimming_pool = amenities.contains("SWIMMINGPOOL") ? true: false;
+		this.leaseLength = leaseLength;
+		this.airCondition = amenities.contains("AIRCONDITIONING");
+		this.balcony = amenities.contains("BALCONY");
+		this.elevator = amenities.contains("ELEVATOR");
+		this.firePlace = amenities.contains("FIREPLACE");
+		this.garageParking = amenities.contains("GARAGEPARKING");
+		this.swimmingPool = amenities.contains("SWIMMINGPOOL");
 	}
 
 
 	@Override
 	public String toString() {
 		return "Home [placement=" + placement + ", material=" + material + ", price=" + price + ", area=" + area
-				+ ", bedrooms=" + bedrooms + ", bathrooms=" + bathrooms + ", allow_pets=" + allow_pets + ", type="
-				+ type + ", lease_length=" + lease_length + ", air_Condition=" + air_Condition + ", balcony=" + balcony
-				+ ", elevator=" + elevator + ", fire_place=" + fire_place + ", garage_parking=" + garage_parking
-				+ ", swimming_pool=" + swimming_pool + "]";
+				+ ", bedrooms=" + bedrooms + ", bathrooms=" + bathrooms + ", allow_pets=" + allowPets + ", type="
+				+ type + ", lease_length=" + leaseLength + ", air_Condition=" + airCondition + ", balcony=" + balcony
+				+ ", elevator=" + elevator + ", fire_place=" + firePlace + ", garage_parking=" + garageParking
+				+ ", swimming_pool=" + swimmingPool + "]";
 	}
 
 
@@ -91,7 +91,7 @@ public class Home {
 
 	
 	public boolean chkAllowingPets(String value) {
-		return(value.equals("YES") ? (this.allow_pets) : (!this.allow_pets));
+		return(value.equals("YES") ? (this.allowPets) : (!this.allowPets));
 	}
 
 	
@@ -101,23 +101,23 @@ public class Home {
 
 
 	public boolean chkLeaseLength(int value) {
-		return(this.lease_length == value);
+		return(this.leaseLength == value);
 	}
 
 	
-	public boolean chkAmenities(String[] Amenities) {
-		for (String amenity : Amenities)
-			if (amenity.equals("AIRCONDITIONING") && !this.air_Condition)
+	public boolean chkAmenities(String[] amenities) {
+		for (String amenity : amenities)
+			if (amenity.equals("AIRCONDITIONING") && !this.airCondition)
 				return false;
 			else if (amenity.equals("BALCONY") && !this.balcony)
 		    	return false;
 			else if (amenity.equals("ELEVATOR") && !this.elevator)
 		    	return false;
-			else if (amenity.equals("FIREPLACE") && !this.fire_place)
+			else if (amenity.equals("FIREPLACE") && !this.firePlace)
 		    	return false;
-			else if (amenity.equals("GARAGEPARKING") && !this.garage_parking)
+			else if (amenity.equals("GARAGEPARKING") && !this.garageParking)
 		    	return false;
-			else if (amenity.equals("SWIMMINGPOOL") && !this.swimming_pool)
+			else if (amenity.equals("SWIMMINGPOOL") && !this.swimmingPool)
 		    	return false;
 		return true;
 	}
