@@ -1,6 +1,6 @@
 package product.app;
 
-public class ByMaterial {
+public class ByMaterial implements GeneralCheckBy {
 	
 	private String material;
 	
