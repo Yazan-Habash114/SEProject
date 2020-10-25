@@ -42,25 +42,35 @@ public class SearchHomes {
 
 	// Search by giving placement
 	public void searchByPlacement(String value) {
+		
+		GeneralCheckBy bp = new ByPlacement(value);
+		
 		if (combinational) {
 			Iterator<Home> it = foundHomes.iterator();
-			while (it.hasNext())
-				if (!it.next().chkPlacement(value))
+			while (it.hasNext()) {
+				Home h = it.next();
+				if (bp.isMatched(h))
 					it.remove();
+			}
 		} else
 			for (Home h : homes)
-				if (h.chkPlacement(value))
+				if (bp.isMatched(h))
 					foundHomes.add(h);
 		this.combinational = true;
 	}
 
 	// Search by giving material
 	public void searchByMaterial(String value) {
+		
+		ByMaterial bm = new ByMaterial(value);
+		
 		if (combinational) {
 			Iterator<Home> it = foundHomes.iterator();
-			while (it.hasNext())
-				if (!it.next().chkMaterial(value))
+			while (it.hasNext()) {
+				Home h = it.next();
+				if (bm.isMatched(h))
 					it.remove();
+			}
 		} else
 			for (Home h : homes)
 				if (h.chkMaterial(value))
