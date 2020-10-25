@@ -8,117 +8,95 @@ public class Home {
 	private int area;
 	private int bedrooms;
 	private int bathrooms;
-	private boolean allow_pets;
+	private boolean allowPets;
 	private String type;
-	private int lease_length;
-	private boolean air_Condition;
+	private int leaseLength;
+	private boolean airCondition;
 	private boolean balcony;
 	private boolean elevator;
-	private boolean fire_place;
-	private boolean garage_parking;
-	private boolean swimming_pool;
-	
-		
-	public Home(String type, String material, String placement, String pets, String amenities, 
-			int price, int area, int bedrooms, int bathrooms, int lease_length){
-		// Initialize the attributes
-		this.placement = placement;
-		this.material = material;
-		this.price = price;
-		this.area = area;
-		this.bedrooms = bedrooms;
-		this.bathrooms = bathrooms;
-		this.allow_pets = pets.equals("YES") ? true: false;
-		this.type = type;
-		this.lease_length = lease_length;
-		this.air_Condition = amenities.contains("AIRCONDITIONING") ? true: false;
-		this.balcony = amenities.contains("BALCONY") ? true: false;
-		this.elevator = amenities.contains("ELEVATOR") ? true: false;
-		this.fire_place = amenities.contains("FIREPLACE") ? true: false;
-		this.garage_parking = amenities.contains("GARAGEPARKING") ? true: false;
-		this.swimming_pool = amenities.contains("SWIMMINGPOOL") ? true: false;
-	}
+	private boolean firePlace;
+	private boolean garageParking;
+	private boolean swimmingPool;
 
+	public Home(String[] list) {
+
+		this.type = list[0];
+		this.material = list[1];
+		this.placement = list[2];
+		this.allowPets = list[3].equals("YES");
+		this.airCondition = list[4].contains("AIRCONDITIONING");
+		this.balcony = list[4].contains("BALCONY");
+		this.elevator = list[4].contains("ELEVATOR");
+		this.firePlace = list[4].contains("FIREPLACE");
+		this.swimmingPool = list[4].contains("SWIMMINGPOOL");
+		this.price = Integer.parseInt(list[5]);
+		this.area = Integer.parseInt(list[6]);
+		this.bedrooms = Integer.parseInt(list[7]);
+		this.bathrooms = Integer.parseInt(list[8]);
+		this.leaseLength = Integer.parseInt(list[9]);
+
+	}
 
 	@Override
 	public String toString() {
 		return "Home [placement=" + placement + ", material=" + material + ", price=" + price + ", area=" + area
-				+ ", bedrooms=" + bedrooms + ", bathrooms=" + bathrooms + ", allow_pets=" + allow_pets + ", type="
-				+ type + ", lease_length=" + lease_length + ", air_Condition=" + air_Condition + ", balcony=" + balcony
-				+ ", elevator=" + elevator + ", fire_place=" + fire_place + ", garage_parking=" + garage_parking
-				+ ", swimming_pool=" + swimming_pool + "]";
+				+ ", bedrooms=" + bedrooms + ", bathrooms=" + bathrooms + ", allow_pets=" + allowPets + ", type=" + type
+				+ ", lease_length=" + leaseLength + ", air_Condition=" + airCondition + ", balcony=" + balcony
+				+ ", elevator=" + elevator + ", fire_place=" + firePlace + ", garage_parking=" + garageParking
+				+ ", swimming_pool=" + swimmingPool + "]";
 	}
-
 
 	public boolean chkPlacement(String value) {
-		return(this.placement.equals(value));
+		return (this.placement.equals(value));
 	}
-
 
 	public boolean chkMaterial(String value) {
 		return (this.material.contentEquals(value));
 	}
 
-
 	public boolean chkPriceBelow(int parseInt) {
-		return(this.price < parseInt);
+		return (this.price < parseInt);
 	}
-
 
 	public boolean chkPriceInRange(int low, int high) {
-		return((low < this.price) && (this.price < high));
+		return ((low < this.price) && (this.price < high));
 	}
-
 
 	public boolean chkAreaBelow(int area2) {
-		return(this.area < area2);
+		return (this.area < area2);
 	}
-
 
 	public boolean chkAreaInRange(int low, int high) {
-		return((low < this.area) && (this.area < high));
+		return ((low < this.area) && (this.area < high));
 	}
-
 
 	public boolean chkNumberOfBedrooms(int num) {
-		return(this.bedrooms == num);
+		return (this.bedrooms == num);
 	}
-
 
 	public boolean chkNumberOfBathrooms(int num) {
-		return(this.bathrooms == num);
+		return (this.bathrooms == num);
 	}
 
-	
 	public boolean chkAllowingPets(String value) {
-		return(value.equals("YES") ? (this.allow_pets) : (!this.allow_pets));
+		return (value.equals("YES") ? (this.allowPets) : (!this.allowPets));
 	}
 
-	
 	public boolean chkType(String value) {
-		return(value.equals(this.type));
+		return (value.equals(this.type));
 	}
-
 
 	public boolean chkLeaseLength(int value) {
-		return(this.lease_length == value);
+		return (this.leaseLength == value);
 	}
 
-	
-	public boolean chkAmenities(String[] Amenities) {
-		for (String amenity : Amenities)
-			if (amenity.equals("AIRCONDITIONING") && !this.air_Condition)
+	public boolean chkAmenities(String[] amenities) {
+		for (String amenity : amenities)
+			if (amenity.equals("AIRCONDITIONING") && !this.airCondition || amenity.equals("BALCONY") && !this.balcony
+					|| amenity.equals("ELEVATOR") && !this.elevator || amenity.equals("FIREPLACE") && !this.firePlace
+					|| amenity.equals("GARAGEPARKING") && !this.garageParking
+					|| amenity.equals("SWIMMINGPOOL") && !this.swimmingPool)
 				return false;
-			else if (amenity.equals("BALCONY") && !this.balcony)
-		    	return false;
-			else if (amenity.equals("ELEVATOR") && !this.elevator)
-		    	return false;
-			else if (amenity.equals("FIREPLACE") && !this.fire_place)
-		    	return false;
-			else if (amenity.equals("GARAGEPARKING") && !this.garage_parking)
-		    	return false;
-			else if (amenity.equals("SWIMMINGPOOL") && !this.swimming_pool)
-		    	return false;
 		return true;
 	}
 
