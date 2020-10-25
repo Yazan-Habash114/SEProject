@@ -19,24 +19,23 @@ public class Home {
 	private boolean swimmingPool;
 	
 		
-	public Home(String type, String material, String placement, String pets, String amenities, 
-			int price, int area, int bedrooms, int bathrooms, int leaseLength){
-		// Initialize the attributes
-		this.placement = placement;
-		this.material = material;
-		this.price = price;
-		this.area = area;
-		this.bedrooms = bedrooms;
-		this.bathrooms = bathrooms;
-		this.allowPets = pets.equals("YES");
-		this.type = type;
-		this.leaseLength = leaseLength;
-		this.airCondition = amenities.contains("AIRCONDITIONING");
-		this.balcony = amenities.contains("BALCONY");
-		this.elevator = amenities.contains("ELEVATOR");
-		this.firePlace = amenities.contains("FIREPLACE");
-		this.garageParking = amenities.contains("GARAGEPARKING");
-		this.swimmingPool = amenities.contains("SWIMMINGPOOL");
+	public Home(String[]list){
+		
+		this.type = list[0];
+		this.material = list[1];
+		this.placement = list [2];
+		this.allowPets= list[3].equals("YES");
+		this.airCondition = list[4].contains("AIRCONDITIONING");
+		this.balcony = list[4].contains("BALCONY");
+		this.elevator = list[4].contains("ELEVATOR");
+		this.firePlace = list[4].contains("FIREPLACE");
+		this.swimmingPool = list[4].contains("SWIMMINGPOOL");
+		this.price = Integer.parseInt(list[5]);
+		this.area = Integer.parseInt(list[6]);
+		this.bedrooms = Integer.parseInt(list[7]);
+		this.bathrooms = Integer.parseInt(list[8]);
+		this.leaseLength = Integer.parseInt(list[9]);
+		
 	}
 
 
@@ -107,19 +106,14 @@ public class Home {
 	
 	public boolean chkAmenities(String[] amenities) {
 		for (String amenity : amenities)
-			if (amenity.equals("AIRCONDITIONING") && !this.airCondition)
-				return false;
-			else if (amenity.equals("BALCONY") && !this.balcony)
-		    	return false;
-			else if (amenity.equals("ELEVATOR") && !this.elevator)
-		    	return false;
-			else if (amenity.equals("FIREPLACE") && !this.firePlace)
-		    	return false;
-			else if (amenity.equals("GARAGEPARKING") && !this.garageParking)
-		    	return false;
-			else if (amenity.equals("SWIMMINGPOOL") && !this.swimmingPool)
-		    	return false;
-		return true;
+			if (amenity.equals("AIRCONDITIONING") && !this.airCondition  
+							||  amenity.equals("BALCONY") && !this.balcony  
+							||  amenity.equals("ELEVATOR") && !this.elevator  
+							||  amenity.equals("FIREPLACE") && !this.firePlace 
+							||	amenity.equals("GARAGEPARKING") && !this.garageParking  
+							|| 	amenity.equals("SWIMMINGPOOL") && !this.swimmingPool )
+					return false;
+			return true;
 	}
 
 }

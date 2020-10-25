@@ -28,7 +28,7 @@ public class SearchSteps {
 		String[] list = new String [10]; // Saving all specifications
 		for(Map.Entry<String, String> entry : this.data.entrySet()) {
 			System.arraycopy(entry.getKey().split("_"), 0, list, 0, 5);
-			System.arraycopy(entry.getValue().split("_"), 0, list, 5, 5);
+			System.arraycopy(entry.getValue().split("_"), 0, list, 5, 5); 
 			sh.storeHome(list);
 		}
 	}

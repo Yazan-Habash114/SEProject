@@ -3,9 +3,10 @@ package product.app;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class SearchHomes {
-	
+	private static final Logger LOGGER = Logger.getLogger(SearchHomes.class.getName());
 	private ArrayList <Home> homes;
 	private ArrayList <Home> foundHomes;
 	private boolean combinational;
@@ -21,21 +22,20 @@ public class SearchHomes {
 	
 	// Add to database list
 	public void storeHome(String[] list) {
-		Home h = new Home(list[0], list[1], list[2], list[3], list[4], Integer.parseInt(list[5]),
-				Integer.parseInt(list[6]), Integer.parseInt(list[7]), 
-				Integer.parseInt(list[8]), Integer.parseInt(list[9]));
+		Home h = new Home(list);
 		homes.add(h);
 	}
 	
 	// Return the list of homes and print it to console
 	public List <Home> printFoundHomes() {
 		if(foundHomes.isEmpty()) {
-			System.err.println("No homes found !\n");
+			LOGGER.info("No homes found, try search for another specifications :)\n");
 			return (foundHomes);
 		}
+		StringBuilder listOfFoundHomes = new StringBuilder();
 		for(Home h: foundHomes)
-			System.out.println(h.toString());
-		System.out.println();
+			listOfFoundHomes.append(h.toString()+"\n");
+		LOGGER.fine("\n" + listOfFoundHomes);
 		ArrayList <Home> tmp = foundHomes;
 		this.foundHomes = null;
 		this.combinational = false;
