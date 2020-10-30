@@ -8,12 +8,8 @@ public class ByNumBathrooms implements GeneralCheckBy {
 		this.num = num;
 	}
 
-	public int getNum() {
-		return num;
-	}
-
 	public boolean isMatched(Home h) {
-		return h.chkNumberOfBathrooms(getNum());
+		return (h.getBathrooms() == num);
 	}
 	
 }

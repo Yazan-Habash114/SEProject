@@ -8,12 +8,8 @@ public class ByType implements GeneralCheckBy {
 		this.type = type;
 	}
 
-	public String getType() {
-		return this.type;
-	}
-
 	public boolean isMatched(Home h) {
-		return h.chkType(getType());
+		return(h.getType().contentEquals(this.type));
 	}
 	
 }

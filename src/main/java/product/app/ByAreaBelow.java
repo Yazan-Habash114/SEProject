@@ -8,12 +8,8 @@ public class ByAreaBelow implements GeneralCheckBy {
 		this.area = area;
 	}
 
-	public int getArea() {
-		return area;
-	}
-
 	public boolean isMatched(Home h) {
-		return h.chkAreaBelow(getArea());
+		return (h.getArea() < this.area);
 	}
 	
 }

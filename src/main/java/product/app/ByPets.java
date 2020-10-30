@@ -8,12 +8,10 @@ public class ByPets implements GeneralCheckBy {
 		this.allowed = allowed;
 	}
 
-	public String getAllowed() {
-		return allowed;
-	}
-
 	public boolean isMatched(Home h) {
-		return h.chkAllowingPets(getAllowed());
+		if(this.allowed.contentEquals("YES"))
+			return(h.isAllowPets());
+		return(false);
 	}
 	
 }

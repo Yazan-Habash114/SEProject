@@ -7,13 +7,9 @@ public class ByMaterial implements GeneralCheckBy {
 	public ByMaterial(String material) {
 		this.material = material;
 	}
-	
-	public String getMaterial() {
-		return this.material;
-	}
 
 	public boolean isMatched(Home h) {
-		return h.chkMaterial(getMaterial());
+		return (h.getMaterial().contentEquals(this.material));
 	}
 
 }
