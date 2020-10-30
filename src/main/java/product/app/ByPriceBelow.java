@@ -7,13 +7,9 @@ public class ByPriceBelow implements GeneralCheckBy {
 	public ByPriceBelow(int price) {
 		this.price = price;
 	}
-	
-	public int getPrice() {
-		return this.price;
-	}
 
 	public boolean isMatched(Home h) {
-		return h.chkPriceBelow(getPrice());
+		return(h.getPrice() < this.price);
 	}
 	
 }

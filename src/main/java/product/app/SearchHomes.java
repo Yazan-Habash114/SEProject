@@ -44,7 +44,7 @@ public class SearchHomes {
 	// Search by giving price range
 	public void searchByAmenities(String value) {
 		if(combinational) {
-			Iterator<Home> it = foundHomes.iterator();
+			Iterator <Home> it = foundHomes.iterator();
 			while (it.hasNext())
 				if (!it.next().chkAmenities(value.split(",")))
 					it.remove();
@@ -56,17 +56,11 @@ public class SearchHomes {
 	}
 
 	// Search by giving lease length
-	public void searchByLeaseLength(int value) {
-		if(combinational) {
-			Iterator<Home> it = foundHomes.iterator();
-			while(it.hasNext())
-				if(!it.next().chkLeaseLength(value))
-					it.remove();
-		} else
-			for(Home h : homes)
-				if(h.chkLeaseLength(value))
-					foundHomes.add(h);
-		this.combinational = true;
+	public void searchByLeaseLength(int leaseLength) {
+		
+		GeneralCheckBy specification = new ByLeaseLength(leaseLength);
+		
+		searchBySpec(specification);
 	}
 
 	
@@ -148,9 +142,9 @@ public class SearchHomes {
 	// Search by giving price range
 	public void searchByPriceBetweenRange(int low, int high) {
 		
-		GeneralCheckBy bpb = new ByPriceBetween(low, high);
+		GeneralCheckBy specification = new ByPriceBetween(low, high);
 		
-		searchBySpec(bpb);
+		searchBySpec(specification);
 	}
 	
 	// Search by general specification

@@ -10,16 +10,8 @@ public class ByAreaBetween implements GeneralCheckBy {
 		this.high = high;
 	}
 
-	public int getLow() {
-		return low;
-	}
-
-	public int getHigh() {
-		return high;
-	}
-
 	public boolean isMatched(Home h) {
-		return h.chkAreaInRange(getLow(), getHigh());
+		return (this.low > h.getArea() && h.getArea() < this.high);
 	}
 	
 }
