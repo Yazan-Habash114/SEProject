@@ -8,12 +8,8 @@ public class ByPlacement implements GeneralCheckBy {
 		this.placement = placement;
 	}
 
-	public String getPlacement() {
-		return this.placement;
-	}
-
 	public boolean isMatched(Home h) {
-		return h.chkPlacement(getPlacement());
+		return (h.getPlacement().contentEquals(this.placement));
 	}
 	
 }

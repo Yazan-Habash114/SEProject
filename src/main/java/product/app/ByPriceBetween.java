@@ -10,16 +10,8 @@ public class ByPriceBetween implements GeneralCheckBy {
 		this.high = high;
 	}
 
-	public int getLow() {
-		return low;
-	}
-
-	public int getHigh() {
-		return high;
-	}
-
 	public boolean isMatched(Home h) {
-		return h.chkPriceInRange(getLow(), getHigh());
+		return(this.low < h.getPrice() && this.high > h.getPrice());
 	}
 	
 }

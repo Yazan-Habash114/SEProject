@@ -45,49 +45,42 @@ public class Home {
 				+ ", elevator=" + elevator + ", fire_place=" + firePlace + ", garage_parking=" + garageParking
 				+ ", swimming_pool=" + swimmingPool + "]";
 	}
+	
 
-	public boolean chkPlacement(String value) {
-		return (this.placement.equals(value));
+	public String getPlacement() {
+		return placement;
 	}
 
-	public boolean chkMaterial(String value) {
-		return (this.material.contentEquals(value));
+	public String getMaterial() {
+		return material;
 	}
 
-	public boolean chkPriceBelow(int parseInt) {
-		return (this.price < parseInt);
+	public int getPrice() {
+		return price;
 	}
 
-	public boolean chkPriceInRange(int low, int high) {
-		return ((low < this.price) && (this.price < high));
+	public int getArea() {
+		return area;
 	}
 
-	public boolean chkAreaBelow(int area2) {
-		return (this.area < area2);
+	public int getBedrooms() {
+		return bedrooms;
 	}
 
-	public boolean chkAreaInRange(int low, int high) {
-		return ((low < this.area) && (this.area < high));
+	public int getBathrooms() {
+		return bathrooms;
 	}
 
-	public boolean chkNumberOfBedrooms(int num) {
-		return (this.bedrooms == num);
+	public boolean isAllowPets() {
+		return allowPets;
 	}
 
-	public boolean chkNumberOfBathrooms(int num) {
-		return (this.bathrooms == num);
+	public String getType() {
+		return type;
 	}
-
-	public boolean chkAllowingPets(String value) {
-		return (value.equals("YES") ? (this.allowPets) : (!this.allowPets));
-	}
-
-	public boolean chkType(String value) {
-		return (value.equals(this.type));
-	}
-
-	public boolean chkLeaseLength(int value) {
-		return (this.leaseLength == value);
+	
+	public int getLeaseLength() {
+		return leaseLength;
 	}
 
 	public boolean chkAmenities(String[] amenities) {
