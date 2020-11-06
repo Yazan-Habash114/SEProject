@@ -28,13 +28,13 @@ public class SearchHomes {
 	// Return the list of homes and print it to console
 	public List<Home> printFoundHomes() {
 		if (foundHomes.isEmpty()) {
-			LOGGER.log(null, "No homes found, try search for another specifications :)\n");
+			System.out.println("No homes found, try search for another specifications :)\n");
 			return (foundHomes);
 		}
 		StringBuilder listOfFoundHomes = new StringBuilder();
 		for (Home h : foundHomes)
 			listOfFoundHomes.append(h.toString() + "\n");
-		LOGGER.log(null, "\n" + listOfFoundHomes);
+		System.out.println("\n" + listOfFoundHomes);
 		ArrayList<Home> tmp = foundHomes;
 		this.foundHomes = null;
 		this.combinational = false;
