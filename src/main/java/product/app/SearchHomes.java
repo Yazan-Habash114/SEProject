@@ -27,7 +27,7 @@ public class SearchHomes {
 	// Return the list of homes and print it to console
 	public List<Home> printFoundHomes() {
 		if (foundHomes.isEmpty()) {
-			System.out.println("No homes found, try search for another specifications :)\n");
+			LOGGER.info("No homes found, try search for another specifications :)\n");
 			return (foundHomes);
 		}
 		StringBuilder listOfFoundHomes = new StringBuilder();
