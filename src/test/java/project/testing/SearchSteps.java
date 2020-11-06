@@ -20,7 +20,7 @@ public class SearchSteps {
 	public SearchSteps() {
 		sh = new SearchHomes();
 	}
-	
+
 	@Given("these homes are contained in the system")
 	public void theseHomesAreContainedInTheSystem(DataTable tb) {
 		data = tb.asMap(String.class, String.class);
@@ -106,8 +106,7 @@ public class SearchSteps {
 
 	// *************************************************** Then
 	// **************************************************
-	
-	
+
 	// General list of homes
 	public void generalListOfHomesThatMatch(int lengthOfList) {
 		tmp = sh.printFoundHomes();
@@ -118,7 +117,7 @@ public class SearchSteps {
 			assertTrue(checkTrue && (tmp.size() == lengthOfList));
 		}
 	}
-	
+
 	// Scenario 1
 	@Then("A list of homes that match the placement {string} specification should be returned and printed on the console")
 	public void aListOfHomesThatMatchThePlacmentSpecificationShouldBeReturnedAndPrintedOnTheConsole(String placement) {
@@ -151,7 +150,7 @@ public class SearchSteps {
 		specification = new ByPriceBetween(low, high);
 		generalListOfHomesThatMatch(1);
 	}
-	
+
 	// Scenario 5
 	@Then("A list of homes that below a specified area {int} should be returned and printed on the console")
 	public void aListOfHomesThatBelowASpecifiedAreaShouldBeReturnedAndPrintedOnTheConsole(int area) {
@@ -221,7 +220,7 @@ public class SearchSteps {
 	@Then("A list of homes that provide the Amenities {string} and match the lease length period {int} and placed in a {string} should be returned and printed on the console")
 	public void aListOfHomesThatProvideTheAmenitiesAIRCONDITIONINGBALCONYELEVATORAndMatchesTheLeaseLengthPeriodAndPlacedInAShouldBeReturnedAndPrintedOnTheConsole(
 			String amenities, Integer leaseLength, String placement) {
-		
+
 		System.out.println("\nList of homes that provide the Amenities '" + amenities + "' and match the lease length period = ("
 						+ leaseLength + ") months and placed in a '" + placement + "' :");
 		specification = new ByAmenities(amenities);
