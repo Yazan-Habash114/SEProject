@@ -1,7 +1,6 @@
 package product.app;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -31,10 +30,11 @@ public class SearchHomes {
 			System.out.println("No homes found, try search for another specifications :)\n");
 			return (foundHomes);
 		}
-		StringBuilder listOfFoundHomes = new StringBuilder();
+		String listOfFoundHomes = new String();
+		listOfFoundHomes+=("\n");
 		for (Home h : foundHomes)
-			listOfFoundHomes.append(h.toString() + "\n");
-		System.out.println("\n" + listOfFoundHomes);
+			listOfFoundHomes +=(h.toString() + "\n");
+		LOGGER.log(null,listOfFoundHomes);
 		ArrayList<Home> tmp = foundHomes;
 		this.foundHomes = null;
 		this.combinational = false;
