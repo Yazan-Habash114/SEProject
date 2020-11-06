@@ -221,7 +221,7 @@ public class SearchSteps {
 	public void aListOfHomesThatProvideTheAmenitiesAIRCONDITIONINGBALCONYELEVATORAndMatchesTheLeaseLengthPeriodAndPlacedInAShouldBeReturnedAndPrintedOnTheConsole(
 			String amenities, Integer leaseLength, String placement) {
 
-		System.out.println("\nList of homes that provide the Amenities '" + amenities + "' and match the lease length period = ("
+		System.out.println("\nList of homes that provide the amenities '" + amenities + "' and match the lease length period = ("
 						+ leaseLength + ") months and placed in a '" + placement + "' :");
 		specification = new ByAmenities(amenities);
 		generalListOfHomesThatMatch(1);
