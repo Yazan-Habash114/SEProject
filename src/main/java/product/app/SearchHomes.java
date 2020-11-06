@@ -123,8 +123,7 @@ public class SearchHomes {
 			for(Home h : homes)
 				if(specification.isMatched(h))
 					foundHomes.add(h);
-		}
-
+		this.combinational = true;
 	}
 
 }
