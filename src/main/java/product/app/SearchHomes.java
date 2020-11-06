@@ -1,7 +1,6 @@
 package product.app;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -34,27 +33,20 @@ public class SearchHomes {
 		StringBuilder listOfFoundHomes = new StringBuilder();
 		for(Home h : foundHomes)
 			listOfFoundHomes.append(h.toString() + "\n");
-		LOGGER.fine("\n" + listOfFoundHomes);
+		LOGGER.info("\n" + listOfFoundHomes);
 		ArrayList<Home> tmp = foundHomes;
 		this.foundHomes = null;
 		this.combinational = false;
 		return(tmp);
 	}
 	
-	// Search by giving price range
-	public void searchByAmenities(String value) {
-		if(combinational) {
-			Iterator <Home> it = foundHomes.iterator();
-			while (it.hasNext())
-				if (!it.next().chkAmenities(value.split(",")))
-					it.remove();
-		} else
-			for(Home h : homes)
-				if(h.chkAmenities(value.split(",")))
-					foundHomes.add(h);
-		this.combinational = true;
+	// Search by amenities
+	public void searchByAmenities(String amenities) {
+		GeneralCheckBy specification = new ByAmenities(amenities);
+		searchBySpec(specification);
 	}
-
+	
+	
 	// Search by giving lease length
 	public void searchByLeaseLength(int leaseLength) {
 		
@@ -149,13 +141,10 @@ public class SearchHomes {
 	
 	// Search by general specification
 	private void searchBySpec(GeneralCheckBy specification) {
-		if(combinational) {
-			Iterator<Home> it = foundHomes.iterator();
-			while(it.hasNext()) {
-				Home h = it.next();
+		if (combinational) {
+			for (Home h : homes)
 				if (!specification.isMatched(h))
-					it.remove();
-			}
+					foundHomes.remove(h);
 		} else
 			for(Home h : homes)
 				if(specification.isMatched(h))

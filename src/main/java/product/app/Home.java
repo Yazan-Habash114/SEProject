@@ -47,6 +47,30 @@ public class Home {
 	}
 	
 
+	public boolean hasAirCondition() {
+		return airCondition;
+	}
+
+	public boolean hasBalcony() {
+		return balcony;
+	}
+
+	public boolean hasElevator() {
+		return elevator;
+	}
+
+	public boolean hasFirePlace() {
+		return firePlace;
+	}
+
+	public boolean hasGarageParking() {
+		return garageParking;
+	}
+
+	public boolean hasSwimmingPool() {
+		return swimmingPool;
+	}
+
 	public String getPlacement() {
 		return placement;
 	}
@@ -82,15 +106,5 @@ public class Home {
 	public int getLeaseLength() {
 		return leaseLength;
 	}
-
-	public boolean chkAmenities(String[] amenities) {
-		for (String amenity : amenities)
-			if (amenity.equals("AIRCONDITIONING") && !this.airCondition || amenity.equals("BALCONY") && !this.balcony
-					|| amenity.equals("ELEVATOR") && !this.elevator || amenity.equals("FIREPLACE") && !this.firePlace
-					|| amenity.equals("GARAGEPARKING") && !this.garageParking
-					|| amenity.equals("SWIMMINGPOOL") && !this.swimmingPool)
-				return false;
-		return true;
-	}
-
+	
 }
