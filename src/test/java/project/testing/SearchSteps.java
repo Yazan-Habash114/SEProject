@@ -7,6 +7,7 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import product.app.*;
 
 public class SearchSteps {
 
@@ -145,9 +146,8 @@ public class SearchSteps {
 	// Scenario 4
 	@Then("A list of homes that are in the price range {int} {int} should be returned and printed on the console")
 	public void aListOfHomesThatAreInThePriceRangeShouldBeReturnedAndPrintedOnTheConsole(Integer low, Integer high) {
-		System.out.println(
-				"List of homes that are in the price range (" + low.toString() + ", " + high.toString() + "):");
-		GeneralCheckBy specification = new ByPriceBetween(low, high);
+		System.out.println("List of homes that are in the price range (" + low.toString() + ", " + high.toString() + "):");
+		specification = new ByPriceBetween(low, high);
 		generalListOfHomesThatMatch(1);
 	}
 
@@ -189,7 +189,7 @@ public class SearchSteps {
 	@Then("A list of homes that are Allowing pets {string} should be returned and printed on the console")
 	public void aListOfHomesThatAreAllowingPetsShouldBeReturnedAndPrintedOnTheConsole(String allowingPets) {
 		System.out.print("list of homes that are Allowing pets : ");
-		GeneralCheckBy specification = new ByPets(allowingPets);
+		specification = new ByPets(allowingPets);
 		generalListOfHomesThatMatch(1);
 	}
 
