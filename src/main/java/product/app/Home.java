@@ -106,4 +106,5 @@ public class Home {
 	public int getLeaseLength() {
 		return leaseLength;
 	}
+  
 }

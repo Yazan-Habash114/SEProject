@@ -30,23 +30,23 @@ public class SearchHomes {
 			System.out.println("No homes found, try search for another specifications :)\n");
 			return (foundHomes);
 		}
-		String listOfFoundHomes = new String();
-		listOfFoundHomes+=("\n");
-		for (Home h : foundHomes)
-			listOfFoundHomes +=(h.toString() + "\n");
-		LOGGER.log(null,listOfFoundHomes);
+		StringBuilder listOfFoundHomes = new StringBuilder();
+		for(Home h : foundHomes)
+			listOfFoundHomes.append(h.toString() + "\n");
+		LOGGER.info("\n" + listOfFoundHomes);
 		ArrayList<Home> tmp = foundHomes;
 		this.foundHomes = null;
 		this.combinational = false;
-		return (tmp);
+		return(tmp);
 	}
-
-	// Search by giving price range
-	public void searchByAmenities(String value) {
-		GeneralCheckBy specification = new ByAmenities(value);
+	
+	// Search by amenities
+	public void searchByAmenities(String amenities) {
+		GeneralCheckBy specification = new ByAmenities(amenities);
 		searchBySpec(specification);
 	}
-
+	
+	
 	// Search by giving lease length
 	public void searchByLeaseLength(int leaseLength) {
 		GeneralCheckBy specification = new ByLeaseLength(leaseLength);
@@ -119,9 +119,9 @@ public class SearchHomes {
 			for (Home h : homes)
 				if (!specification.isMatched(h))
 					foundHomes.remove(h);
-		} else {
-			for (Home h : foundHomes)
-				if (!specification.isMatched(h))
+		} else
+			for(Home h : homes)
+				if(specification.isMatched(h))
 					foundHomes.add(h);
 		}
 
