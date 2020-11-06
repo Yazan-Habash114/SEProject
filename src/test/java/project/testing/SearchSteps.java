@@ -7,7 +7,6 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import product.app.*;
 
 public class SearchSteps {
 
@@ -15,11 +14,12 @@ public class SearchSteps {
 	private Map<String, String> data;
 	private List<Home> tmp;
 	private boolean checkTrue = true;
+	GeneralCheckBy specification;
 
 	public SearchSteps() {
 		sh = new SearchHomes();
 	}
-	
+
 	@Given("these homes are contained in the system")
 	public void theseHomesAreContainedInTheSystem(DataTable tb) {
 		data = tb.asMap(String.class, String.class);
@@ -105,10 +105,9 @@ public class SearchSteps {
 
 	// *************************************************** Then
 	// **************************************************
-	
-	
+
 	// General list of homes
-	public void generalListOfHomesThatMatch(GeneralCheckBy specification, int lengthOfList) {
+	public void generalListOfHomesThatMatch(int lengthOfList) {
 		tmp = sh.printFoundHomes();
 		if (!tmp.isEmpty()) {
 			for (Home h : tmp)
@@ -117,30 +116,30 @@ public class SearchSteps {
 			assertTrue(checkTrue && (tmp.size() == lengthOfList));
 		}
 	}
-	
+
 	// Scenario 1
 	@Then("A list of homes that match the placement {string} specification should be returned and printed on the console")
 	public void aListOfHomesThatMatchThePlacmentSpecificationShouldBeReturnedAndPrintedOnTheConsole(String placement) {
 		System.out.println("OTHMAN S OTHMAN && YAZAN N HABASH");
 		System.out.println("List of homes that are placed in a '" + placement + "' :");
-		GeneralCheckBy specification = new ByPlacement(placement);
-		generalListOfHomesThatMatch(specification, 2);
+		specification = new ByPlacement(placement);
+		generalListOfHomesThatMatch(2);
 	}
 
 	// Scenario 2
 	@Then("A list of homes that match the  Material specification {string} should be returned and printed on the console")
 	public void aListOfHomesThatMatchTheMaterialSpecificationShouldBeReturnedAndPrintedOnTheConsole(String material) {
 		System.out.println("List of homes that match the Material specification '" + material + "' :");
-		GeneralCheckBy specification = new ByMaterial(material);
-		generalListOfHomesThatMatch(specification, 1);
+		specification = new ByMaterial(material);
+		generalListOfHomesThatMatch(1);
 	}
 
 	// Scenario 3
 	@Then("A list of homes that are below a specified price {int} should be returned and printed on the console")
 	public void aListOfHomesThatAreBelowASpecifiedPriceShouldBeReturnedAndPrintedOnTheConsole(int price) {
 		System.out.println("list of homes that are below a specified price '" + price + "' :");
-		GeneralCheckBy specification = new ByPriceBelow(price);
-		generalListOfHomesThatMatch(specification, 2);
+		specification = new ByPriceBelow(price);
+		generalListOfHomesThatMatch(2);
 	}
 
 	// Scenario 4
@@ -149,94 +148,86 @@ public class SearchSteps {
 		System.out.println(
 				"List of homes that are in the price range (" + low.toString() + ", " + high.toString() + "):");
 		GeneralCheckBy specification = new ByPriceBetween(low, high);
-		generalListOfHomesThatMatch(specification, 1);
+		generalListOfHomesThatMatch(1);
 	}
-	
+
 	// Scenario 5
 	@Then("A list of homes that below a specified area {int} should be returned and printed on the console")
 	public void aListOfHomesThatBelowASpecifiedAreaShouldBeReturnedAndPrintedOnTheConsole(int area) {
 		System.out.println("list of homes that are below a specified area '" + area + " m2' :");
-		GeneralCheckBy specification = new ByAreaBelow(area);
-		generalListOfHomesThatMatch(specification, 1);
+		specification = new ByAreaBelow(area);
+		generalListOfHomesThatMatch(1);
 	}
 
 	// Scenario 6
 	@Then("A list of homes that in the Area range {int}-{int} should be returned and printed on the console")
 	public void aListOfHomesThatInTheAreaRangeShouldBeReturnedAndPrintedOnTheConsole(Integer low, Integer high) {
-		System.out.println("List of homes that are in the area range (" + low.toString() + ", " + high.toString() + "):");
-		GeneralCheckBy specification = new ByAreaBetween(low, high);
-		generalListOfHomesThatMatch(specification, 1);
+		System.out
+				.println("List of homes that are in the area range (" + low.toString() + ", " + high.toString() + "):");
+		specification = new ByAreaBetween(low, high);
+		generalListOfHomesThatMatch(1);
 	}
 
 	// Scenario 7
 	@Then("A list of homes that match the Number of bedrooms {int} should be returned and printed on the console")
 	public void aListOfHomesThatMatchTheNumberOfBedroomsShouldBeReturnedAndPrintedOnTheConsole(int numOfBedrooms) {
 		System.out.println("list of homes that match the Number of bedrooms = " + numOfBedrooms + " :");
-		GeneralCheckBy specification = new ByNumBedrooms(numOfBedrooms);
-		generalListOfHomesThatMatch(specification, 2);
+		specification = new ByNumBedrooms(numOfBedrooms);
+		generalListOfHomesThatMatch(2);
 	}
 
 	// Scenario 8
 	@Then("A list of homes that match the Number of bathrooms {int} should be returned and printed on the console")
-	public void aListOfHomesThatMatchTheNumberOfBathroomsShouldBeReturnedAndPrintedOnTheConsole(Integer numOfBathrooms) {
+	public void aListOfHomesThatMatchTheNumberOfBathroomsShouldBeReturnedAndPrintedOnTheConsole(
+			Integer numOfBathrooms) {
 		System.out.println("List of homes that have number of bathrooms = " + numOfBathrooms.intValue() + " :");
-		GeneralCheckBy specification = new ByNumBathrooms(numOfBathrooms);
-		generalListOfHomesThatMatch(specification, 2);
+		specification = new ByNumBathrooms(numOfBathrooms);
+		generalListOfHomesThatMatch(2);
 	}
 
 	// Scenario 9
 	@Then("A list of homes that are Allowing pets {string} should be returned and printed on the console")
 	public void aListOfHomesThatAreAllowingPetsShouldBeReturnedAndPrintedOnTheConsole(String allowingPets) {
-		System.out.print("list of homes that are ");
-		System.out.println(" Allowing pets :");
+		System.out.print("list of homes that are Allowing pets : ");
 		GeneralCheckBy specification = new ByPets(allowingPets);
-		generalListOfHomesThatMatch(specification, 1);
+		generalListOfHomesThatMatch(1);
 	}
 
 	// Scenario 10
 	@Then("A list of homes that match the type {string} specification should be returned and printed on the console")
 	public void aListOfHomesThatMatchTheTypeSpecificationShouldBeReturnedAndPrintedOnTheConsole(String type) {
 		System.out.println("List of homes that match the type '" + type + "' are :");
-		GeneralCheckBy specification = new ByType(type);
-		generalListOfHomesThatMatch(specification, 2);
+		specification = new ByType(type);
+		generalListOfHomesThatMatch(2);
 	}
 
 	// Scenario 11
 	@Then("A list of homes that match the lease length period {int} should be returned and printed on the console")
 	public void aListOfHomesThatMatchTheLeaseLengthPeriodShouldBeReturnedAndPrintedOnTheConsole(Integer length) {
 		System.out.println("List of homes that have lease length of '" + length.intValue() + "' are :");
-		GeneralCheckBy specification = new ByLeaseLength(length);
-		generalListOfHomesThatMatch(specification, 2);
+		sh.printFoundHomes();
+		specification = new ByLeaseLength(length);
+		generalListOfHomesThatMatch(1);
 	}
 
 	// Scenario 12
 	@Then("A list of homes that provide the Amenities {string} specified should be returned and printed on the console")
 	public void aListOfHomesThatProvidTheAmenitiesSpecifiedShouldBeReturnedAndPrintedOnTheConsole(String amenities) {
 		System.out.println("List of homes that have amenites '" + amenities + "' are :");
-		tmp = sh.printFoundHomes();
-		if (!tmp.isEmpty()) {
-			for (Home h : tmp)
-				if (!h.chkAmenities(amenities.split(",")))
-					checkTrue = false;
-			assertTrue(checkTrue && (tmp.size() == 1));
-		}
+		sh.printFoundHomes();
+		specification = new ByAmenities(amenities);
+		generalListOfHomesThatMatch(1);
 	}
 
 	// Scenario 13
 	@Then("A list of homes that provide the Amenities {string} and match the lease length period {int} and placed in a {string} should be returned and printed on the console")
 	public void aListOfHomesThatProvideTheAmenitiesAIRCONDITIONINGBALCONYELEVATORAndMatchesTheLeaseLengthPeriodAndPlacedInAShouldBeReturnedAndPrintedOnTheConsole(
-			String Amenities, Integer leaseLength, String placement) {
+			String amenities, Integer leaseLength, String placement) {
 		System.out.println(
-				"list of homes that provide the Amenities '" + Amenities + "' and match the lease length period = ("
+				"list of homes that provide the Amenities '" + amenities + "' and match the lease length period = ("
 						+ leaseLength + ") months and placed in a '" + placement + "' :");
-		tmp = sh.printFoundHomes();
-		if (!tmp.isEmpty()) {
-			for (Home h : tmp)
-				if (!(h.chkAmenities(Amenities.split(",")) && new ByPlacement(placement).isMatched(h)
-						&& new ByLeaseLength(leaseLength).isMatched(h)))
-					checkTrue = false;
-			assertTrue(checkTrue && (tmp.size() == 1));
-		}
+		specification = new ByAmenities(amenities);
+		generalListOfHomesThatMatch(1);
 	}
 
 }

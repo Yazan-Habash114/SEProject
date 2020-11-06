@@ -1,0 +1,22 @@
+package product.app;
+
+public class ByAmenities implements GeneralCheckBy {
+
+	private String amenities;
+
+	public ByAmenities(String amenities) {
+		this.amenities = amenities;
+	}
+
+	public boolean isMatched(Home h) {
+			if (amenities.contains("AIRCONDITIONING") && !h.hasAirCondition()
+					|| amenities.contains("BALCONY") && !h.hasBalcony() 
+					|| amenities.contains("ELEVATOR") && !h.hasElevator()
+					|| amenities.contains("FIREPLACE") && !h.hasFirePlace()
+					|| amenities.contains("GARAGEPARKING") && !h.hasGarageParking()
+					|| amenities.contains("SWIMMINGPOOL") && !h.hasSwimmingPool())
+				return false;
+		return true;
+	}
+
+}
