@@ -31,22 +31,23 @@ public class SearchHomes {
 			return (foundHomes);
 		}
 		StringBuilder listOfFoundHomes = new StringBuilder();
-		for(Home h : foundHomes)
+		listOfFoundHomes.append("\n");
+		for (Home h : foundHomes)
 			listOfFoundHomes.append(h.toString() + "\n");
-		LOGGER.info("\n" + listOfFoundHomes);
+		String s = listOfFoundHomes.toString();
+		LOGGER.info(s);
 		ArrayList<Home> tmp = foundHomes;
 		this.foundHomes = null;
 		this.combinational = false;
-		return(tmp);
+		return (tmp);
 	}
-	
+
 	// Search by amenities
 	public void searchByAmenities(String amenities) {
 		GeneralCheckBy specification = new ByAmenities(amenities);
 		searchBySpec(specification);
 	}
-	
-	
+
 	// Search by giving lease length
 	public void searchByLeaseLength(int leaseLength) {
 		GeneralCheckBy specification = new ByLeaseLength(leaseLength);
@@ -120,8 +121,8 @@ public class SearchHomes {
 				if (!specification.isMatched(h))
 					foundHomes.remove(h);
 		} else
-			for(Home h : homes)
-				if(specification.isMatched(h))
+			for (Home h : homes)
+				if (specification.isMatched(h))
 					foundHomes.add(h);
 		this.combinational = true;
 	}
