@@ -9,12 +9,13 @@ public class ByAmenities implements GeneralCheckBy {
 	}
 
 	public boolean isMatched(Home h) {
-		return !(amenities.contains("AIRCONDITIONING") && !h.hasAirCondition()
+		return !( amenities.contains("SWIMMINGPOOL") && !h.hasSwimmingPool()
+				|| amenities.contains("AIRCONDITIONING") && !h.hasAirCondition()
 				|| amenities.contains("BALCONY") && !h.hasBalcony() 
 				|| amenities.contains("ELEVATOR") && !h.hasElevator()
 				|| amenities.contains("FIREPLACE") && !h.hasFirePlace()
 				|| amenities.contains("GARAGEPARKING") && !h.hasGarageParking()
-				|| amenities.contains("SWIMMINGPOOL") && !h.hasSwimmingPool());
+				);
 	}
 
 }

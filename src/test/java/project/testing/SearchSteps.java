@@ -1,9 +1,13 @@
 package project.testing;
 
 import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+
 import java.util.List;
 import java.util.Map;
 import io.cucumber.datatable.DataTable;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -16,9 +20,11 @@ public class SearchSteps {
 	private List<Home> tmp;
 	private boolean checkTrue = true;
 	private GeneralCheckBy specification;
+	private MockHolder mh;
 
-	public SearchSteps() {
-		sh = new SearchHomes();
+	public SearchSteps(MockHolder mh, SearchHomes sh) {
+		this.mh = mh;
+		this.sh = sh;
 	}
 
 	@Given("these homes are contained in the system")
@@ -226,5 +232,10 @@ public class SearchSteps {
 		specification = new ByAmenities(amenities);
 		generalListOfHomesThatMatch(1);
 	}
-
+	
+	@And("send an email with the list of found homes to {string}")
+	public void sendAnEmailWithListOfHomesFoundTo(String email) {
+		// Verifying
+		verify(mh.getService(), times(1)).sendEmail(email, sh.getListOfFoundHomesToPrint());
+	}
 }
