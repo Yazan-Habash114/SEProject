@@ -10,6 +10,12 @@ public class SearchHomes {
 	private ArrayList<Home> homes;
 	private ArrayList<Home> foundHomes;
 	private boolean combinational;
+	private EmailServiceThirdParty estp;
+	private String listOfFoundHomesToPrint;
+
+	public String getListOfFoundHomesToPrint() {
+		return listOfFoundHomesToPrint;
+	}
 
 	// Constructor
 	public SearchHomes() {
@@ -26,20 +32,35 @@ public class SearchHomes {
 
 	// Return the list of homes and print it to console
 	public List<Home> printFoundHomes() {
-		if (foundHomes.isEmpty()) {
-			LOGGER.info("No homes found, try search for another specifications :)\n");
-			return (foundHomes);
-		}
-		StringBuilder listOfFoundHomes = new StringBuilder();
-		listOfFoundHomes.append("\n");
-		for (Home h : foundHomes)
-			listOfFoundHomes.append(h.toString() + "\n");
-		String s = listOfFoundHomes.toString();
-		LOGGER.info(s);
+		listOfFoundHomesToPrint = stringOfListOfFoundHomes();
+		send(listOfFoundHomesToPrint);
+		LOGGER.info(listOfFoundHomesToPrint);
 		ArrayList<Home> tmp = foundHomes;
-		this.foundHomes = null;
+		this.foundHomes.clear();
 		this.combinational = false;
 		return (tmp);
+	}
+
+	private String stringOfListOfFoundHomes() {
+		StringBuilder listOfFoundHomes = new StringBuilder();
+		listOfFoundHomes.append("\n");
+		if (foundHomes.isEmpty()) {
+			listOfFoundHomes.append("No homes found, try search for another specifications :)\n");
+		} else {
+			for (Home h : foundHomes)
+				listOfFoundHomes.append(h.toString() + "\n");
+		}
+		String returnString = listOfFoundHomes.toString();
+		return (returnString);
+	}
+
+	public void send(String data) {
+		String email = "yazanalhabash5@gmail.com";
+		estp.sendEmail(email, data);
+	}
+
+	public void setService(EmailServiceThirdParty es) {
+		this.estp = es;
 	}
 
 	// Search by amenities
