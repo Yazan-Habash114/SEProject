@@ -14,4 +14,8 @@ public class ByPriceBetween implements GeneralCheckBy {
 		return(this.low < h.getPrice() && this.high > h.getPrice());
 	}
 	
+	@Override
+	public String toString() {
+		return("\nList of homes that are in the price range (" + this.low + ", " + this.high + "):");
+	}
 }

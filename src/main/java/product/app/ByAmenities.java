@@ -17,5 +17,10 @@ public class ByAmenities implements GeneralCheckBy {
 				|| amenities.contains("GARAGEPARKING") && !h.hasGarageParking()
 				);
 	}
+	
+	@Override
+	public String toString() {
+		return("List of homes that have amenites '" + this.amenities + "' are :");
+	}
 
 }

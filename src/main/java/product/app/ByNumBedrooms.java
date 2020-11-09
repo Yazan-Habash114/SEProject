@@ -11,5 +11,10 @@ public class ByNumBedrooms implements GeneralCheckBy {
 	public boolean isMatched(Home h) {
 		return (h.getBedrooms() == this.num);
 	}
+	
+	@Override
+	public String toString() {
+		return("\nList of homes that match the Number of bedrooms = " + this.num + " :");
+	}
 
 }

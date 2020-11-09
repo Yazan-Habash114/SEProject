@@ -12,4 +12,9 @@ public class ByAreaBelow implements GeneralCheckBy {
 		return (h.getArea() < this.area);
 	}
 	
+	@Override
+	public String toString() {
+		return("\nList of homes that are below a specified area '" + this.area + " m2' :");
+	}
+	
 }

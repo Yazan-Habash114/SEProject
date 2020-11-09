@@ -11,5 +11,10 @@ public class ByLeaseLength implements GeneralCheckBy {
 	public boolean isMatched(Home h) {
 		return(h.getLeaseLength() == this.leaseLength);
 	}
+	
+	@Override
+	public String toString() {
+		return("\nList of homes that have lease length of '" + this.leaseLength + "' are :");
+	}
 
 }

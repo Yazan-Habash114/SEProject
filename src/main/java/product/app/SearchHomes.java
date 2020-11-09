@@ -31,8 +31,8 @@ public class SearchHomes {
 	}
 
 	// Return the list of homes and print it to console
-	public List<Home> printFoundHomes() {
-		listOfFoundHomesToPrint = stringOfListOfFoundHomes();
+	public List<Home> printFoundHomes(GeneralCheckBy specification) {
+		listOfFoundHomesToPrint = stringOfListOfFoundHomes(specification.toString());
 		send(listOfFoundHomesToPrint);
 		LOGGER.info(listOfFoundHomesToPrint);
 		ArrayList<Home> tmp = foundHomes;
@@ -41,9 +41,9 @@ public class SearchHomes {
 		return (tmp);
 	}
 
-	private String stringOfListOfFoundHomes() {
+	private String stringOfListOfFoundHomes(String spec) {
 		StringBuilder listOfFoundHomes = new StringBuilder();
-		listOfFoundHomes.append("\n");
+		listOfFoundHomes.append("\n" + spec + "\n");
 		if (foundHomes.isEmpty()) {
 			listOfFoundHomes.append("No homes found, try search for another specifications :)\n");
 		} else {
