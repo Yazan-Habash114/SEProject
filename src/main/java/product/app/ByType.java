@@ -12,4 +12,9 @@ public class ByType implements GeneralCheckBy {
 		return(h.getType().contentEquals(this.type));
 	}
 	
+	@Override
+	public String toString() {
+		return("\nList of homes that match the type '" + this.type + "' are :");
+	}
+	
 }

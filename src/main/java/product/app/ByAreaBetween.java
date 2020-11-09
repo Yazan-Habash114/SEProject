@@ -14,4 +14,8 @@ public class ByAreaBetween implements GeneralCheckBy {
 		return (this.low > h.getArea() && h.getArea() < this.high);
 	}
 	
+	@Override
+	public String toString() {
+		return("\nList of homes that are in the area range (" + this.low + ", " + this.high + "):");
+	}
 }

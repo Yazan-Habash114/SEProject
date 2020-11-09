@@ -12,4 +12,9 @@ public class ByPlacement implements GeneralCheckBy {
 		return (h.getPlacement().contentEquals(this.placement));
 	}
 	
+	@Override
+	public String toString() {
+		return("\nList of homes that are placed in a '" + placement + "' :");
+	}
+	
 }

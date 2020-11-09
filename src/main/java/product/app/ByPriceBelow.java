@@ -12,4 +12,9 @@ public class ByPriceBelow implements GeneralCheckBy {
 		return(h.getPrice() < this.price);
 	}
 	
+	@Override
+	public String toString() {
+		return("\nList of homes that are below a specified price '" + price + "' :");
+	}
+	
 }
