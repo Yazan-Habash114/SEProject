@@ -47,7 +47,7 @@ public class SearchSteps {
 	// Scenario 1
 	@When("I search about home by Placement {string}")
 	public void iSearchAboutHomeByPlacement(String placement) {
-		specMap.put("placement", placement);
+		specMap.put("Placement", placement);
 		stsbo.convertToObject(specMap);
 		specMap.clear();
 	}
@@ -55,7 +55,7 @@ public class SearchSteps {
 	// Scenario 2
 	@When("I search about home by Material {string}")
 	public void iSearchAboutHomeByMaterial(String material) {
-		specMap.put("material", material);
+		specMap.put("Material", material);
 		stsbo.convertToObject(specMap);
 		specMap.clear();
 	}
@@ -63,7 +63,7 @@ public class SearchSteps {
 	// Scenario 3
 	@When("I search about home by Price below {int}")
 	public void iSearchAboutHomeByPriceBelow(Integer price) {
-		specMap.put("pricebelow", price.toString());
+		specMap.put("Pricebelow", price.toString());
 		stsbo.convertToObject(specMap);
 		specMap.clear();
 	}
@@ -71,7 +71,7 @@ public class SearchSteps {
 	// Scenario 4
 	@When("I search about home by Between range {int} {int}")
 	public void iSearchAboutHomeByBetweenRange(Integer low, Integer high) {
-		specMap.put("pricebetween", new Integer[]{low , high});
+		specMap.put("Pricebetween", new Integer[]{low , high});
 		stsbo.convertToObject(specMap);
 		specMap.clear();
 	}
@@ -79,7 +79,7 @@ public class SearchSteps {
 	// Scenario 5
 	@When("I search about home by Below specific area {int}")
 	public void iSearchAboutHomeByBelowSpecificArea(Integer area) {
-		specMap.put("areabelow", area.toString());
+		specMap.put("Areabelow", area.toString());
 		stsbo.convertToObject(specMap);
 		specMap.clear();
 	}
@@ -87,7 +87,7 @@ public class SearchSteps {
 	// Scenario 6
 	@When("I search about home by Between range of Areas {int} {int}")
 	public void iSearchAboutHomeByBetweenRangeOfAreas(Integer low, Integer high) {
-		specMap.put("areabetween", new Integer[]{low , high});
+		specMap.put("Areabetween", new Integer[] {low , high});
 		stsbo.convertToObject(specMap);
 		specMap.clear();
 	}
@@ -95,7 +95,7 @@ public class SearchSteps {
 	// Scenario 7
 	@When("I search about home by Number of bedrooms {int}")
 	public void iSearchAboutHomeByNumberOfBedrooms(Integer bedrooms) {
-		specMap.put("bedrooms", bedrooms.toString());
+		specMap.put("Bedrooms", bedrooms.toString());
 		stsbo.convertToObject(specMap);
 		specMap.clear();
 	}
@@ -103,7 +103,7 @@ public class SearchSteps {
 	// Scenario 8
 	@When("I search about home by Number of bathrooms {int}")
 	public void iSearchAboutHomeByNumberOfBathrooms(Integer bathrooms) {
-		specMap.put("bathrooms", bathrooms.toString());
+		specMap.put("Bathrooms", bathrooms.toString());
 		stsbo.convertToObject(specMap);
 		specMap.clear();
 	}
@@ -111,7 +111,7 @@ public class SearchSteps {
 	// Scenario 9
 	@When("I search about home by Allowing pets {string}")
 	public void iSearchAboutHomeByAllowingPets(String isAllowed) {
-		specMap.put("allowingPets", isAllowed);
+		specMap.put("AllowingPets", isAllowed);
 		stsbo.convertToObject(specMap);
 		specMap.clear();
 	}
@@ -119,7 +119,7 @@ public class SearchSteps {
 	// Scenario 10
 	@When("I search about home by Type {string}")
 	public void iSearchAboutHomeByType(String type) {
-		specMap.put("type", type);
+		specMap.put("Type", type);
 		stsbo.convertToObject(specMap);
 		specMap.clear();
 	}
@@ -127,7 +127,7 @@ public class SearchSteps {
 	// Scenario 11
 	@When("I search about home by Lease Length {int}")
 	public void iSearchAboutHomeByLeaseLength(Integer leaseLength) {
-		specMap.put("leaseLength", leaseLength.toString());
+		specMap.put("LeaseLength", leaseLength.toString());
 		stsbo.convertToObject(specMap);
 		specMap.clear();
 	}
@@ -135,7 +135,7 @@ public class SearchSteps {
 	// Scenario 12
 	@When("I search about home by Amenities {string}")
 	public void iSearchAboutHomeByAmenities(String amenities) {
-		specMap.put("amenities", amenities);
+		specMap.put("Amenities", amenities);
 		stsbo.convertToObject(specMap);
 		specMap.clear();
 	}

@@ -13,10 +13,6 @@ public class SearchHomes {
 	private EmailServiceThirdParty estp;
 	private String listOfFoundHomesToPrint;
 
-	public String getListOfFoundHomesToPrint() {
-		return listOfFoundHomesToPrint;
-	}
-
 	// Constructor
 	public SearchHomes() {
 		this.homes = new ArrayList<Home>();
@@ -30,6 +26,10 @@ public class SearchHomes {
 			singletonSearchHomesObject=new SearchHomes();
 		return singletonSearchHomesObject;
 	}
+	
+	public String getListOfFoundHomesToPrint() {
+		return listOfFoundHomesToPrint;
+	}
 
 	// Add to database list
 	public void storeHome(String[] list) {
@@ -38,7 +38,7 @@ public class SearchHomes {
 	}
 
 	// Return the list of homes and print it to console
-	public List<Home> printFoundHomes(ArrayList<GeneralCheckBy> specification) {
+	public List<Home> printFoundHomes(List<GeneralCheckBy> specification) {
 		for (GeneralCheckBy spec : specification)
 			listOfFoundHomesToPrint = stringOfListOfFoundHomes(spec.toString());
 		send(listOfFoundHomesToPrint);
@@ -72,7 +72,7 @@ public class SearchHomes {
 	}
 
 	// Search all
-	public void SearchAll(ArrayList<GeneralCheckBy> chkByList) {
+	public void searchAll(List<GeneralCheckBy> chkByList) {
 		for (GeneralCheckBy chk : chkByList) {
 			searchBySpec(chk);
 			this.combinational = true;
