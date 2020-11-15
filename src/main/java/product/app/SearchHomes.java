@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.logging.Logger;
 
 public class SearchHomes {
-	
+
 	private static SearchHomes singletonSearchHomesObject = new SearchHomes();
 	private static final Logger LOGGER = Logger.getLogger(SearchHomes.class.getName());
 	private ArrayList<Home> homes;
@@ -23,11 +23,11 @@ public class SearchHomes {
 
 	// Singleton
 	public static SearchHomes singletonSearchHomes() {
-		if(singletonSearchHomesObject == null) 
+		if (singletonSearchHomesObject == null)
 			singletonSearchHomesObject = new SearchHomes();
 		return singletonSearchHomesObject;
 	}
-	
+
 	public String getListOfFoundHomesToPrint() {
 		return listOfFoundHomesToPrint;
 	}
