@@ -220,6 +220,12 @@ public class SearchSteps {
 		generalListOfHomesThatMatch(1);
 	}
 	
+	// Scenario 15
+	@Then("A list of homes that provide the Palcement {string} , match the the number of bathrooms {int} , have material {string} and type {string} should be returned and printed on the console")
+	public void aListOfHomesThatProvideThePalcementMatchTheTheNumberOfBathroomsHaveMaterialAndTypeShouldBeReturnedAndPrintedOnTheConsole(String placement, Integer bathrooms, String material, String type) {
+	    System.out.println("\nList of homes that provide the placement '" + placement + "' , number of bathrooms = " + bathrooms.intValue() + "\n material '" + material + "' and type '" + type + "are :");
+	}
+	
 	@And("send an email with the list of found homes to {string}")
 	public void sendAnEmailWithListOfHomesFoundTo(String email) {
 		// Verifying
