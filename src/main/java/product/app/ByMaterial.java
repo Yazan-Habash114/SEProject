@@ -14,7 +14,7 @@ public class ByMaterial implements GeneralCheckBy {
 	
 	@Override
 	public String toString() {
-		return("\nList of homes that match the Material specification '" + this.material + "' :");
+		return("material specification '" + this.material + "'");
 	}
 
 }

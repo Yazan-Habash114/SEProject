@@ -14,7 +14,7 @@ public class ByPriceBelow implements GeneralCheckBy {
 	
 	@Override
 	public String toString() {
-		return("\nList of homes that are below a specified price '" + price + "' :");
+		return("below a specified price '" + price + "'");
 	}
 	
 }

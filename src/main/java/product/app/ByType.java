@@ -14,7 +14,7 @@ public class ByType implements GeneralCheckBy {
 	
 	@Override
 	public String toString() {
-		return("\nList of homes that match the type '" + this.type + "' are :");
+		return("match the type '" + this.type + "'");
 	}
 	
 }

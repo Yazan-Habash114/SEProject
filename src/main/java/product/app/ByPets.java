@@ -16,7 +16,7 @@ public class ByPets implements GeneralCheckBy {
 	
 	@Override
 	public String toString() {
-		return("\nList of homes that are allowing pets (" + this.allowed + ") :");
+		return("allowing pets (" + this.allowed + ")");
 	}
 	
 }
