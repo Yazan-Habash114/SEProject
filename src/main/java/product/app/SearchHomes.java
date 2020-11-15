@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.logging.Logger;
 
 public class SearchHomes {
-
+	private static SearchHomes singletonSearchHomesObject = new SearchHomes();
 	private static final Logger LOGGER = Logger.getLogger(SearchHomes.class.getName());
 	private ArrayList<Home> homes;
 	private ArrayList<Home> foundHomes;
@@ -24,6 +24,13 @@ public class SearchHomes {
 		this.combinational = false;
 	}
 
+	// Singleton
+	public static SearchHomes singletonSearchHomes() {
+		if(singletonSearchHomesObject==null) 
+			singletonSearchHomesObject=new SearchHomes();
+		return singletonSearchHomesObject;
+	}
+
 	// Add to database list
 	public void storeHome(String[] list) {
 		Home h = new Home(list);
@@ -31,8 +38,9 @@ public class SearchHomes {
 	}
 
 	// Return the list of homes and print it to console
-	public List<Home> printFoundHomes(GeneralCheckBy specification) {
-		listOfFoundHomesToPrint = stringOfListOfFoundHomes(specification.toString());
+	public List<Home> printFoundHomes(ArrayList<GeneralCheckBy> specification) {
+		for (GeneralCheckBy spec : specification)
+			listOfFoundHomesToPrint = stringOfListOfFoundHomes(spec.toString());
 		send(listOfFoundHomesToPrint);
 		LOGGER.info(listOfFoundHomesToPrint);
 		ArrayList<Home> tmp = foundHomes;
@@ -63,76 +71,12 @@ public class SearchHomes {
 		this.estp = es;
 	}
 
-	// Search by amenities
-	public void searchByAmenities(String amenities) {
-		GeneralCheckBy specification = new ByAmenities(amenities);
-		searchBySpec(specification);
-	}
-
-	// Search by giving lease length
-	public void searchByLeaseLength(int leaseLength) {
-		GeneralCheckBy specification = new ByLeaseLength(leaseLength);
-		searchBySpec(specification);
-	}
-
-	// Search by giving placement
-	public void searchByPlacement(String value) {
-		GeneralCheckBy specification = new ByPlacement(value);
-		searchBySpec(specification);
-	}
-
-	// Search by giving material
-	public void searchByMaterial(String value) {
-		GeneralCheckBy specification = new ByMaterial(value);
-		searchBySpec(specification);
-	}
-
-	// Search by giving price limit
-	public void searchByPriceBelow(int value) {
-		GeneralCheckBy specification = new ByPriceBelow(value);
-		searchBySpec(specification);
-	}
-
-	// Search by giving type
-	public void searchByType(String value) {
-		GeneralCheckBy specification = new ByType(value);
-		searchBySpec(specification);
-	}
-
-	// Search by Allowing pets or not
-	public void searchByAllowingPets(String value) {
-		GeneralCheckBy specification = new ByPets(value);
-		searchBySpec(specification);
-	}
-
-	// Search by giving number of bathrooms
-	public void searchByNumberOfBathrooms(int num) {
-		GeneralCheckBy specification = new ByNumBathrooms(num);
-		searchBySpec(specification);
-	}
-
-	// Search by giving number of bedrooms
-	public void searchByNumberOfBedrooms(int num) {
-		GeneralCheckBy specification = new ByNumBedrooms(num);
-		searchBySpec(specification);
-	}
-
-	// Search by giving area range
-	public void searchBetweenRangeOfAreas(int low, int high) {
-		GeneralCheckBy specification = new ByAreaBetween(low, high);
-		searchBySpec(specification);
-	}
-
-	// Search by giving area limit
-	public void searchByAreaBelow(int area) {
-		GeneralCheckBy specification = new ByAreaBelow(area);
-		searchBySpec(specification);
-	}
-
-	// Search by giving price range
-	public void searchByPriceBetweenRange(int low, int high) {
-		GeneralCheckBy specification = new ByPriceBetween(low, high);
-		searchBySpec(specification);
+	// Search all
+	public void SearchAll(ArrayList<GeneralCheckBy> chkByList) {
+		for (GeneralCheckBy chk : chkByList) {
+			searchBySpec(chk);
+			this.combinational = true;
+		}
 	}
 
 	// Search by general specification
@@ -145,7 +89,6 @@ public class SearchHomes {
 			for (Home h : homes)
 				if (specification.isMatched(h))
 					foundHomes.add(h);
-		this.combinational = true;
 	}
 
 }
