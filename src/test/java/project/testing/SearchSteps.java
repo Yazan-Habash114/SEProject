@@ -48,109 +48,116 @@ public class SearchSteps {
 	@When("I search about home by Placement {string}")
 	public void iSearchAboutHomeByPlacement(String placement) {
 		specMap.put("Placement", placement);
-		stsbo.convertToObject(specMap);
-		specMap.clear();
+		sendToSearch();
 	}
 
 	// Scenario 2
 	@When("I search about home by Material {string}")
 	public void iSearchAboutHomeByMaterial(String material) {
 		specMap.put("Material", material);
-		stsbo.convertToObject(specMap);
-		specMap.clear();
+		sendToSearch();
 	}
 
 	// Scenario 3
 	@When("I search about home by Price below {int}")
 	public void iSearchAboutHomeByPriceBelow(Integer price) {
 		specMap.put("Pricebelow", price.toString());
-		stsbo.convertToObject(specMap);
-		specMap.clear();
+		sendToSearch();
 	}
 
 	// Scenario 4
 	@When("I search about home by Between range {int} {int}")
 	public void iSearchAboutHomeByBetweenRange(Integer low, Integer high) {
-		specMap.put("Pricebetween", new Integer[]{low , high});
-		stsbo.convertToObject(specMap);
-		specMap.clear();
+		specMap.put("Pricebetween", new Integer[] { low, high });
+		sendToSearch();
 	}
 
 	// Scenario 5
 	@When("I search about home by Below specific area {int}")
 	public void iSearchAboutHomeByBelowSpecificArea(Integer area) {
 		specMap.put("Areabelow", area.toString());
-		stsbo.convertToObject(specMap);
-		specMap.clear();
+		sendToSearch();
 	}
 
 	// Scenario 6
 	@When("I search about home by Between range of Areas {int} {int}")
 	public void iSearchAboutHomeByBetweenRangeOfAreas(Integer low, Integer high) {
-		specMap.put("Areabetween", new Integer[] {low , high});
-		stsbo.convertToObject(specMap);
-		specMap.clear();
+		specMap.put("Areabetween", new Integer[] { low, high });
+		sendToSearch();
 	}
 
 	// Scenario 7
 	@When("I search about home by Number of bedrooms {int}")
 	public void iSearchAboutHomeByNumberOfBedrooms(Integer bedrooms) {
 		specMap.put("Bedrooms", bedrooms.toString());
-		stsbo.convertToObject(specMap);
-		specMap.clear();
+		sendToSearch();
 	}
 
 	// Scenario 8
 	@When("I search about home by Number of bathrooms {int}")
 	public void iSearchAboutHomeByNumberOfBathrooms(Integer bathrooms) {
 		specMap.put("Bathrooms", bathrooms.toString());
-		stsbo.convertToObject(specMap);
-		specMap.clear();
+		sendToSearch();
 	}
 
 	// Scenario 9
 	@When("I search about home by Allowing pets {string}")
 	public void iSearchAboutHomeByAllowingPets(String isAllowed) {
 		specMap.put("AllowingPets", isAllowed);
-		stsbo.convertToObject(specMap);
-		specMap.clear();
+		sendToSearch();
 	}
 
 	// Scenario 10
 	@When("I search about home by Type {string}")
 	public void iSearchAboutHomeByType(String type) {
 		specMap.put("Type", type);
-		stsbo.convertToObject(specMap);
-		specMap.clear();
+		sendToSearch();
 	}
 
 	// Scenario 11
 	@When("I search about home by Lease Length {int}")
 	public void iSearchAboutHomeByLeaseLength(Integer leaseLength) {
 		specMap.put("LeaseLength", leaseLength.toString());
-		stsbo.convertToObject(specMap);
-		specMap.clear();
+		sendToSearch();
 	}
 
 	// Scenario 12
 	@When("I search about home by Amenities {string}")
 	public void iSearchAboutHomeByAmenities(String amenities) {
 		specMap.put("Amenities", amenities);
+		sendToSearch();
+	}
+
+	// Scenario 13
+	@When("I search about home by {string}  {string} and I search about home by {string} {int} and I search about home by {string}  {string} I search about home by {string}  {string}")
+	public void iSearchAboutHomeByAndISearchAboutHomeByAndISearchAboutHomeByISearchAboutHomeByAllowingPets(
+			String string, String string2, String string3, Integer int1, String string4, String string5, String string6,
+			String string7) {
+		specMap.put(string, string2);
+		specMap.put(string3, int1.toString());
+		specMap.put(string4, string5);
+		specMap.put(string6, string7);
+		sendToSearch();
+	}
+
+	private void sendToSearch() {
 		stsbo.convertToObject(specMap);
 		specMap.clear();
 	}
 
 	// *************************************************** Then
-	// **************************************************
+	// ***************************************************
 
 	// General list of homes
 	public void generalListOfHomesThatMatch(int lengthOfList) {
-		/*
-		 * tmp = sh.printFoundHomes(specification); if (!tmp.isEmpty()) { for (Home h :
-		 * tmp) if (!specification.isMatched(h)) checkTrue = false; assertTrue(checkTrue
-		 * && (tmp.size() == lengthOfList)); }
-		 */
-		assertTrue(true);
+		tmp = sh.printFoundHomes(specification);
+		if (!tmp.isEmpty()) {
+			for (GeneralCheckBy gcb : specification)
+				for (Home h : tmp)
+					if (!gcb.isMatched(h))
+						checkTrue = false;
+			assertTrue(checkTrue && (tmp.size() == lengthOfList));
+		}
 	}
 
 	// Scenario 1
@@ -240,25 +247,20 @@ public class SearchSteps {
 	}
 
 	// Scenario 13
-	@Then("A list of homes that provide the Amenities {string} and match the lease length period {int} and placed in a {string} should be returned and printed on the console")
-	public void aListOfHomesThatProvideTheAmenitiesAIRCONDITIONINGBALCONYELEVATORAndMatchesTheLeaseLengthPeriodAndPlacedInAShouldBeReturnedAndPrintedOnTheConsole(
-			String amenities, Integer leaseLength, String placement) {
-		specification.add(new ByAmenities(amenities));
-		specification.add(new ByLeaseLength(leaseLength));
-		specification.add(new ByPlacement(placement));
+
+	@Then("A list of homes that provide the Amenities {string} and match the lease length period {int} and placed in a {string} and allowing pets {string} should be returned and printed on the console")
+	public void aListOfHomesThatProvideTheAmenitiesAndMatchTheLeaseLengthPeriodAndPlacedInAAndAllowingPetsShouldBeReturnedAndPrintedOnTheConsole(
+			String string, Integer int1, String string2, String string3) {
+		specification.add(new ByAmenities(string));
+		specification.add(new ByLeaseLength(int1));
+		specification.add(new ByPlacement(string2));
+		specification.add(new ByPets(string3));
 		generalListOfHomesThatMatch(1);
-	}
-	
-	// Scenario 15
-	@Then("A list of homes that provide the Palcement {string} , match the the number of bathrooms {int} , have material {string} and type {string} should be returned and printed on the console")
-	public void aListOfHomesThatProvideThePalcementMatchTheTheNumberOfBathroomsHaveMaterialAndTypeShouldBeReturnedAndPrintedOnTheConsole(String placement, Integer bathrooms, String material, String type) {
-	    System.out.println("\nList of homes that provide the placement '" + placement + "' , number of bathrooms = " + bathrooms.intValue() + "\n material '" + material + "' and type '" + type + "are :");
 	}
 
 	@And("send an email with the list of found homes to {string}")
 	public void sendAnEmailWithListOfHomesFoundTo(String email) {
 		// Verifying
-		// verify(mh.getService(), times(1)).sendEmail(email,
-		// sh.getListOfFoundHomesToPrint());
+		verify(mh.getService(), times(1)).sendEmail(email, sh.getListOfFoundHomesToPrint());
 	}
 }

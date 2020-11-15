@@ -14,7 +14,7 @@ public class ByPlacement implements GeneralCheckBy {
 	
 	@Override
 	public String toString() {
-		return("\nList of homes that are placed in a '" + placement + "' :");
+		return("placed in a '" + placement + "'");
 	}
 	
 }
