@@ -25,12 +25,13 @@ public class SearchSteps {
 	private ArrayList<GeneralCheckBy> specification;
 	private MockHolder mh;
 
-	public SearchSteps(MockHolder mh, SpecToSeachByObject stsbo) {
+	public SearchSteps(MockHolder mh, SpecToSeachByObject stsbo, SearchHomes sh) {
 		this.mh = mh;
 		this.stsbo = stsbo;
+		this.sh = sh;
 		this.sh = SearchHomes.singletonSearchHomes();
-		specMap = new HashMap<String, Object>();
-		specification = new ArrayList<GeneralCheckBy>();
+		this.specMap = new HashMap<String, Object>();
+		this.specification = new ArrayList<GeneralCheckBy>();
 	}
 
 	@Given("these homes are contained in the system")
