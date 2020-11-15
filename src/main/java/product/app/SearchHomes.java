@@ -76,10 +76,8 @@ public class SearchHomes {
 
 	// Search all
 	public void searchAll(List<GeneralCheckBy> chkByList) {
-		for (GeneralCheckBy chk : chkByList) {
+		for (GeneralCheckBy chk : chkByList)
 			searchBySpec(chk);
-			this.combinational = true;
-		}
 	}
 
 	// Search by general specification
@@ -92,6 +90,7 @@ public class SearchHomes {
 			for (Home h : homes)
 				if (specification.isMatched(h))
 					foundHomes.add(h);
+		this.combinational = true;
 	}
 
 }
