@@ -11,7 +11,7 @@ public class ByPets implements GeneralCheckBy {
 	public boolean isMatched(Home h) {
 		if(this.allowed.contentEquals("YES"))
 			return(h.isAllowPets());
-		return(false);
+		return(true);
 	}
 	
 	@Override

@@ -29,7 +29,6 @@ public class SearchSteps {
 		this.mh = mh;
 		this.stsbo = stsbo;
 		this.sh = sh;
-		this.sh = SearchHomes.singletonSearchHomes();
 		this.specMap = new HashMap<String, Object>();
 		this.specification = new ArrayList<GeneralCheckBy>();
 	}
@@ -132,17 +131,17 @@ public class SearchSteps {
 	// Scenario 13
 	@When("I search about home by {string}  {string} and I search about home by {string} {int} and I search about home by {string}  {string} I search about home by {string}  {string}")
 	public void iSearchAboutHomeByAndISearchAboutHomeByAndISearchAboutHomeByISearchAboutHomeByAllowingPets(
-			String string, String string2, String string3, Integer int1, String string4, String string5, String string6,
-			String string7) {
-		specMap.put(string, string2);
-		specMap.put(string3, int1.toString());
-		specMap.put(string4, string5);
-		specMap.put(string6, string7);
+			String Amenities, String amenities, String LeaseLength, Integer length, String Placement, String placement, String pets,
+			String isAllowed) {
+		specMap.put(Amenities, amenities);
+		specMap.put(LeaseLength, length.toString());
+		specMap.put(Placement, placement);
+		specMap.put(pets, isAllowed);
 		sendToSearch();
 	}
 
 	private void sendToSearch() {
-		stsbo.convertToObject(specMap);
+		stsbo.convertToObject(specMap, sh);
 		specMap.clear();
 	}
 
@@ -153,11 +152,12 @@ public class SearchSteps {
 	public void generalListOfHomesThatMatch(int lengthOfList) {
 		tmp = sh.printFoundHomes(specification);
 		if (!tmp.isEmpty()) {
-			for (GeneralCheckBy gcb : specification)
+			for (GeneralCheckBy gcb : specification) {
 				for (Home h : tmp)
 					if (!gcb.isMatched(h))
 						checkTrue = false;
-			assertTrue(checkTrue && (tmp.size() == lengthOfList));
+				assertTrue(checkTrue && (tmp.size() == lengthOfList));
+			}
 		}
 	}
 
@@ -251,11 +251,11 @@ public class SearchSteps {
 
 	@Then("A list of homes that provide the Amenities {string} and match the lease length period {int} and placed in a {string} and allowing pets {string} should be returned and printed on the console")
 	public void aListOfHomesThatProvideTheAmenitiesAndMatchTheLeaseLengthPeriodAndPlacedInAAndAllowingPetsShouldBeReturnedAndPrintedOnTheConsole(
-			String string, Integer int1, String string2, String string3) {
-		specification.add(new ByAmenities(string));
-		specification.add(new ByLeaseLength(int1));
-		specification.add(new ByPlacement(string2));
-		specification.add(new ByPets(string3));
+			String amenities, Integer length, String placement, String isAllowed) {
+		specification.add(new ByAmenities(amenities));
+		specification.add(new ByLeaseLength(length));
+		specification.add(new ByPlacement(placement));
+		specification.add(new ByPets(isAllowed));
 		generalListOfHomesThatMatch(1);
 	}
 
