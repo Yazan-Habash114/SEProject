@@ -74,12 +74,12 @@ Feature: Search about suitable home
 
   @Scenario12
   Scenario: Amenities
-    When I search about home by Amenities "AIRCONDITIONING,BALCONY,ELEVATOR,GARAGEPARKING,FIREPLACE,SWIMMINGPOOL"
+    When I search about home by Amenities "AIRCONDITIONING,BALCONY,ELEVATOR,GARAGEPARKING,FIREPLACE,SWIMMINGPOOL" 
     Then A list of homes that provide the Amenities "AIRCONDITIONING,BALCONY,ELEVATOR,GARAGEPARKING,FIREPLACE,SWIMMINGPOOL" specified should be returned and printed on the console
     And send an email with the list of found homes to "yazanalhabash5@gmail.com"
 
   @Scenario13
   Scenario: Mixing more than one feature
-    When I search about home by "Amenities"  "AIRCONDITIONING,BALCONY,ELEVATOR" and I search about home by "Lease Length" 12 and I search about home by "Placement"  "CITY" I search about home by "Allowing pets"  "NO"
+    When I search about home by "Amenities"  "AIRCONDITIONING,BALCONY,ELEVATOR" and I search about home by "Lease Length" 12 and I search about home by "Placement"  "CITY" I search about home by "Allowing pets"  "NO" 
     Then A list of homes that provide the Amenities "AIRCONDITIONING,BALCONY,ELEVATOR" and match the lease length period 12 and placed in a "CITY" and allowing pets "NO" should be returned and printed on the console
     And send an email with the list of found homes to "yazanalhabash5@gmail.com" 

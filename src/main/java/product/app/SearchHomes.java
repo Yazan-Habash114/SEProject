@@ -5,27 +5,20 @@ import java.util.List;
 import java.util.logging.Logger;
 
 public class SearchHomes {
-
-	private static SearchHomes singletonSearchHomesObject = new SearchHomes();
+	
 	private static final Logger LOGGER = Logger.getLogger(SearchHomes.class.getName());
-	private ArrayList<Home> homes;
+	public ArrayList<Home> homes;
 	private ArrayList<Home> foundHomes;
+	private ArrayList<Home> tmp;
 	private boolean combinational;
 	private EmailServiceThirdParty estp;
 	private String listOfFoundHomesToPrint;
 
 	// Constructor
 	public SearchHomes() {
-		this.homes = new ArrayList<Home>();
-		this.foundHomes = new ArrayList<Home>();
+		this.homes = new ArrayList<Home> ();
+		this.foundHomes = new ArrayList<Home> ();
 		this.combinational = false;
-	}
-
-	// Singleton
-	public static SearchHomes singletonSearchHomes() {
-		if (singletonSearchHomesObject == null)
-			singletonSearchHomesObject = new SearchHomes();
-		return singletonSearchHomesObject;
 	}
 
 	public String getListOfFoundHomesToPrint() {
@@ -46,7 +39,7 @@ public class SearchHomes {
 		listOfFoundHomesToPrint = stringOfListOfFoundHomes(specList.toString());
 		send(listOfFoundHomesToPrint);
 		LOGGER.info(listOfFoundHomesToPrint);
-		ArrayList<Home> tmp = foundHomes;
+		this.tmp = new ArrayList<Home>(foundHomes);
 		this.foundHomes.clear();
 		this.combinational = false;
 		return (tmp);
@@ -82,7 +75,7 @@ public class SearchHomes {
 
 	// Search by general specification
 	private void searchBySpec(GeneralCheckBy specification) {
-		if (combinational) {
+		if (this.combinational) {
 			for (Home h : homes)
 				if (!specification.isMatched(h))
 					foundHomes.remove(h);
