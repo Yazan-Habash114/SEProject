@@ -7,9 +7,8 @@ import java.util.logging.Logger;
 public class SearchHomes {
 	
 	private static final Logger LOGGER = Logger.getLogger(SearchHomes.class.getName());
-	public ArrayList<Home> homes;
+	private List<Home> homes;
 	private ArrayList<Home> foundHomes;
-	private ArrayList<Home> tmp;
 	private boolean combinational;
 	private EmailServiceThirdParty estp;
 	private String listOfFoundHomesToPrint;
@@ -39,7 +38,7 @@ public class SearchHomes {
 		listOfFoundHomesToPrint = stringOfListOfFoundHomes(specList.toString());
 		send(listOfFoundHomesToPrint);
 		LOGGER.info(listOfFoundHomesToPrint);
-		this.tmp = new ArrayList<Home>(foundHomes);
+		List <Home> tmp = new ArrayList<Home>(foundHomes);
 		this.foundHomes.clear();
 		this.combinational = false;
 		return (tmp);
