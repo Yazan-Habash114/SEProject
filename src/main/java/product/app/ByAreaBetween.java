@@ -16,6 +16,6 @@ public class ByAreaBetween implements GeneralCheckBy {
 	
 	@Override
 	public String toString() {
-		return("in area range (" + this.low + ", " + this.high + ")");
+		return(" in area range (" + this.low + ", " + this.high + ")");
 	}
 }

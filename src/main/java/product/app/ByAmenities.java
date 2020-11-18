@@ -20,7 +20,7 @@ public class ByAmenities implements GeneralCheckBy {
 	
 	@Override
 	public String toString() {
-		return("have amenites '" + this.amenities + "'");
+		return(" have amenites '" + this.amenities + "'");
 	}
 
 }

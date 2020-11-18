@@ -8,10 +8,10 @@ public class SearchHomes {
 	
 	private static final Logger LOGGER = Logger.getLogger(SearchHomes.class.getName());
 	private List<Home> homes;
-	private ArrayList<Home> foundHomes;
-	private boolean combinational;
+	private List<Home> foundHomes;
 	private EmailServiceThirdParty estp;
 	private String listOfFoundHomesToPrint;
+	private boolean combinational;
 
 	// Constructor
 	public SearchHomes() {
@@ -32,8 +32,9 @@ public class SearchHomes {
 
 	// Return the list of homes and print it to console
 	public List<Home> printFoundHomes(List<GeneralCheckBy> specification) {
+		
 		StringBuilder specList = new StringBuilder();
-		for (GeneralCheckBy spec : specification)
+		for(GeneralCheckBy spec : specification)
 			specList.append(spec.toString());
 		listOfFoundHomesToPrint = stringOfListOfFoundHomes(specList.toString());
 		send(listOfFoundHomesToPrint);
@@ -42,9 +43,11 @@ public class SearchHomes {
 		this.foundHomes.clear();
 		this.combinational = false;
 		return (tmp);
+		
 	}
 
 	private String stringOfListOfFoundHomes(String spec) {
+		
 		StringBuilder listOfFoundHomes = new StringBuilder();
 		listOfFoundHomes.append("\n" + spec + "\n");
 		if (foundHomes.isEmpty()) {
@@ -55,6 +58,7 @@ public class SearchHomes {
 		}
 		String returnString = listOfFoundHomes.toString();
 		return (returnString);
+		
 	}
 
 	public void send(String data) {
@@ -68,19 +72,19 @@ public class SearchHomes {
 
 	// Search all
 	public void searchAll(List<GeneralCheckBy> chkByList) {
-		for (GeneralCheckBy chk : chkByList)
+		for(GeneralCheckBy chk : chkByList)
 			searchBySpec(chk);
 	}
 
 	// Search by general specification
 	private void searchBySpec(GeneralCheckBy specification) {
-		if (this.combinational) {
-			for (Home h : homes)
-				if (!specification.isMatched(h))
+		if(this.combinational) {
+			for(Home h : homes)
+				if(!specification.isMatched(h))
 					foundHomes.remove(h);
 		} else
-			for (Home h : homes)
-				if (specification.isMatched(h))
+			for(Home h : homes)
+				if(specification.isMatched(h))
 					foundHomes.add(h);
 		this.combinational = true;
 	}

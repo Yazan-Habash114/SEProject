@@ -21,8 +21,7 @@ public class SearchSteps {
 	private Map<String, String> data;
 	private Map<String, Object> specMap;
 	private List<Home> tmp;
-	private boolean checkTrue = true;
-	private ArrayList<GeneralCheckBy> specification;
+	private List<GeneralCheckBy> specification;
 	private MockHolder mh;
 
 	public SearchSteps(MockHolder mh, SpecToSeachByObject stsbo, SearchHomes sh) {
@@ -61,28 +60,28 @@ public class SearchSteps {
 	// Scenario 3
 	@When("I search about home by Price below {int}")
 	public void iSearchAboutHomeByPriceBelow(Integer price) {
-		specMap.put("Pricebelow", price.toString());
+		specMap.put("PriceBelow", price.toString());
 		sendToSearch();
 	}
 
 	// Scenario 4
 	@When("I search about home by Between range {int} {int}")
 	public void iSearchAboutHomeByBetweenRange(Integer low, Integer high) {
-		specMap.put("Pricebetween", new Integer[] { low, high });
+		specMap.put("PriceBetween", new Integer[] { low, high });
 		sendToSearch();
 	}
 
 	// Scenario 5
 	@When("I search about home by Below specific area {int}")
 	public void iSearchAboutHomeByBelowSpecificArea(Integer area) {
-		specMap.put("Areabelow", area.toString());
+		specMap.put("AreaBelow", area.toString());
 		sendToSearch();
 	}
 
 	// Scenario 6
 	@When("I search about home by Between range of Areas {int} {int}")
 	public void iSearchAboutHomeByBetweenRangeOfAreas(Integer low, Integer high) {
-		specMap.put("Areabetween", new Integer[] { low, high });
+		specMap.put("AreaBetween", new Integer[] { low, high });
 		sendToSearch();
 	}
 
@@ -131,12 +130,12 @@ public class SearchSteps {
 	// Scenario 13
 	@When("I search about home by {string}  {string} and I search about home by {string} {int} and I search about home by {string}  {string} I search about home by {string}  {string}")
 	public void iSearchAboutHomeByAndISearchAboutHomeByAndISearchAboutHomeByISearchAboutHomeByAllowingPets(
-			String Amenities, String amenities, String LeaseLength, Integer length, String Placement, String placement, String pets,
+			String amenitiesSpec, String amenities, String LeaseLengthSpec, Integer length, String PlacementSpec, String placement, String petsSpec,
 			String isAllowed) {
-		specMap.put(Amenities, amenities);
-		specMap.put(LeaseLength, length.toString());
-		specMap.put(Placement, placement);
-		specMap.put(pets, isAllowed);
+		specMap.put(amenitiesSpec, amenities);
+		specMap.put(LeaseLengthSpec, length.toString());
+		specMap.put(PlacementSpec, placement);
+		specMap.put(petsSpec, isAllowed);
 		sendToSearch();
 	}
 
@@ -151,6 +150,7 @@ public class SearchSteps {
 	// General list of homes
 	public void generalListOfHomesThatMatch(int lengthOfList) {
 		tmp = sh.printFoundHomes(specification);
+		boolean checkTrue = true;
 		if (!tmp.isEmpty()) {
 			for (GeneralCheckBy gcb : specification) {
 				for (Home h : tmp)
@@ -248,7 +248,6 @@ public class SearchSteps {
 	}
 
 	// Scenario 13
-
 	@Then("A list of homes that provide the Amenities {string} and match the lease length period {int} and placed in a {string} and allowing pets {string} should be returned and printed on the console")
 	public void aListOfHomesThatProvideTheAmenitiesAndMatchTheLeaseLengthPeriodAndPlacedInAAndAllowingPetsShouldBeReturnedAndPrintedOnTheConsole(
 			String amenities, Integer length, String placement, String isAllowed) {
@@ -258,7 +257,8 @@ public class SearchSteps {
 		specification.add(new ByPets(isAllowed));
 		generalListOfHomesThatMatch(1);
 	}
-
+	
+	// Mockito
 	@And("send an email with the list of found homes to {string}")
 	public void sendAnEmailWithListOfHomesFoundTo(String email) {
 		// Verifying

@@ -14,7 +14,7 @@ public class ByLeaseLength implements GeneralCheckBy {
 	
 	@Override
 	public String toString() {
-		return("lease length of '" + this.leaseLength + "'");
+		return(" lease length of '" + this.leaseLength + "'");
 	}
 
 }

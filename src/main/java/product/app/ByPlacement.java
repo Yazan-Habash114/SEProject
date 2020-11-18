@@ -14,7 +14,7 @@ public class ByPlacement implements GeneralCheckBy {
 	
 	@Override
 	public String toString() {
-		return("placed in a '" + placement + "'");
+		return(" placed in a '" + placement + "'");
 	}
 	
 }

@@ -8,75 +8,75 @@ Feature: Search about suitable home
 
   @Scenario1
   Scenario: Searching home by Placement
-    When I search about home by Placement "CITY"
+    When I search about home by Placement "CITY" 
     Then A list of homes that match the placement "CITY" specification should be returned and printed on the console
-    And send an email with the list of found homes to "yazanalhabash5@gmail.com"
+    And send an email with the list of found homes to "yazanalhabash5@gmail.com" 
 
   @Scenario2
   Scenario: Searching home by Material
-    When I search about home by Material "BRICK"
+    When I search about home by Material "BRICK" 
     Then A list of homes that match the  Material specification "BRICK" should be returned and printed on the console
-    And send an email with the list of found homes to "yazanalhabash5@gmail.com"
+    And send an email with the list of found homes to "yazanalhabash5@gmail.com" 
 
   @Scenario3
   Scenario: Below specific price/ month
     When I search about home by Price below 400
     Then A list of homes that are below a specified price 400 should be returned and printed on the console
-    And send an email with the list of found homes to "yazanalhabash5@gmail.com"
+    And send an email with the list of found homes to "yazanalhabash5@gmail.com" 
 
   @Scenario4
   Scenario: Between range of prices/ month
     When I search about home by Between range 300 500
     Then A list of homes that are in the price range 300 500 should be returned and printed on the console
-    And send an email with the list of found homes to "yazanalhabash5@gmail.com"
+    And send an email with the list of found homes to "yazanalhabash5@gmail.com" 
 
   @Scenario5
   Scenario: By below specific area/ meter square
     When I search about home by Below specific area 135
     Then A list of homes that below a specified area 135 should be returned and printed on the console
-    And send an email with the list of found homes to "yazanalhabash5@gmail.com"
+    And send an email with the list of found homes to "yazanalhabash5@gmail.com" 
 
   @Scenario6
   Scenario: By between range of Areas/ meter square
     When I search about home by Between range of Areas 135 155
     Then A list of homes that in the Area range 135-155 should be returned and printed on the console
-    And send an email with the list of found homes to "yazanalhabash5@gmail.com"
+    And send an email with the list of found homes to "yazanalhabash5@gmail.com" 
 
   @Scenario7
   Scenario: Number of bedrooms
     When I search about home by Number of bedrooms 3
     Then A list of homes that match the Number of bedrooms 3 should be returned and printed on the console
-    And send an email with the list of found homes to "yazanalhabash5@gmail.com"
+    And send an email with the list of found homes to "yazanalhabash5@gmail.com" 
 
   @Scenario8
   Scenario: Number of bathrooms
     When I search about home by Number of bathrooms 2
     Then A list of homes that match the Number of bathrooms 2 should be returned and printed on the console
-    And send an email with the list of found homes to "yazanalhabash5@gmail.com"
+    And send an email with the list of found homes to "yazanalhabash5@gmail.com" 
 
   @Scenario9
   Scenario: By allowing pets
-    When I search about home by Allowing pets "YES"
+    When I search about home by Allowing pets "YES" 
     Then A list of homes that are Allowing pets "YES" should be returned and printed on the console
-    And send an email with the list of found homes to "yazanalhabash5@gmail.com"
+    And send an email with the list of found homes to "yazanalhabash5@gmail.com" 
 
   @Scenario10
   Scenario: By type
-    When I search about home by Type "HOUSE"
+    When I search about home by Type "HOUSE" 
     Then A list of homes that match the type "HOUSE" specification should be returned and printed on the console
-    And send an email with the list of found homes to "yazanalhabash5@gmail.com"
+    And send an email with the list of found homes to "yazanalhabash5@gmail.com" 
 
   @Scenario11
   Scenario: By lease length
     When I search about home by Lease Length 12
     Then A list of homes that match the lease length period 12 should be returned and printed on the console
-    And send an email with the list of found homes to "yazanalhabash5@gmail.com"
+    And send an email with the list of found homes to "yazanalhabash5@gmail.com" 
 
   @Scenario12
   Scenario: Amenities
     When I search about home by Amenities "AIRCONDITIONING,BALCONY,ELEVATOR,GARAGEPARKING,FIREPLACE,SWIMMINGPOOL" 
     Then A list of homes that provide the Amenities "AIRCONDITIONING,BALCONY,ELEVATOR,GARAGEPARKING,FIREPLACE,SWIMMINGPOOL" specified should be returned and printed on the console
-    And send an email with the list of found homes to "yazanalhabash5@gmail.com"
+    And send an email with the list of found homes to "yazanalhabash5@gmail.com" 
 
   @Scenario13
   Scenario: Mixing more than one feature

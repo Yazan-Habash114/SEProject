@@ -16,6 +16,6 @@ public class ByPriceBetween implements GeneralCheckBy {
 	
 	@Override
 	public String toString() {
-		return("in the price range (" + this.low + ", " + this.high + ")");
+		return(" in the price range (" + this.low + ", " + this.high + ")");
 	}
 }
