@@ -14,7 +14,7 @@ public class ByNumBathrooms implements GeneralCheckBy {
 	
 	@Override
 	public String toString() {
-		return("number of bathrooms = " + this.num);
+		return(" number of bathrooms = " + this.num);
 	}
 
 }

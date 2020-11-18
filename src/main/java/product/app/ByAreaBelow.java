@@ -14,7 +14,7 @@ public class ByAreaBelow implements GeneralCheckBy {
 	
 	@Override
 	public String toString() {
-		return("that below a specified area '" + this.area + " m2'");
+		return(" that below a specified area '" + this.area + " m2'");
 	}
 	
 }

@@ -1,11 +1,12 @@
 package product.app;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class SpecToSeachByObject {
 	
-	private ArrayList <GeneralCheckBy> gcb;
+	private List <GeneralCheckBy> gcb;
 	
 	// Constructor
 	public SpecToSeachByObject() {
@@ -25,19 +26,19 @@ public class SpecToSeachByObject {
 			else if(entry.getKey().equals("Material"))
 				gcb.add(new ByMaterial(specMap.get("Material").toString()));
 			
-			else if(entry.getKey().equals("Pricebelow"))
-				gcb.add(new ByPriceBelow(Integer.parseInt((String)specMap.get("Pricebelow"))));
+			else if(entry.getKey().equals("PriceBelow"))
+				gcb.add(new ByPriceBelow(Integer.parseInt((String)specMap.get("PriceBelow"))));
 			
-			else if(entry.getKey().equals("Pricebetween")) { 
-				Integer[] tmp = (Integer[])(specMap.get("Pricebetween"));
+			else if(entry.getKey().equals("PriceBetween")) { 
+				Integer[] tmp = (Integer[])(specMap.get("PriceBetween"));
 				gcb.add(new ByPriceBetween(tmp[0].intValue(),tmp[1].intValue()));
 			}
 			
-			else if(entry.getKey().equals("Areabelow"))
-				gcb.add(new ByAreaBelow(Integer.parseInt((String)specMap.get("Areabelow"))));
+			else if(entry.getKey().equals("AreaBelow"))
+				gcb.add(new ByAreaBelow(Integer.parseInt((String)specMap.get("AreaBelow"))));
 			
-			else if(entry.getKey().equals("Areabetween")) { 
-				Integer[] tmp = (Integer[])(specMap.get("Areabetween"));
+			else if(entry.getKey().equals("AreaBetween")) { 
+				Integer[] tmp = (Integer[])(specMap.get("AreaBetween"));
 				gcb.add(new ByAreaBetween(tmp[0].intValue(),tmp[1].intValue()));
 			}
 			

@@ -14,7 +14,7 @@ public class ByType implements GeneralCheckBy {
 	
 	@Override
 	public String toString() {
-		return("match the type '" + this.type + "'");
+		return(" match the type '" + this.type + "'");
 	}
 	
 }

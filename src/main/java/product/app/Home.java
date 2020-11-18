@@ -29,6 +29,7 @@ public class Home {
 		this.elevator = list[4].contains("ELEVATOR");
 		this.firePlace = list[4].contains("FIREPLACE");
 		this.swimmingPool = list[4].contains("SWIMMINGPOOL");
+		this.garageParking = list[4].contains("GARAGEPARKING");
 		this.price = Integer.parseInt(list[5]);
 		this.area = Integer.parseInt(list[6]);
 		this.bedrooms = Integer.parseInt(list[7]);
